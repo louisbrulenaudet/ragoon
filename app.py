@@ -155,12 +155,16 @@ if __name__ == "__main__":
     instance = RAGoon(
         google_api_key=os.getenv("GOOGLE_API_KEY"),
         google_cx=os.getenv("GOOGLE_CX"),
-        completion_client=Groq(api_key=os.getenv("GROQ_API_KEY"))
+        completion_client=Groq(
+            api_key=os.getenv("GROQ_API_KEY")
+        )
     )
 
-    instance.search(
+    results = instance.search(
         query="I want to do a left join in python polars",
         completion_model="Llama3-70b-8192",
         max_tokens=512,
         temperature=1,
     )
+
+    print(results)
