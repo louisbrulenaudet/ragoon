@@ -1,0 +1,47 @@
+[project]
+name = "ragoon"
+version = "0.0.1"
+description = "Improve large language models (LLM) retrieval using dynamic web-search based on blazingly fast query generation from Groq chips."
+readme = "README.md"
+keywords = ["language-models", "retrieval", "web-scraping", "few-shot-learning", "nlp", "machine-learning", "retrieval-augmented-generation", "RAG", "groq", "generative-ai", "llama", "Mistral"]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache License 2.0",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[options]
+packages = ["find:"]
+install_requires = [
+    "dotenv",
+    "groq",
+    "openai",
+    "requests",
+    "beautifulsoup4",
+    "httpx",
+    "google-api-python-client"
+]
+
+[metadata]
+name = "ragoon"
+version = "0.0.1"
+license = "Apache License 2.0"
+author = "Louis Brulé Naudet"
+author_email = "louisbrulenaudet@icloud.com"
+description = "Improve large language models (LLM) retrieval using dynamic web-search based on blazingly fast query generation from Groq chips."
+long_description = "file: README.md"
+long_description_content_type = "text/markdown"
+url = "https://github.com/louisbrulenaudet/ragoon"
+homepage = "https://github.com/louisbrulenaudet/ragoon"
+project_urls = {repository = "https://github.com/louisbrulenaudet/ragoon"}
+keywords = "language-models retrieval web-scraping few-shot-learning nlp machine-learning ai llama generative-ai groqapi groq rag retrieval-augmented-generation"

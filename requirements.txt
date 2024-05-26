@@ -1,0 +1,7 @@
+dotenv
+groq
+openai
+requests
+beautifulsoup4
+httpx
+google-api-python-client
