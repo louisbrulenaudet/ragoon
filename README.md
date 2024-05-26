@@ -11,6 +11,8 @@ RAGoon's core functionality revolves around the concept of few-shot learning, wh
 Here's an example of how to use RAGoon:
 
 ```python
+from groq import Groq
+# from openai import OpenAI
 from ragoon import RAGoon
 
 # Initialize RAGoon instance
