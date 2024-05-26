@@ -9,18 +9,14 @@
 # limitations under the License.
 
 import os
-from dotenv import load_dotenv
 
 from groq import Groq
 from openai import OpenAI
 
-from _retrieval import Retriever
-from _scrape import WebScraper
-from _search import GoogleSearch
+from ragoon._retrieval import Retriever
+from ragoon._scrape import WebScraper
+from ragoon._search import GoogleSearch
 
-
-# Load environment variables from .env file
-load_dotenv()
 
 class RAGoon:
     def __init__(

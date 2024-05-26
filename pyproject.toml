@@ -1,6 +1,6 @@
 [project]
 name = "ragoon"
-version = "0.0.1"
+version = "0.0.3"
 description = "Improve large language models (LLM) retrieval using dynamic web-search based on blazingly fast query generation from Groq chips."
 readme = "README.md"
 keywords = ["language-models", "retrieval", "web-scraping", "few-shot-learning", "nlp", "machine-learning", "retrieval-augmented-generation", "RAG", "groq", "generative-ai", "llama", "Mistral"]
@@ -33,7 +33,7 @@ install_requires = [
 
 [metadata]
 name = "ragoon"
-version = "0.0.1"
+version = "0.0.3"
 license = "Apache License 2.0"
 author = "Louis Brulé Naudet"
 author_email = "louisbrulenaudet@icloud.com"
