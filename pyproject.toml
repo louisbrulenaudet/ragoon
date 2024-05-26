@@ -9,7 +9,6 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: Apache License 2.0",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Topic :: Software Development",
     "Topic :: Software Development :: Libraries",
