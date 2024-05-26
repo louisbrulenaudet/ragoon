@@ -2,6 +2,9 @@
 
 # RAGoon : Improve Large Language Models retrieval using dynamic web-search ⚡
 [![Python](https://img.shields.io/pypi/pyversions/tensorflow.svg)](https://badge.fury.io/py/tensorflow) [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![Maintainer](https://img.shields.io/badge/maintainer-@louisbrulenaudet-blue)
+<a target="_blank" href="https://colab.research.google.com/github/louisbrulenaudet/tax-retrieval-benchmark/blob/main/RAGoon%20%3A%20Improve%20Large%20Language%20Models%20retrieval%20using%20dynamic%20web-search.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
 RAGoon is a Python library that aims to improve the performance of language models by providing contextually relevant information through retrieval-based querying, web scraping, and data augmentation techniques. It offers an integration of various APIs, enabling users to retrieve information from the web, enrich it with domain-specific knowledge, and feed it to language models for more informed responses.
 
