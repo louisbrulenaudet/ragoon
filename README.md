@@ -10,6 +10,13 @@ RAGoon is a Python library that aims to improve the performance of language mode
 
 RAGoon's core functionality revolves around the concept of few-shot learning, where language models are provided with a small set of high-quality examples to enhance their understanding and generate more accurate outputs. By curating and retrieving relevant data from the web, RAGoon equips language models with the necessary context and knowledge to tackle complex queries and generate insightful responses.
 
+## Quick install
+The reference page for RAGoon is available on the official page of PyPI: [RAGoon](https://pypi.org/project/ragoon/).
+
+```python
+pip install ragoon
+```
+
 ## Usage Example
 Here's an example of how to use RAGoon:
 
