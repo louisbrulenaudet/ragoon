@@ -7,8 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../src'))
-
+sys.path.insert(0, os.path.abspath('../../src/ragoon'))
 
 project = 'RAGoon'
 copyright = '2024, Louis Brulé Naudet'
@@ -26,9 +25,10 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
+    'sphinx.ext.autosummary',
 ]
 
-# Turn on sphinx.ext.autosummary
+autosummary_generate = True
 napoleon_google_docstring = False
 napoleon_numpy_docstring = True
 numpydoc_show_class_members = False

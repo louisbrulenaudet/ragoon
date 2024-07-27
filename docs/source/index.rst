@@ -15,37 +15,11 @@ Contents:
    introduction
    modules
    api_reference
-   
-.. autosummary::
-   :toctree: autosummary
-   :recursive:
-
    ragoon
-   ragoon.embeddings
-   ragoon.similarity_search
-   ragoon.web_rag
-
+   
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-ragoon package
-===============
-
-.. automodule:: ragoon
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Submodules
-----------
-
-.. toctree::
-   :maxdepth: 2
-
-   ragoon.embeddings
-   ragoon.similarity_search
-   ragoon.web_rag
