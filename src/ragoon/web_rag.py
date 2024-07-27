@@ -18,7 +18,7 @@ from ragoon._scrape import WebScraper
 from ragoon._search import GoogleSearch
 
 
-class RAGoon:
+class WebRAG:
     def __init__(
         self,
         google_api_key:str,
@@ -27,7 +27,7 @@ class RAGoon:
         user_agent:str="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
     ) -> None:
         """
-        Retrieval Augmented Goon (RAGoon) class.
+        WebRAG class.
 
         This class facilitates retrieval-based querying and completion using various APIs.
 
@@ -56,6 +56,23 @@ class RAGoon:
         google_search : GoogleSearch
             An instance of the GoogleSearch class for Google searches.
 
+        Examples
+        --------
+        # Initialize RAGoon instance
+        >>> ragoon = RAGoon(
+        >>>    google_api_key="your_google_api_key",
+        >>>    google_cx="your_google_cx",
+        >>>    completion_client=Groq(api_key="your_groq_api_key")
+        >>> )
+
+        >>> # Search and get results
+        >>> query = "I want to do a left join in python polars"
+        >>> results = ragoon.search(
+        >>>    query=query,
+        >>>    completion_model="Llama3-70b-8192",
+        >>>    max_tokens=512,
+        >>>    temperature=1,
+        >>> )
         """
         self.web_search = GoogleSearch(
             developer_key=google_api_key, 

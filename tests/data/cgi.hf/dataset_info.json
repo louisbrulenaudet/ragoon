@@ -1,0 +1,54 @@
+{
+  "builder_name": "parquet",
+  "citation": "",
+  "config_name": "default",
+  "dataset_name": "laws",
+  "dataset_size": 151400300,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/HFforLegal/laws@04c281f31a86fda7b2fdc74417a09690975127c0/data/fr-00000-of-00001.parquet": {
+      "num_bytes": 64396801,
+      "checksum": null
+    }
+  },
+  "download_size": 64396801,
+  "features": {
+    "book": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "document": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "timestamp": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "id": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "hash": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 215797101,
+  "splits": {
+    "fr": {
+      "name": "fr",
+      "num_bytes": 151400300,
+      "num_examples": 153005,
+      "dataset_name": "laws"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

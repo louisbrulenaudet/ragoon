@@ -1,6 +1,6 @@
 [project]
 name = "ragoon"
-version = "0.0.3"
+version = "0.0.4"
 description = "Improve large language models (LLM) retrieval using dynamic web-search based on blazingly fast query generation from Groq chips."
 readme = "README.md"
 keywords = ["language-models", "retrieval", "web-scraping", "few-shot-learning", "nlp", "machine-learning", "retrieval-augmented-generation", "RAG", "groq", "generative-ai", "llama", "Mistral"]
@@ -16,24 +16,43 @@ classifiers = [
 ]
 
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [options]
 packages = ["find:"]
 install_requires = [
-    "dotenv",
-    "groq",
-    "openai",
-    "requests",
-    "beautifulsoup4",
-    "httpx",
-    "google-api-python-client"
+    "beautifulsoup4==4.12.3",
+    "datasets==2.20.0",
+    "faiss_cpu==1.8.0",
+    "google_api_python_client==2.126.0",
+    "groq==0.9.0",
+    "httpx==0.27.0",
+    "huggingface_hub==0.24.2",
+    "numpy==2.0.1",
+    "openai==1.37.1",
+    "plotly==5.23.0",
+    "pytest==8.3.2",
+    "scikit_learn==1.5.1",
+    "sentence_transformers==3.0.1",
+    "torch==2.2.1",
+    "tqdm==4.66.4",
+    "umap==0.1.1",
+    "umap_learn==0.5.6",
+    "usearch==2.12.0"
 ]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests"
+]
+
+[tool.env]
+PYTHONPATH = "src"
 
 [metadata]
 name = "ragoon"
-version = "0.0.3"
+version = "0.0.4"
 license = "Apache License 2.0"
 author = "Louis Brulé Naudet"
 author_email = "louisbrulenaudet@icloud.com"
