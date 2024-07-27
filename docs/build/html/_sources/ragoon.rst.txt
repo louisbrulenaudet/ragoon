@@ -1,6 +1,11 @@
 ragoon package
 ==============
 
+.. automodule:: ragoon
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 

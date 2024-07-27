@@ -13,6 +13,7 @@ Contents:
    :caption: Modules:
 
    modules
+   api_reference
    ragoon
 
 Indices and tables

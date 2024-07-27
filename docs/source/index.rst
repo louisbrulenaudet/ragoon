@@ -10,11 +10,11 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
-   :caption: Modules:
+   :caption: Contents:
 
+   introduction
    modules
    api_reference
-   ragoon
 
 Indices and tables
 ==================
