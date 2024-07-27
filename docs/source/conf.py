@@ -26,10 +26,9 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
-    'sphinx.ext.autosummary'
 ]
 
-autosummary_generate = True  # Turn on sphinx.ext.autosummary
+# Turn on sphinx.ext.autosummary
 napoleon_google_docstring = False
 napoleon_numpy_docstring = True
 numpydoc_show_class_members = False
