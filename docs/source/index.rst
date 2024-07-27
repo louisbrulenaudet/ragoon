@@ -15,6 +15,15 @@ Contents:
    introduction
    modules
    api_reference
+   
+.. autosummary::
+   :toctree: autosummary
+   :recursive:
+
+   ragoon
+   ragoon.embeddings
+   ragoon.similarity_search
+   ragoon.web_rag
 
 Indices and tables
 ==================
