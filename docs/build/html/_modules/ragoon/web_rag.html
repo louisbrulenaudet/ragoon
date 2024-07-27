@@ -1,0 +1,535 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ragoon.web_rag &#8212; RAGoon 0.0.4 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=8c5712d9"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/ragoon/web_rag';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">RAGoon 0.0.4 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">ragoon.web_rag</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for ragoon.web_rag</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright (c) Louis Brulé Naudet. All Rights Reserved.</span>
+<span class="c1"># This software may be used and distributed according to the terms of License Agreement.</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">groq</span> <span class="kn">import</span> <span class="n">Groq</span>
+<span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+
+<span class="kn">from</span> <span class="nn">ragoon._retrieval</span> <span class="kn">import</span> <span class="n">Retriever</span>
+<span class="kn">from</span> <span class="nn">ragoon._scrape</span> <span class="kn">import</span> <span class="n">WebScraper</span>
+<span class="kn">from</span> <span class="nn">ragoon._search</span> <span class="kn">import</span> <span class="n">GoogleSearch</span>
+
+
+<div class="viewcode-block" id="WebRAG">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.web_rag.WebRAG">[docs]</a>
+<span class="k">class</span> <span class="nc">WebRAG</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">google_api_key</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">google_cx</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">completion_client</span><span class="p">,</span>
+        <span class="n">user_agent</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36&quot;</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        WebRAG class.</span>
+
+<span class="sd">        This class facilitates retrieval-based querying and completion using various APIs.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        google_api_key : str</span>
+<span class="sd">            The API key for Google services.</span>
+<span class="sd">        </span>
+<span class="sd">        google_cx : str</span>
+<span class="sd">            The custom search engine ID for Google Custom Search.</span>
+<span class="sd">        </span>
+<span class="sd">        completion_client: str</span>
+<span class="sd">            The API client for the completion service (e.g., OpenAI&#39;s GPT-3).</span>
+<span class="sd">        </span>
+<span class="sd">        user_agent : str, optional</span>
+<span class="sd">            The user agent string to be used in web requests. Default is a Chrome user agent.</span>
+
+<span class="sd">        Attributes</span>
+<span class="sd">        ----------</span>
+<span class="sd">        web_scraper : WebScraper</span>
+<span class="sd">            An instance of the WebScraper class for web scraping.</span>
+<span class="sd">        </span>
+<span class="sd">        retriever : Retriever</span>
+<span class="sd">            An instance of the Retriever class for data retrieval.</span>
+<span class="sd">        </span>
+<span class="sd">        google_search : GoogleSearch</span>
+<span class="sd">            An instance of the GoogleSearch class for Google searches.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        # Initialize RAGoon instance</span>
+<span class="sd">        &gt;&gt;&gt; ragoon = RAGoon(</span>
+<span class="sd">        &gt;&gt;&gt;    google_api_key=&quot;your_google_api_key&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    google_cx=&quot;your_google_cx&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    completion_client=Groq(api_key=&quot;your_groq_api_key&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; )</span>
+
+<span class="sd">        &gt;&gt;&gt; # Search and get results</span>
+<span class="sd">        &gt;&gt;&gt; query = &quot;I want to do a left join in python polars&quot;</span>
+<span class="sd">        &gt;&gt;&gt; results = ragoon.search(</span>
+<span class="sd">        &gt;&gt;&gt;    query=query,</span>
+<span class="sd">        &gt;&gt;&gt;    completion_model=&quot;Llama3-70b-8192&quot;,</span>
+<span class="sd">        &gt;&gt;&gt;    max_tokens=512,</span>
+<span class="sd">        &gt;&gt;&gt;    temperature=1,</span>
+<span class="sd">        &gt;&gt;&gt; )</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">web_search</span> <span class="o">=</span> <span class="n">GoogleSearch</span><span class="p">(</span>
+            <span class="n">developer_key</span><span class="o">=</span><span class="n">google_api_key</span><span class="p">,</span> 
+            <span class="n">cx</span><span class="o">=</span><span class="n">google_cx</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">retriever</span> <span class="o">=</span> <span class="n">Retriever</span><span class="p">(</span>
+            <span class="n">client</span><span class="o">=</span><span class="n">completion_client</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">web_scraper</span> <span class="o">=</span> <span class="n">WebScraper</span><span class="p">(</span>
+            <span class="n">user_agent</span><span class="o">=</span><span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36&quot;</span>
+        <span class="p">)</span>
+
+
+<div class="viewcode-block" id="WebRAG.search">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.web_rag.WebRAG.search">[docs]</a>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">query</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">completion_model</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">system_prompt</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        Given the user&#39;s input query, generate a concise and relevant Google search</span>
+<span class="s2">        query that directly addresses the main intent of the user&#39;s question. The search query must</span>
+<span class="s2">        be specifically tailored to retrieve results that can significantly enhance the context for a</span>
+<span class="s2">        subsequent dialogue with an LLM. This approach will facilitate few-shot learning by providing</span>
+<span class="s2">        rich, specific, and contextually relevant information. Please ensure that the response is</span>
+<span class="s2">        well-formed and format it as a JSON object with a key named &#39;search_query&#39;. This</span>
+<span class="s2">        structured approach will help in assimilating the fetched results into an enhanced conversational</span>
+<span class="s2">        model, contributing to a more nuanced and informed interaction.</span>
+<span class="s2">        &quot;&quot;&quot;</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kargs</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Search for information and perform completion.</span>
+
+<span class="sd">        This method searches for information related to the given query</span>
+<span class="sd">        and performs completion using the specified model. Additional</span>
+<span class="sd">        parameters can be passed to the completion method.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        query : str</span>
+<span class="sd">            The search query.</span>
+<span class="sd">        </span>
+<span class="sd">        completion_model : str</span>
+<span class="sd">            The name or identifier of the completion model to be used.</span>
+<span class="sd">        </span>
+<span class="sd">        *args</span>
+<span class="sd">            Additional positional arguments to be passed to the completion method.</span>
+<span class="sd">        </span>
+<span class="sd">        **kwargs</span>
+<span class="sd">            Additional keyword arguments to be passed to the completion method.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        completion_data : dict</span>
+<span class="sd">            A dictionary containing the generated completion data.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">search_query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retriever</span><span class="o">.</span><span class="n">completion</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="n">completion_model</span><span class="p">,</span>
+            <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">system_prompt</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">query</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="o">*</span><span class="n">args</span>
+        <span class="p">)[</span><span class="s2">&quot;search_query&quot;</span><span class="p">]</span>
+
+        <span class="n">search_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">web_search</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+            <span class="n">query</span><span class="o">=</span><span class="n">search_query</span>
+        <span class="p">)</span>
+
+        <span class="n">list_of_urls</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">search_results</span><span class="p">:</span>
+            <span class="n">list_of_urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;link&quot;</span><span class="p">))</span>
+
+        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">web_scraper</span><span class="o">.</span><span class="n">parallel_scrape</span><span class="p">(</span>
+            <span class="n">urls</span><span class="o">=</span><span class="n">list_of_urls</span><span class="p">,</span>
+            <span class="n">element_selectors</span><span class="o">=</span> <span class="p">[</span>
+                <span class="s2">&quot;main&quot;</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">results</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Louis Brulé Naudet.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1004 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ragoon.similarity_search &#8212; RAGoon 0.0.4 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=8c5712d9"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/ragoon/similarity_search';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">RAGoon 0.0.4 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">ragoon.simil...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for ragoon.similarity_search</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright (c) Louis Brulé Naudet. All Rights Reserved.</span>
+<span class="c1"># This software may be used and distributed according to the terms of License Agreement.</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">concurrent.futures</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">IO</span><span class="p">,</span>
+    <span class="n">TYPE_CHECKING</span><span class="p">,</span>
+    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Type</span><span class="p">,</span>
+    <span class="n">Tuple</span><span class="p">,</span>
+    <span class="n">Union</span><span class="p">,</span>
+    <span class="n">Mapping</span><span class="p">,</span>
+    <span class="n">TypeVar</span><span class="p">,</span>
+    <span class="n">Callable</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">datasets</span>
+<span class="kn">import</span> <span class="nn">faiss</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span>
+<span class="kn">from</span> <span class="nn">sentence_transformers.quantization</span> <span class="kn">import</span> <span class="n">quantize_embeddings</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">usearch.index</span> <span class="kn">import</span> <span class="n">Index</span>
+
+<span class="kn">from</span> <span class="nn">ragoon._logger</span> <span class="kn">import</span> <span class="n">Logger</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="SimilaritySearch">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.similarity_search.SimilaritySearch">[docs]</a>
+<span class="k">class</span> <span class="nc">SimilaritySearch</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class dedicated to encoding text data, quantizing embeddings, and managing indices for efficient similarity search.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    model_name : str</span>
+<span class="sd">        Name or identifier of the embedding model.</span>
+
+<span class="sd">    device : str</span>
+<span class="sd">        Computation device (&#39;cpu&#39; or &#39;cuda&#39;).</span>
+
+<span class="sd">    ndim : int</span>
+<span class="sd">        Dimension of the embeddings.</span>
+
+<span class="sd">    metric : str</span>
+<span class="sd">        Metric used for the index (&#39;ip&#39; for inner product, etc.).</span>
+
+<span class="sd">    dtype : str</span>
+<span class="sd">        Data type for the index (&#39;i8&#39; for int8, etc.).</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    encode(corpus, normalize_embeddings=True)</span>
+<span class="sd">        Encodes a list of text data into embeddings.</span>
+
+<span class="sd">    quantize_embeddings(embeddings, quantization_type)</span>
+<span class="sd">        Quantizes the embeddings for efficient storage and search.</span>
+
+<span class="sd">    create_faiss_index(ubinary_embeddings, index_path)</span>
+<span class="sd">        Creates and saves a FAISS binary index.</span>
+
+<span class="sd">    create_usearch_index(int8_embeddings, index_path)</span>
+<span class="sd">        Creates and saves a USEARCH integer index.</span>
+
+<span class="sd">    load_usearch_index_view(index_path)</span>
+<span class="sd">        Loads a USEARCH index as a view for memory-efficient operations.</span>
+
+<span class="sd">    load_faiss_index(index_path)</span>
+<span class="sd">        Loads a FAISS binary index for searching.</span>
+
+<span class="sd">    search(query, top_k=10, rescore_multiplier=4)</span>
+<span class="sd">        Performs a search operation against the indexed embeddings.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; instance = SimilaritySearch(</span>
+<span class="sd">        model_name=&quot;louisbrulenaudet/tsdae-lemone-mbert-base&quot;,</span>
+<span class="sd">        device=&quot;cuda&quot;,</span>
+<span class="sd">        ndim=768,</span>
+<span class="sd">        metric=&quot;ip&quot;,</span>
+<span class="sd">        dtype=&quot;i8&quot;</span>
+<span class="sd">    )</span>
+<span class="sd">    &gt;&gt;&gt; embeddings = instance.encode(corpus=dataset[&quot;output&quot;])</span>
+<span class="sd">    &gt;&gt;&gt; ubinary_embeddings = instance.quantize_embeddings(</span>
+<span class="sd">        embeddings=embeddings,</span>
+<span class="sd">        quantization_type=&quot;ubinary&quot;</span>
+<span class="sd">    )</span>
+<span class="sd">    &gt;&gt;&gt; int8_embeddings = instance.quantize_embeddings(</span>
+<span class="sd">        embeddings=embeddings,</span>
+<span class="sd">        quantization_type=&quot;int8&quot;</span>
+<span class="sd">    )</span>
+<span class="sd">    &gt;&gt;&gt; instance.create_usearch_index(</span>
+<span class="sd">        int8_embeddings=int8_embeddings,</span>
+<span class="sd">        index_path=&quot;./usearch_int8.index&quot;</span>
+<span class="sd">    )</span>
+<span class="sd">    &gt;&gt;&gt; instance.create_faiss_index(</span>
+<span class="sd">        ubinary_embeddings=ubinary_embeddings,</span>
+<span class="sd">        index_path=&quot;./faiss_ubinary.index&quot;</span>
+<span class="sd">    )</span>
+<span class="sd">    &gt;&gt;&gt; top_k_scores, top_k_indices = instance.search(</span>
+<span class="sd">        query=&quot;Sont considérées comme ayant leur domicile fiscal en France au sens de l&#39;article 4 A&quot;,</span>
+<span class="sd">        top_k=10,</span>
+<span class="sd">        rescore_multiplier=4</span>
+<span class="sd">    )</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span><span class="p">,</span>
+        <span class="n">ndim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">,</span>
+        <span class="n">metric</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;ip&quot;</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;i8&quot;</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the EmbeddingIndexer with the specified model, device, and index configurations.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        model_name : str</span>
+<span class="sd">            The name or identifier of the SentenceTransformer model to use for embedding.</span>
+
+<span class="sd">        device : str, optional</span>
+<span class="sd">            The computation device to use (&#39;cpu&#39; or &#39;cuda&#39;). Default is &#39;cuda&#39;.</span>
+
+<span class="sd">        ndim : int, optional</span>
+<span class="sd">            The dimensionality of the embeddings. Default is 1024.</span>
+
+<span class="sd">        metric : str, optional</span>
+<span class="sd">            The metric used for the index (&#39;ip&#39; for inner product). Default is &#39;ip&#39;.</span>
+
+<span class="sd">        dtype : str, optional</span>
+<span class="sd">            The data type for the USEARCH index (&#39;i8&#39; for 8-bit integer). Default is &#39;i8&#39;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">model_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">ndim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">metric</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dtype</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">SentenceTransformer</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model_name</span><span class="p">,</span>
+            <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">binary_index</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">int8_index</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="SimilaritySearch.encode">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.similarity_search.SimilaritySearch.encode">[docs]</a>
+    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">corpus</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+        <span class="n">normalize_embeddings</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Encodes the given corpus into full-precision embeddings.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        corpus : list</span>
+<span class="sd">            A list of sentences to be encoded.</span>
+
+<span class="sd">        normalize_embeddings : bool, optional</span>
+<span class="sd">            Whether to normalize returned vectors to have length 1. In that case,</span>
+<span class="sd">            the faster dot-product (util.dot_score) instead of cosine similarity can be used. Default is True.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray</span>
+<span class="sd">            The full-precision embeddings of the corpus.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        This method normalizes the embeddings and shows the progress bar during the encoding process.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">logger</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+                <span class="n">corpus</span><span class="p">,</span>
+                <span class="n">normalize_embeddings</span><span class="o">=</span><span class="n">normalize_embeddings</span><span class="p">,</span>
+                <span class="n">show_progress_bar</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">embeddings</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred during encoding: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="SimilaritySearch.quantize_embeddings">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.similarity_search.SimilaritySearch.quantize_embeddings">[docs]</a>
+    <span class="k">def</span> <span class="nf">quantize_embeddings</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">embeddings</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">quantization_type</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">bytearray</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Quantizes the given embeddings based on the specified quantization type (&#39;ubinary&#39; or &#39;int8&#39;).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        embeddings : np.ndarray</span>
+<span class="sd">            The full-precision embeddings to be quantized.</span>
+<span class="sd">        quantization_type : str</span>
+<span class="sd">            The type of quantization (&#39;ubinary&#39; for unsigned binary, &#39;int8&#39; for 8-bit integers).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Union[np.ndarray, bytearray]</span>
+<span class="sd">            The quantized embeddings.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If an unsupported quantization type is provided.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">logger</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">quantization_type</span> <span class="o">==</span> <span class="s2">&quot;ubinary&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_quantize_to_ubinary</span><span class="p">(</span>
+                    <span class="n">embeddings</span><span class="o">=</span><span class="n">embeddings</span>
+                <span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">quantization_type</span> <span class="o">==</span> <span class="s2">&quot;int8&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_quantize_to_int8</span><span class="p">(</span>
+                    <span class="n">embeddings</span><span class="o">=</span><span class="n">embeddings</span>
+                <span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported quantization type: </span><span class="si">{</span><span class="n">quantization_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred during quantization: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="SimilaritySearch.create_faiss_index">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.similarity_search.SimilaritySearch.create_faiss_index">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_faiss_index</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">ubinary_embeddings</span><span class="p">:</span> <span class="nb">bytearray</span><span class="p">,</span>
+        <span class="n">index_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates and saves a FAISS binary index from ubinary embeddings.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ubinary_embeddings : bytearray</span>
+<span class="sd">            The ubinary-quantized embeddings.</span>
+
+<span class="sd">        index_path : str, optional</span>
+<span class="sd">            The file path to save the FAISS binary index. Default is None.</span>
+
+<span class="sd">        save : bool, optional</span>
+<span class="sd">            Indicator for saving the index. Default is False.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The dimensionality of the index is specified during the class initialization (default is 1024).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">logger</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">binary_index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">IndexBinaryFlat</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">binary_index</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+                <span class="n">ubinary_embeddings</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">save</span> <span class="ow">and</span> <span class="n">index_path</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_save_faiss_index_binary</span><span class="p">(</span>
+                    <span class="n">index_path</span><span class="o">=</span><span class="n">index_path</span>
+                <span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred during index creation: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="SimilaritySearch.create_usearch_index">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.similarity_search.SimilaritySearch.create_usearch_index">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_usearch_index</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">int8_embeddings</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">index_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates and saves a USEARCH integer index from int8 embeddings.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        int8_embeddings : np.ndarray</span>
+<span class="sd">            The int8-quantized embeddings.</span>
+
+<span class="sd">        index_path : str, optional</span>
+<span class="sd">            The file path to save the USEARCH integer index. Default is None.</span>
+
+<span class="sd">        save : bool, optional</span>
+<span class="sd">            Indicator for saving the index. Default is False.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The dimensionality and metric of the index are specified during class initialization.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">logger</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">int8_index</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span>
+                <span class="n">ndim</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span>
+                <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">,</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span>
+            <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">int8_index</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span>
+                    <span class="nb">len</span><span class="p">(</span><span class="n">int8_embeddings</span><span class="p">)</span>
+                <span class="p">),</span>
+                <span class="n">int8_embeddings</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">save</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">index_path</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_save_int8_index</span><span class="p">(</span>
+                    <span class="n">index_path</span><span class="o">=</span><span class="n">index_path</span>
+                <span class="p">)</span>
+
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">int8_index</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred during USEARCH index creation: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="SimilaritySearch.load_usearch_index_view">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.similarity_search.SimilaritySearch.load_usearch_index_view">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_usearch_index_view</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">index_path</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Loads a USEARCH index as a view for memory-efficient operations.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        index_path : str</span>
+<span class="sd">            The file path to the USEARCH index to be loaded as a view.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        object</span>
+<span class="sd">            A view of the USEARCH index for memory-efficient similarity search operations.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Implementing this would depend on the specific USEARCH index handling library being used.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">logger</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">int8_index</span> <span class="o">=</span> <span class="n">Index</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span>
+                <span class="n">index_path</span><span class="p">,</span>
+                <span class="n">view</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">int8_index</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred while loading USEARCH index: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="SimilaritySearch.load_faiss_index">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.similarity_search.SimilaritySearch.load_faiss_index">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_faiss_index</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">index_path</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Loads a FAISS binary index from a specified file path.</span>
+
+<span class="sd">        This method loads a binary index created by FAISS into the class</span>
+<span class="sd">        attribute `binary_index`, ready for performing similarity searches.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        index_path : str</span>
+<span class="sd">            The file path to the saved FAISS binary index.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The loaded index is stored in the `binary_index` attribute of the class.</span>
+<span class="sd">        Ensure that the index at `index_path` is compatible with the configurations</span>
+<span class="sd">        (e.g., dimensions) used for this class instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">logger</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">binary_index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">read_index_binary</span><span class="p">(</span>
+                <span class="n">index_path</span>
+            <span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred while loading the FAISS index: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="SimilaritySearch.search">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.similarity_search.SimilaritySearch.search">[docs]</a>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">top_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="n">rescore_multiplier</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Performs a search operation against the indexed embeddings.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        query : str</span>
+<span class="sd">            The query sentence/string to be searched.</span>
+
+<span class="sd">        top_k : int, optional</span>
+<span class="sd">            The number of top results to return.</span>
+
+<span class="sd">        rescore_multiplier : int, optional</span>
+<span class="sd">            The multiplier used to increase the initial retrieval size for re-scoring.</span>
+<span class="sd">            Higher values can increase precision at the cost of performance.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Tuple[List[float], List[int]]</span>
+<span class="sd">            A tuple containing the scores and the indices of the top k results.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        This method assumes that `binary_index` and `int8_index` are already loaded or created.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">logger</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_index</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">int8_index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Indices must be loaded or created before searching.&quot;</span><span class="p">)</span>
+
+            <span class="n">query_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+                <span class="n">corpus</span><span class="o">=</span><span class="n">query</span><span class="p">,</span>
+                <span class="n">normalize_embeddings</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">)</span>
+
+            <span class="n">query_embedding_ubinary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantize_embeddings</span><span class="p">(</span>
+                <span class="n">embeddings</span><span class="o">=</span><span class="n">query_embedding</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+                <span class="n">quantization_type</span><span class="o">=</span><span class="s2">&quot;ubinary&quot;</span>
+            <span class="p">)</span>
+
+            <span class="n">_scores</span><span class="p">,</span> <span class="n">binary_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_index</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+                <span class="n">query_embedding_ubinary</span><span class="p">,</span>
+                <span class="n">top_k</span> <span class="o">*</span> <span class="n">rescore_multiplier</span>
+            <span class="p">)</span>
+
+            <span class="n">binary_ids</span> <span class="o">=</span> <span class="n">binary_ids</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="n">int8_embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">int8_index</span><span class="p">[</span><span class="n">binary_ids</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+            <span class="n">scores</span> <span class="o">=</span> <span class="n">query_embedding</span> <span class="o">@</span> <span class="n">int8_embeddings</span><span class="o">.</span><span class="n">T</span>
+
+            <span class="n">indices</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">scores</span><span class="p">)</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[:</span><span class="n">top_k</span><span class="p">]</span>
+
+            <span class="n">top_k_indices</span> <span class="o">=</span> <span class="n">binary_ids</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+            <span class="n">top_k_scores</span> <span class="o">=</span> <span class="n">scores</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+
+            <span class="k">return</span> <span class="n">top_k_scores</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">top_k_indices</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred while searching semantic similar sentences: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+    <span class="k">def</span> <span class="nf">_quantize_to_ubinary</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">embeddings</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Placeholder private method for ubinary quantization.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        embeddings : np.ndarray</span>
+<span class="sd">            The embeddings to quantize.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray</span>
+<span class="sd">            The quantized embeddings.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">logger</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ubinary_embeddings</span> <span class="o">=</span> <span class="n">quantize_embeddings</span><span class="p">(</span>
+                <span class="n">embeddings</span><span class="p">,</span>
+                <span class="s2">&quot;ubinary&quot;</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">ubinary_embeddings</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred during ubinary quantization: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_quantize_to_int8</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">embeddings</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Placeholder private method for int8 quantization.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        embeddings : np.ndarray</span>
+<span class="sd">            The embeddings to quantize.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        np.ndarray</span>
+<span class="sd">            The quantized embeddings.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">logger</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">int8_embeddings</span> <span class="o">=</span> <span class="n">quantize_embeddings</span><span class="p">(</span>
+                <span class="n">embeddings</span><span class="p">,</span>
+                <span class="s2">&quot;int8&quot;</span>
+            <span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">int8_embeddings</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred during int8 quantization: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_save_faiss_index_binary</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">index_path</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Saves the FAISS binary index to disk.</span>
+
+<span class="sd">        This private method is called internally to save the constructed FAISS binary index to the specified file path.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        index_path : str</span>
+<span class="sd">            The path to the file where the binary index should be saved. This value is checked in the public method</span>
+<span class="sd">            `create_faiss_index`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">            This method should not be called directly. It is intended to be used internally by the `create_faiss_index` method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">logger</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">faiss</span><span class="o">.</span><span class="n">write_index_binary</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">binary_index</span><span class="p">,</span>
+                <span class="n">index_path</span>
+            <span class="p">)</span>
+
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred during FAISS binary index saving: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_save_int8_index</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">index_path</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Saves the int8_index to disk.</span>
+
+<span class="sd">        This private method is called internally to save the constructed int8_index to the specified file path.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        index_path : str</span>
+<span class="sd">            The path to the file where the int8_index should be saved. This value is checked in the public method</span>
+<span class="sd">            `_save_int8_index`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">            This method should not be called directly. It is intended to be used internally by the `_save_int8_index` method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">logger</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">int8_index</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+                <span class="n">index_path</span>
+            <span class="p">)</span>
+
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred during int8_index saving: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Louis Brulé Naudet.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

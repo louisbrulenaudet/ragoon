@@ -1,0 +1,1683 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ragoon.embeddings &#8212; RAGoon 0.0.4 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=8c5712d9"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/ragoon/embeddings';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">RAGoon 0.0.4 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">ragoon.embeddings</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for ragoon.embeddings</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright (c) Louis Brulé Naudet. All Rights Reserved.</span>
+<span class="c1"># This software may be used and distributed according to the terms of License Agreement.</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">IO</span><span class="p">,</span>
+    <span class="n">TYPE_CHECKING</span><span class="p">,</span>
+    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Type</span><span class="p">,</span>
+    <span class="n">Tuple</span><span class="p">,</span>
+    <span class="n">Union</span><span class="p">,</span>
+    <span class="n">Mapping</span><span class="p">,</span>
+    <span class="n">TypeVar</span><span class="p">,</span>
+    <span class="n">Callable</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">datasets</span>
+<span class="kn">import</span> <span class="nn">faiss</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">,</span> <span class="n">concatenate_datasets</span>
+<span class="kn">from</span> <span class="nn">huggingface_hub</span> <span class="kn">import</span> <span class="n">InferenceClient</span>
+<span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
+<span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">IncrementalPCA</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">umap</span> <span class="kn">import</span> <span class="n">UMAP</span>
+
+<span class="kn">from</span> <span class="nn">ragoon._logger</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Logger</span><span class="p">,</span>
+    <span class="n">TqdmToLogger</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">ragoon._decorators</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">memory</span><span class="p">,</span>
+    <span class="n">timer</span>
+<span class="p">)</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="EmbeddingsDataLoader">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsDataLoader">[docs]</a>
+<span class="k">class</span> <span class="nc">EmbeddingsDataLoader</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to load a dataset and process it to add embeddings using specified models.</span>
+
+<span class="sd">    This class handles loading a dataset from Hugging Face, processing it to add</span>
+<span class="sd">    embeddings using specified models, and provides methods to save the processed dataset.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dataset_name : str</span>
+<span class="sd">        The name of the dataset to load from Hugging Face.</span>
+
+<span class="sd">    token : str</span>
+<span class="sd">        The token for accessing Hugging Face API.</span>
+<span class="sd">    </span>
+<span class="sd">    model_configs : list of dict</span>
+<span class="sd">        The list of dictionaries with model configurations to use for generating embeddings.</span>
+<span class="sd">    </span>
+<span class="sd">    batch_size : int</span>
+<span class="sd">        The number of samples to process in each batch.</span>
+<span class="sd">    </span>
+<span class="sd">    dataset : datasets.DatasetDict</span>
+<span class="sd">        The loaded and processed dataset.</span>
+<span class="sd">    </span>
+<span class="sd">    convert_to_tensor: bool, optional</span>
+<span class="sd">        Whether the output should be one large tensor. Default is False.</span>
+<span class="sd">    </span>
+<span class="sd">    cuda_available : bool</span>
+<span class="sd">        Whether CUDA is available for GPU acceleration.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    load_dataset()</span>
+<span class="sd">        Load the dataset from Hugging Face.</span>
+<span class="sd">    </span>
+<span class="sd">    load_model(model_name)</span>
+<span class="sd">        Load the specified model.</span>
+<span class="sd">    </span>
+<span class="sd">    encode(texts, model, query_prefix=None, passage_prefix=None)</span>
+<span class="sd">        Create embeddings for a list of texts using a loaded model with optional prefixes.</span>
+<span class="sd">    </span>
+<span class="sd">    embed(batch, model, model_name, column=&quot;text&quot;, query_prefix=None, passage_prefix=None)</span>
+<span class="sd">        Add embeddings columns to the dataset for each model.</span>
+<span class="sd">    </span>
+<span class="sd">    process_split(split, column=&quot;text&quot;)</span>
+<span class="sd">        Process a specific split of the dataset and add embeddings for each model.</span>
+<span class="sd">    </span>
+<span class="sd">    process_splits(splits, column=&quot;text&quot;)</span>
+<span class="sd">        Process specified splits of the dataset and add embeddings for each model.</span>
+<span class="sd">    </span>
+<span class="sd">    get_dataset()</span>
+<span class="sd">        Return the processed dataset.</span>
+<span class="sd">    </span>
+<span class="sd">    save_dataset(output_dir)</span>
+<span class="sd">        Save the processed dataset to disk.</span>
+<span class="sd">    </span>
+<span class="sd">    upload_dataset(repo_id)</span>
+<span class="sd">        Upload the processed dataset to the Hugging Face Hub.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+        <span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+        <span class="n">model_configs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> 
+        <span class="n">batch_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span> 
+        <span class="n">convert_to_tensor</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the EmbeddingsDataLoader with the specified parameters.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        dataset_name : str</span>
+<span class="sd">            The name of the dataset to load from Hugging Face.</span>
+<span class="sd">        </span>
+<span class="sd">        token : str</span>
+<span class="sd">            The token for accessing Hugging Face API.</span>
+<span class="sd">        </span>
+<span class="sd">        model_configs : list of dict</span>
+<span class="sd">            The list of dictionaries with model configurations to use for generating embeddings.</span>
+<span class="sd">        </span>
+<span class="sd">        batch_size : int, optional</span>
+<span class="sd">            The number of samples to process in each batch. Default is 16.</span>
+
+<span class="sd">        convert_to_tensor: bool, optional</span>
+<span class="sd">            Whether the output should be one large tensor. Default is False.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">dataset_name</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid dataset name. Please provide a non-empty string.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">token</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid token. Please provide a non-empty string.&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">model_configs</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model_configs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid model configurations. Please provide a non-empty list of dictionaries.&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">batch_size</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid batch size. Please provide a positive integer.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dataset_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">token</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_configs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">model_configs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">batch_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">convert_to_tensor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cuda_available</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="EmbeddingsDataLoader.load_dataset">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.load_dataset">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_dataset</span><span class="p">(</span>
+        <span class="bp">self</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load the dataset from Hugging Face.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        Exception</span>
+<span class="sd">            If the dataset fails to load from Hugging Face.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span>
+                <span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span>
+            <span class="p">)</span>
+
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">&#39; loaded successfully.&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to load dataset &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="EmbeddingsDataLoader.load_model">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.load_model">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_model</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">InferenceClient</span><span class="p">,</span> <span class="n">SentenceTransformer</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load the specified model.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        model_name : str</span>
+<span class="sd">            The name of the model to load.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        model : Union[InferenceClient, SentenceTransformer]</span>
+<span class="sd">            The loaded model, either a SentenceTransformer or an InferenceClient.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        Exception</span>
+<span class="sd">            If the model fails to load.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda_available</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading model </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> with CUDA.&quot;</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="n">SentenceTransformer</span><span class="p">(</span>
+                    <span class="n">model_name</span><span class="p">,</span>
+                    <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading model </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> using Hugging Face Inference API.&quot;</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="n">InferenceClient</span><span class="p">(</span>
+                    <span class="n">token</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> 
+                    <span class="n">model</span><span class="o">=</span><span class="n">model_name</span>
+                <span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to load model &#39;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="EmbeddingsDataLoader.encode">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.encode">[docs]</a>
+    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> 
+        <span class="n">model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">InferenceClient</span><span class="p">,</span> <span class="n">SentenceTransformer</span><span class="p">],</span> 
+        <span class="n">query_prefix</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+        <span class="n">passage_prefix</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create embeddings for a list of texts using a loaded model with optional prefixes.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        texts : list of str</span>
+<span class="sd">            The list of texts to encode.</span>
+<span class="sd">        </span>
+<span class="sd">        model : model</span>
+<span class="sd">            The loaded model to use for encoding.</span>
+<span class="sd">        </span>
+<span class="sd">        query_prefix : str, optional</span>
+<span class="sd">            The prefix to add to each query. Default is None.</span>
+<span class="sd">        </span>
+<span class="sd">        passage_prefix : str, optional</span>
+<span class="sd">            The prefix to add to each passage. Default is None.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        numpy.ndarray</span>
+<span class="sd">            The embeddings for the texts.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        Exception</span>
+<span class="sd">            If encoding fails.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="ow">not</span> <span class="p">(</span><span class="n">query_prefix</span> <span class="ow">and</span> <span class="n">passage_prefix</span><span class="p">),</span> <span class="s2">&quot;Only one of query_prefix or passage_prefix should be set, or neither.&quot;</span>
+            
+            <span class="k">if</span> <span class="n">query_prefix</span><span class="p">:</span>
+                <span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">query_prefix</span><span class="si">}{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span>
+                <span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">passage_prefix</span><span class="p">:</span>
+                <span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">passage_prefix</span><span class="si">}{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span>
+                <span class="p">]</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda_available</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+                    <span class="n">sentences</span><span class="o">=</span><span class="n">texts</span><span class="p">,</span> 
+                    <span class="n">convert_to_tensor</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">convert_to_tensor</span>
+                <span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">feature_extraction</span><span class="p">(</span>
+                    <span class="n">text</span><span class="o">=</span><span class="n">texts</span>
+                <span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to encode texts: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="EmbeddingsDataLoader.embed">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.embed">[docs]</a>
+    <span class="k">def</span> <span class="nf">embed</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> 
+        <span class="n">model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">InferenceClient</span><span class="p">,</span> <span class="n">SentenceTransformer</span><span class="p">],</span> 
+        <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">column</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> 
+        <span class="n">query_prefix</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+        <span class="n">passage_prefix</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add embeddings columns to the dataset for each model.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        batch : dict</span>
+<span class="sd">            A batch of data from the dataset.</span>
+<span class="sd">        </span>
+<span class="sd">        model : model</span>
+<span class="sd">            The loaded model to use for encoding.</span>
+<span class="sd">        </span>
+<span class="sd">        model_name : str</span>
+<span class="sd">            The name of the model to use for encoding.</span>
+<span class="sd">        </span>
+<span class="sd">        column : str, optional</span>
+<span class="sd">            The name of the column containing the text to encode (default is &quot;text&quot;).</span>
+<span class="sd">        </span>
+<span class="sd">        query_prefix : str, optional</span>
+<span class="sd">            The prefix to add to each query (default is None).</span>
+<span class="sd">        </span>
+<span class="sd">        passage_prefix : str, optional</span>
+<span class="sd">            The prefix to add to each passage (default is None).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            A dictionary containing the embeddings for the model.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        Exception</span>
+<span class="sd">            If embedding fails.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">texts</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+
+            <span class="n">embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+                <span class="n">texts</span><span class="o">=</span><span class="n">texts</span><span class="p">,</span> 
+                <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> 
+                <span class="n">query_prefix</span><span class="o">=</span><span class="n">query_prefix</span><span class="p">,</span> 
+                <span class="n">passage_prefix</span><span class="o">=</span><span class="n">passage_prefix</span>
+            <span class="p">)</span>
+
+            <span class="n">simple_model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_simple_model_name</span><span class="p">(</span>
+                <span class="n">model_name</span>
+            <span class="p">)</span>
+
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">simple_model_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">embeddings</span>
+            <span class="p">}</span>
+        
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to embed batch: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="EmbeddingsDataLoader.process_split">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.process_split">[docs]</a>
+    <span class="k">def</span> <span class="nf">process_split</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">split</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+        <span class="n">column</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process a specific split of the dataset and add embeddings for each model.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        split : str</span>
+<span class="sd">            The split of the dataset to process.</span>
+
+<span class="sd">        column : str, optional</span>
+<span class="sd">            The name of the column containing the text to encode (default is &quot;text&quot;).</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the dataset is not loaded.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dataset not loaded. Call load_dataset() first.&quot;</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing </span><span class="si">{</span><span class="n">split</span><span class="si">}</span><span class="s2"> split...&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">config</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_configs</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Creating embeddings for models&quot;</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span>
+                <span class="n">query_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;query_prefix&quot;</span><span class="p">)</span>
+                <span class="n">passage_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;passage_prefix&quot;</span><span class="p">)</span>
+
+                <span class="n">model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">InferenceClient</span><span class="p">,</span> <span class="n">SentenceTransformer</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span>
+                    <span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span>
+                <span class="p">)</span>
+
+                <span class="k">def</span> <span class="nf">add_embeddings</span><span class="p">(</span>
+                    <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span>
+                <span class="p">):</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">(</span>
+                        <span class="n">batch</span><span class="o">=</span><span class="n">batch</span><span class="p">,</span>
+                        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> 
+                        <span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
+                        <span class="n">column</span><span class="o">=</span><span class="n">column</span><span class="p">,</span> 
+                        <span class="n">query_prefix</span><span class="o">=</span><span class="n">query_prefix</span><span class="p">,</span> 
+                        <span class="n">passage_prefix</span><span class="o">=</span><span class="n">passage_prefix</span>
+                    <span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">split</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">split</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+                    <span class="n">add_embeddings</span><span class="p">,</span>
+                    <span class="n">batched</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                    <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span>
+                    <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Creating embeddings for </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> on </span><span class="si">{</span><span class="n">split</span><span class="si">}</span><span class="s2"> split&quot;</span>
+                <span class="p">)</span>
+
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Embeddings added to </span><span class="si">{</span><span class="n">split</span><span class="si">}</span><span class="s2"> split for model </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to embed column with this model: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">model</span>
+                <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">empty_cache</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="EmbeddingsDataLoader.process_splits">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.process_splits">[docs]</a>
+    <span class="k">def</span> <span class="nf">process_splits</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">splits</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+        <span class="n">column</span><span class="o">=</span><span class="s2">&quot;text&quot;</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process specified splits of the dataset and add embeddings for each model.</span>
+<span class="sd">        If splits are not provided, process all splits available in the dataset.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        splits : list of str</span>
+<span class="sd">            The list of splits to process. If None, process all splits.</span>
+
+<span class="sd">        column : str, optional</span>
+<span class="sd">            The name of the column containing the text to encode (default is &quot;text&quot;).</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the dataset is not loaded.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dataset not loaded. Call load_dataset() first.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">splits</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">splits</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+        <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">splits</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Processing splits&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">split</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">process_split</span><span class="p">(</span>
+                        <span class="n">split</span><span class="o">=</span><span class="n">split</span><span class="p">,</span> 
+                        <span class="n">column</span><span class="o">=</span><span class="n">column</span>
+                    <span class="p">)</span>
+
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">continue</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Split &#39;</span><span class="si">{</span><span class="n">split</span><span class="si">}</span><span class="s2">&#39; not found in the dataset.&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="EmbeddingsDataLoader.get_dataset">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.get_dataset">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_dataset</span><span class="p">(</span>
+        <span class="bp">self</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the processed dataset.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        datasets.DatasetDict</span>
+<span class="sd">            The processed dataset.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the dataset is not processed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dataset not processed. Call process_splits() first.&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span></div>
+
+
+
+<div class="viewcode-block" id="EmbeddingsDataLoader.save_dataset">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.save_dataset">[docs]</a>
+    <span class="k">def</span> <span class="nf">save_dataset</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save the processed dataset to disk.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        output_dir : str</span>
+<span class="sd">            The directory where the dataset will be saved.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the dataset is not processed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dataset not processed. Call process_splits() first.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">save_to_disk</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset saved to </span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="EmbeddingsDataLoader.upload_dataset">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.upload_dataset">[docs]</a>
+    <span class="k">def</span> <span class="nf">upload_dataset</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">repo_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Upload the processed dataset to the Hugging Face Hub.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        repo_id : str</span>
+<span class="sd">            The repository ID on the Hugging Face Hub.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the dataset is not processed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dataset not processed. Call process_splits() first.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">push_to_hub</span><span class="p">(</span>
+            <span class="n">repo_id</span><span class="p">,</span> 
+            <span class="n">token</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span>
+        <span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset uploaded to </span><span class="si">{</span><span class="n">repo_id</span><span class="si">}</span><span class="s2"> on Hugging Face Hub.&quot;</span><span class="p">)</span></div>
+
+
+
+    <span class="k">def</span> <span class="nf">_get_simple_model_name</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the simplified model name (last part after the slash).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        model_name : str</span>
+<span class="sd">            The full model name.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The simplified model name.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">model_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;HFforLegal/embedding-models&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Select the desired columns</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">remove_columns</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">column_names</span> <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="s2">&quot;passage_prefix&quot;</span><span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="n">model_configs</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+    <span class="n">loader</span> <span class="o">=</span> <span class="n">EmbeddingsDataLoader</span><span class="p">(</span>
+        <span class="n">dataset_name</span><span class="o">=</span><span class="s2">&quot;HFforLegal/laws&quot;</span><span class="p">,</span>
+        <span class="n">token</span><span class="o">=</span><span class="s2">&quot;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&quot;</span><span class="p">,</span>
+        <span class="n">model_configs</span><span class="o">=</span><span class="n">model_configs</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span>
+    <span class="p">)</span>
+
+    <span class="n">loader</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">()</span>
+
+    <span class="n">loader</span><span class="o">.</span><span class="n">process_splits</span><span class="p">(</span>
+        <span class="n">column</span><span class="o">=</span><span class="s2">&quot;document&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">processed_dataset</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">()</span>
+    
+
+<div class="viewcode-block" id="EmbeddingsVisualizer">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsVisualizer">[docs]</a>
+<span class="k">class</span> <span class="nc">EmbeddingsVisualizer</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class for Embedding Exploration Lab, visualizing high-dimensional embeddings in 3D space.</span>
+
+<span class="sd">    This class provides functionality to load embeddings from a FAISS index,</span>
+<span class="sd">    reduce their dimensionality using PCA and/or t-SNE, and visualize them</span>
+<span class="sd">    in an interactive 3D plot.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    index_path : str</span>
+<span class="sd">        Path to the FAISS index file.</span>
+
+<span class="sd">    dataset_path : str</span>
+<span class="sd">        Path to the dataset containing labels.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    index_path : str</span>
+<span class="sd">        Path to the FAISS index file.</span>
+<span class="sd">    </span>
+<span class="sd">    dataset_path : str</span>
+<span class="sd">        Path to the dataset containing labels.</span>
+<span class="sd">    </span>
+<span class="sd">    index : faiss.Index or None</span>
+<span class="sd">        Loaded FAISS index.</span>
+<span class="sd">    </span>
+<span class="sd">    dataset : datasets.Dataset or None</span>
+<span class="sd">        Loaded dataset containing labels.</span>
+<span class="sd">    </span>
+<span class="sd">    vectors : np.ndarray or None</span>
+<span class="sd">        Extracted vectors from the FAISS index.</span>
+<span class="sd">    </span>
+<span class="sd">    reduced_vectors : np.ndarray or None</span>
+<span class="sd">        Dimensionality-reduced vectors.</span>
+<span class="sd">    </span>
+<span class="sd">    labels : list of str or None</span>
+<span class="sd">        Labels from the dataset.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    load_index() -&gt; &#39;EmbeddingsVisualizer&#39;:</span>
+<span class="sd">        Load the FAISS index from the specified file path.</span>
+<span class="sd">    </span>
+<span class="sd">    load_dataset() -&gt; &#39;EmbeddingsVisualizer&#39;:</span>
+<span class="sd">        Load the dataset containing labels from the specified file path.</span>
+<span class="sd">    </span>
+<span class="sd">    extract_vectors() -&gt; &#39;EmbeddingsVisualizer&#39;:</span>
+<span class="sd">        Extract all vectors from the loaded FAISS index.</span>
+<span class="sd">    </span>
+<span class="sd">    reduce_dimensionality(</span>
+<span class="sd">        method: str = &quot;umap&quot;,</span>
+<span class="sd">        pca_components: int = 50,</span>
+<span class="sd">        final_components: int = 3,</span>
+<span class="sd">        random_state: int = 42</span>
+<span class="sd">    ) -&gt; &#39;EmbeddingsVisualizer&#39;:</span>
+<span class="sd">        Reduce dimensionality of the extracted vectors with dynamic progress tracking.</span>
+<span class="sd">    </span>
+<span class="sd">    plot_3d() -&gt; None:</span>
+<span class="sd">        Generate a 3D scatter plot of the reduced vectors with labels.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; visualizer = EmbeddingsVisualizer(index_path=&quot;path/to/index&quot;, dataset_path=&quot;path/to/dataset&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; visualizer.load_index().load_dataset().extract_vectors()</span>
+<span class="sd">    &gt;&gt;&gt; visualizer.reduce_dimensionality(method=&quot;pca_umap&quot;, pca_components=50, final_components=3)</span>
+<span class="sd">    &gt;&gt;&gt; visualizer.plot_3d()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">index_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">dataset_path</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">index_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">dataset_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vectors</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reduced_vectors</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="EmbeddingsVisualizer.load_index">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.load_index">[docs]</a>
+    <span class="nd">@memory</span><span class="p">(</span><span class="n">print_report</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nd">@timer</span><span class="p">(</span><span class="n">print_time</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">load_index</span><span class="p">(</span>
+        <span class="bp">self</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load the FAISS index from the specified file path.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : EmbeddingsVisualizer</span>
+<span class="sd">            The instance itself, allowing for method chaining.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">read_index_binary</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">index_path</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+    
+<div class="viewcode-block" id="EmbeddingsVisualizer.load_dataset">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.load_dataset">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_dataset</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;document&quot;</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load the Dataset containing labels from the specified file path.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        column : str, optional</span>
+<span class="sd">            The column of the split corresponding to the embeddings stored in </span>
+<span class="sd">            the index. Default is &#39;document&#39;.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : datasets.Dataset</span>
+<span class="sd">            The instance itself, allowing for method chaining.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_from_disk</span><span class="p">(</span>
+            <span class="n">dataset_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset_path</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+
+<div class="viewcode-block" id="EmbeddingsVisualizer.extract_vectors">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.extract_vectors">[docs]</a>
+    <span class="nd">@memory</span><span class="p">(</span><span class="n">print_report</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nd">@timer</span><span class="p">(</span><span class="n">print_time</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">extract_vectors</span><span class="p">(</span>
+        <span class="bp">self</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract all vectors from the loaded FAISS index.</span>
+
+<span class="sd">        This method should be called after `load_index()`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : EmbeddingsVisualizer</span>
+<span class="sd">            The instance itself, allowing for method chaining.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the index has not been loaded yet.</span>
+
+<span class="sd">        RuntimeError</span>
+<span class="sd">            If there&#39;s an issue with vector extraction.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">global</span> <span class="n">logger</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Index not loaded. Call load_index() first.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">faiss</span><span class="o">.</span><span class="n">IndexBinaryFlat</span><span class="p">):</span>
+            <span class="c1"># Handle binary index</span>
+            <span class="n">num_vectors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">ntotal</span>
+            <span class="n">dimension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">d</span>
+            <span class="n">code_size</span> <span class="o">=</span> <span class="n">dimension</span> <span class="o">//</span> <span class="mi">8</span>  <span class="c1"># Binary vectors are typically in bits, hence // 8 for bytes</span>
+            
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected dimension (bits): </span><span class="si">{</span><span class="n">dimension</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index total vectors: </span><span class="si">{</span><span class="n">num_vectors</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index code size (bytes): </span><span class="si">{</span><span class="n">code_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Binary vectors are stored in uint8 arrays</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">num_vectors</span><span class="p">,</span> <span class="n">code_size</span><span class="p">),</span> 
+                <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span>
+            <span class="p">)</span>
+
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initialized binary vectors array with shape: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">num_vectors</span><span class="p">)):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">vectors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">reconstruct</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            
+            <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Dimension mismatch error. Expected dimension (bits): </span><span class="si">{</span><span class="n">dimension</span><span class="si">}</span><span class="s2">, &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Index total vectors: </span><span class="si">{</span><span class="n">num_vectors</span><span class="si">}</span><span class="s2">, &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Index code size (bytes): </span><span class="si">{</span><span class="n">code_size</span><span class="si">}</span><span class="s2">. &quot;</span>
+                    <span class="s2">&quot;The index might be corrupted or incompatible.&quot;</span>
+                <span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                    <span class="s2">&quot;The loaded index doesn&#39;t support binary vector reconstruction.&quot;</span>
+                    <span class="s2">&quot;Make sure you&#39;re using an appropriate index type.&quot;</span>
+                <span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Error extracting vectors: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">num_vectors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">ntotal</span>
+            <span class="n">dimension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">d</span>
+            <span class="n">code_size</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;code_size&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected dimension: </span><span class="si">{</span><span class="n">dimension</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index total vectors: </span><span class="si">{</span><span class="n">num_vectors</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index code size: </span><span class="si">{</span><span class="n">code_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">code_size</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">code_size</span> <span class="o">!=</span> <span class="n">dimension</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Dimension mismatch error. Expected dimension: </span><span class="si">{</span><span class="n">dimension</span><span class="si">}</span><span class="s2">, &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Index total vectors: </span><span class="si">{</span><span class="n">num_vectors</span><span class="si">}</span><span class="s2">, &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Index code size: </span><span class="si">{</span><span class="n">code_size</span><span class="si">}</span><span class="s2">. &quot;</span>
+                    <span class="s2">&quot;The index might be corrupted or incompatible.&quot;</span>
+                <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">vectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">num_vectors</span><span class="p">,</span> <span class="n">dimension</span><span class="p">),</span> 
+                <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span>
+            <span class="p">)</span>
+
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initialized vectors array with shape: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">reconstruct_n</span><span class="p">(</span>
+                    <span class="mi">0</span><span class="p">,</span> 
+                    <span class="n">num_vectors</span><span class="p">,</span> 
+                    <span class="bp">self</span><span class="o">.</span><span class="n">vectors</span>
+                <span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Dimension mismatch error. Expected dimension: </span><span class="si">{</span><span class="n">dimension</span><span class="si">}</span><span class="s2">, &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Index total vectors: </span><span class="si">{</span><span class="n">num_vectors</span><span class="si">}</span><span class="s2">, &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Index code size: </span><span class="si">{</span><span class="n">code_size</span><span class="si">}</span><span class="s2">. &quot;</span>
+                    <span class="s2">&quot;The index might be corrupted or incompatible.&quot;</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                    <span class="s2">&quot;The loaded index doesn&#39;t support vector reconstruction.&quot;</span>
+                    <span class="s2">&quot;Make sure you&#39;re using an appropriate index type.&quot;</span>
+                <span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error extracting vectors: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                
+            <span class="k">return</span> <span class="bp">self</span></div>
+
+        
+
+<div class="viewcode-block" id="EmbeddingsVisualizer.reduce_dimensionality">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.reduce_dimensionality">[docs]</a>
+    <span class="nd">@memory</span><span class="p">(</span><span class="n">print_report</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nd">@timer</span><span class="p">(</span><span class="n">print_time</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">reduce_dimensionality</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;umap&quot;</span><span class="p">,</span>
+        <span class="n">pca_components</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+        <span class="n">final_components</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reduce dimensionality of the extracted vectors with dynamic progress tracking.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        method : {&#39;pca&#39;, &#39;umap&#39;, &#39;pca_umap&#39;}, optional</span>
+<span class="sd">            The method to use for dimensionality reduction, by default &#39;umap&#39;.</span>
+
+<span class="sd">            - pca : Principal Component Analysis (PCA) is a linear dimensionality reduction technique </span>
+<span class="sd">            that is commonly used to reduce the dimensionality of high-dimensional data. </span>
+<span class="sd">            It identifies the directions (principal components) in which the data varies the most </span>
+<span class="sd">            and projects the data onto these components, resulting in a lower-dimensional representation.</span>
+
+<span class="sd">            - umap : Uniform Manifold Approximation and Projection (UMAP) is a non-linear dimensionality </span>
+<span class="sd">            reduction technique that is particularly well-suited for visualizing high-dimensional </span>
+<span class="sd">            data in lower-dimensional space. It preserves both local and global structure of the data </span>
+<span class="sd">            by constructing a low-dimensional representation that captures the underlying manifold </span>
+<span class="sd">            structure of the data.</span>
+
+<span class="sd">            - pca_umap : PCA followed by UMAP is a two-step dimensionality reduction technique. </span>
+<span class="sd">            First, PCA is applied to reduce the dimensionality of the data. </span>
+<span class="sd">            Then, UMAP is applied to further reduce the dimensionality and capture the </span>
+<span class="sd">            non-linear structure of the data. This combination can be effective in </span>
+<span class="sd">            preserving both global and local structure of the data.</span>
+<span class="sd">        </span>
+<span class="sd">        pca_components : int, optional</span>
+<span class="sd">            Number of components for PCA (used in &#39;pca&#39; and &#39;pca_umap&#39;), by default 50.</span>
+<span class="sd">        </span>
+<span class="sd">        final_components : int, optional</span>
+<span class="sd">            Final number of components (3 for 3D visualization), by default 3.</span>
+<span class="sd">        </span>
+<span class="sd">        random_state : int, optional</span>
+<span class="sd">            Random state for reproducibility, by default 42.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : EmbeddingsVisualizer</span>
+<span class="sd">            The instance itself, allowing for method chaining.</span>
+<span class="sd">        </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If vectors have not been extracted yet or if an invalid method is specified.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">vectors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Vectors not extracted. Call extract_vectors() first.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;pca&quot;</span><span class="p">:</span>
+            <span class="n">pca</span> <span class="o">=</span> <span class="n">IncrementalPCA</span><span class="p">(</span>
+                <span class="n">n_components</span><span class="o">=</span><span class="n">final_components</span><span class="p">,</span> 
+                <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span>
+            <span class="p">)</span>
+
+            <span class="n">batches</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">vectors</span><span class="p">,</span> 
+                <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vectors</span><span class="p">)</span> <span class="o">//</span> <span class="mi">100</span><span class="p">)</span>
+            <span class="p">)</span>
+            
+            <span class="k">with</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">batches</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;PCA&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">batches</span><span class="p">:</span>
+                    <span class="n">pca</span><span class="o">.</span><span class="n">partial_fit</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+                    <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">reduced_vectors</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vectors</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;umap&quot;</span><span class="p">:</span>
+            <span class="n">tqdm_out</span> <span class="o">=</span> <span class="n">TqdmToLogger</span><span class="p">()</span>
+            <span class="n">old_stdout</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">tqdm_out</span>
+            
+            <span class="n">umap</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
+                <span class="n">n_components</span><span class="o">=</span><span class="n">final_components</span><span class="p">,</span> 
+                <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span> 
+                <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reduced_vectors</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vectors</span><span class="p">)</span>
+            
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">old_stdout</span>
+            <span class="n">tqdm_out</span><span class="o">.</span><span class="n">pbar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;pca_umap&quot;</span><span class="p">:</span>
+            <span class="c1"># First, perform PCA</span>
+            <span class="n">pca</span> <span class="o">=</span> <span class="n">IncrementalPCA</span><span class="p">(</span>
+                <span class="n">n_components</span><span class="o">=</span><span class="n">pca_components</span><span class="p">,</span> 
+                <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span>
+            <span class="p">)</span>
+
+            <span class="n">batches</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">vectors</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vectors</span><span class="p">)</span> <span class="o">//</span> <span class="mi">100</span><span class="p">)</span>
+            <span class="p">)</span>
+            
+            <span class="k">with</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">batches</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;PCA&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">batches</span><span class="p">:</span>
+                    <span class="n">pca</span><span class="o">.</span><span class="n">partial_fit</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+                    <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            
+            <span class="n">pca_result</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vectors</span><span class="p">)</span>
+            
+            <span class="c1"># Then, perform UMAP</span>
+            <span class="n">tqdm_out</span> <span class="o">=</span> <span class="n">TqdmToLogger</span><span class="p">()</span>
+            <span class="n">old_stdout</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">tqdm_out</span>
+            
+            <span class="n">umap</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
+                <span class="n">n_components</span><span class="o">=</span><span class="n">final_components</span><span class="p">,</span> 
+                <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span> 
+                <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">reduced_vectors</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">pca_result</span><span class="p">)</span>
+            
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">old_stdout</span>
+            <span class="n">tqdm_out</span><span class="o">.</span><span class="n">pbar</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid method. Choose &#39;pca&#39;, &#39;umap&#39;, or &#39;pca_umap&#39;.&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+
+<div class="viewcode-block" id="EmbeddingsVisualizer.create_plot">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.create_plot">[docs]</a>
+    <span class="nd">@memory</span><span class="p">(</span><span class="n">print_report</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nd">@timer</span><span class="p">(</span><span class="n">print_time</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">create_plot</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;3D Visualization of Embeddings&quot;</span><span class="p">,</span> 
+        <span class="n">point_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate a 3D scatter plot of the reduced vectors with labels.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        title : str, optional</span>
+<span class="sd">            The title of the plot (default is &#39;3D Visualization of Embeddings&#39;).</span>
+
+<span class="sd">        point_size : int, optional</span>
+<span class="sd">            The size of the markers in the scatter plot (default is 3).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        go.Figure</span>
+<span class="sd">            The generated 3D scatter plot.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If vectors have not been reduced yet.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        This method requires the `plotly` library to be installed.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; visualizer = EmbeddingsVisualizer()</span>
+<span class="sd">        &gt;&gt;&gt; plot = visualizer.create_plot(title=&#39;My Embeddings&#39;, point_size=5)</span>
+<span class="sd">        &gt;&gt;&gt; plot.show()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reduced_vectors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimensionality not reduced. Call reduce_dimensionality() first.&quot;</span><span class="p">)</span>
+
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+        <span class="c1"># Start with an empty scatter plot</span>
+        <span class="n">scatter</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="p">[],</span> <span class="n">y</span><span class="o">=</span><span class="p">[],</span> <span class="n">z</span><span class="o">=</span><span class="p">[],</span>
+            <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;markers&quot;</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="p">[],</span>
+            <span class="n">textposition</span><span class="o">=</span><span class="s2">&quot;top center&quot;</span><span class="p">,</span>
+            <span class="n">hovertemplate</span><span class="o">=</span><span class="s2">&quot;%</span><span class="si">{text}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">hoverinfo</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+            <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">size</span><span class="o">=</span><span class="n">point_size</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="p">[],</span>
+                <span class="n">colorscale</span><span class="o">=</span><span class="s2">&quot;Viridis&quot;</span><span class="p">,</span>
+                <span class="n">opacity</span><span class="o">=</span><span class="mf">0.8</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">scatter</span><span class="p">)</span>
+
+        <span class="c1"># Update layout for full-window size and remove axes</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">title</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">text</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+                <span class="n">y</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span>
+                <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                <span class="n">xanchor</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                <span class="n">yanchor</span><span class="o">=</span><span class="s2">&quot;top&quot;</span>
+            <span class="p">),</span>
+            <span class="n">scene</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+                <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+                <span class="n">zaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+                <span class="n">bgcolor</span><span class="o">=</span><span class="s2">&quot;rgba(0,0,0,0)&quot;</span>
+            <span class="p">),</span>
+            <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s2">&quot;rgba(0,0,0,0)&quot;</span><span class="p">,</span>
+            <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s2">&quot;rgba(0,0,0,0)&quot;</span><span class="p">,</span>
+            <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>  <span class="c1"># Added some bottom margin for the slider</span>
+            <span class="n">autosize</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Add slider</span>
+        <span class="n">steps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_slider_steps</span><span class="p">()</span>
+        <span class="n">sliders</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="nb">dict</span><span class="p">(</span>
+                <span class="n">active</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">currentvalue</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s2">&quot;prefix&quot;</span><span class="p">:</span> <span class="s2">&quot;Number of embeddings: &quot;</span><span class="p">,</span> 
+                    <span class="s2">&quot;xanchor&quot;</span><span class="p">:</span> <span class="s2">&quot;center&quot;</span>
+                <span class="p">},</span>
+                <span class="n">pad</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> 
+                    <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="mi">10</span>
+                <span class="p">},</span>
+                <span class="nb">len</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>  <span class="c1"># 90% of the plot width</span>
+                <span class="n">x</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>   <span class="c1"># Start at 5% from the left</span>
+                <span class="n">xanchor</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">yanchor</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+                <span class="n">steps</span><span class="o">=</span><span class="n">steps</span>
+            <span class="p">)</span>
+        <span class="p">]</span>
+        
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">sliders</span><span class="o">=</span><span class="n">sliders</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">fig</span></div>
+
+
+
+    <span class="k">def</span> <span class="nf">_create_slider_steps</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">num_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create steps for the slider.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        ----------</span>
+<span class="sd">        num_steps : int, optional</span>
+<span class="sd">            The number of steps to create for the slider. Default is 100.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        -------</span>
+<span class="sd">        list</span>
+<span class="sd">            A list of dictionaries representing the steps for the slider.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">        ------</span>
+<span class="sd">        This method creates steps for a slider that can be used to update the visualization of embeddings.</span>
+
+<span class="sd">        The steps are created based on the number of vectors in the `reduced_vectors` attribute of the class.</span>
+<span class="sd">        The `num_steps` parameter determines the number of steps to create. The default value is 100.</span>
+
+<span class="sd">        Each step is represented by a dictionary with the following keys:</span>
+<span class="sd">        - &#39;method&#39;: The update method to be called when the step is selected.</span>
+<span class="sd">        - &#39;args&#39;: The arguments to be passed to the update method.</span>
+<span class="sd">        - &#39;label&#39;: The label to be displayed for the step.</span>
+
+<span class="sd">        The &#39;method&#39; key should be set to &quot;update&quot; and the &#39;args&#39; key should be a list of two dictionaries.</span>
+<span class="sd">        The first dictionary contains the updated values for the x, y, z, text, and marker.color attributes of the visualization.</span>
+<span class="sd">        The second dictionary contains the updated title for the visualization.</span>
+
+<span class="sd">        The &#39;label&#39; key should be set to a string representation of the step index.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; visualizer = EmbeddingsVisualizer()</span>
+<span class="sd">        &gt;&gt;&gt; steps = visualizer._create_slider_steps(num_steps=50)</span>
+<span class="sd">        &gt;&gt;&gt; print(steps)</span>
+<span class="sd">        [{&#39;method&#39;: &#39;update&#39;, &#39;args&#39;: [{&#39;x&#39;: [array([1, 2, 3])], &#39;y&#39;: [array([4, 5, 6])], &#39;z&#39;: [array([7, 8, 9])], &#39;text&#39;: [[&#39;label1&#39;, &#39;label2&#39;, &#39;label3&#39;]], &#39;marker.color&#39;: [array([7, 8, 9])]}, {&#39;title&#39;: &#39;Embeddings (showing 0 out of 10)&#39;}], &#39;label&#39;: &#39;0&#39;}, ...]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">num_vectors</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reduced_vectors</span>
+        <span class="p">)</span>
+
+        <span class="n">step_size</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_vectors</span> <span class="o">//</span> <span class="n">num_steps</span><span class="p">)</span>
+        <span class="n">steps</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+        <span class="k">def</span> <span class="nf">_insert_line_breaks</span><span class="p">(</span>
+            <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+            <span class="n">interval</span><span class="p">:</span> <span class="nb">int</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Insert line breaks into the text at the specified interval.</span>
+
+<span class="sd">            Parameters</span>
+<span class="sd">            ----------</span>
+<span class="sd">            text : str</span>
+<span class="sd">                The input text.</span>
+
+<span class="sd">            interval : int</span>
+<span class="sd">                The interval at which line breaks should be inserted.</span>
+
+<span class="sd">            Returns</span>
+<span class="sd">            -------</span>
+<span class="sd">            str</span>
+<span class="sd">                The text with line breaks inserted.</span>
+
+<span class="sd">            Examples</span>
+<span class="sd">            --------</span>
+<span class="sd">            &gt;&gt;&gt; _insert_line_breaks(&quot;Hello, world!&quot;, 5)</span>
+<span class="sd">            &#39;Hello,&lt;br&gt; world!&#39;</span>
+<span class="sd">            &gt;&gt;&gt; _insert_line_breaks(&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&quot;, 10)</span>
+<span class="sd">            &#39;Lorem ipsu&lt;br&gt;m dolor si&lt;br&gt;t amet, co&lt;br&gt;nsectetur&lt;br&gt; adipiscing&lt;br&gt; elit.&#39;</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">interval</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">),</span> <span class="n">interval</span><span class="p">))</span>
+
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_vectors</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step_size</span><span class="p">)):</span>
+            <span class="c1"># Add HTML line breaks in the text for better formatting</span>
+            <span class="n">hover_texts</span> <span class="o">=</span> <span class="p">[</span><span class="n">_insert_line_breaks</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[:</span><span class="n">i</span><span class="p">]]</span>
+            
+            <span class="n">step</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+                <span class="n">method</span><span class="o">=</span><span class="s2">&quot;update&quot;</span><span class="p">,</span>
+                <span class="n">args</span><span class="o">=</span><span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">reduced_vectors</span><span class="p">[:</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+                        <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">reduced_vectors</span><span class="p">[:</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
+                        <span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">reduced_vectors</span><span class="p">[:</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span>
+                        <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">hover_texts</span><span class="p">],</span>
+                        <span class="s2">&quot;marker.color&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">reduced_vectors</span><span class="p">[:</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Embeddings (showing </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> out of </span><span class="si">{</span><span class="n">num_vectors</span><span class="si">}</span><span class="s2">)&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">steps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">steps</span>
+
+
+<div class="viewcode-block" id="EmbeddingsVisualizer.visualize">
+<a class="viewcode-back" href="../../ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.visualize">[docs]</a>
+    <span class="k">def</span> <span class="nf">visualize</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tsne&quot;</span><span class="p">,</span> 
+        <span class="n">pca_components</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> 
+        <span class="n">final_components</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span>
+        <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;3D Visualization of Embeddings&quot;</span><span class="p">,</span>
+        <span class="n">point_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">save_html</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">html_file_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;embedding_visualization.html&quot;</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Full pipeline: load index, extract vectors, reduce dimensionality, and visualize.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        method : str, optional</span>
+<span class="sd">            The dimensionality reduction method to use. Default is &#39;tsne&#39;.</span>
+<span class="sd">        </span>
+<span class="sd">        pca_components : int, optional</span>
+<span class="sd">            The number of components to keep when using PCA for dimensionality reduction. Default is 50.</span>
+<span class="sd">        </span>
+<span class="sd">        final_components : int, optional</span>
+<span class="sd">            The number of final components to visualize. Default is 3.</span>
+<span class="sd">        </span>
+<span class="sd">        random_state : int, optional</span>
+<span class="sd">            The random state for reproducibility. Default is 42.</span>
+<span class="sd">        </span>
+<span class="sd">        title : str, optional</span>
+<span class="sd">            The title of the visualization plot. Default is &#39;3D Visualization of Embeddings&#39;.</span>
+<span class="sd">        </span>
+<span class="sd">        point_size : int, optional</span>
+<span class="sd">            The size of the points in the visualization plot. Default is 3.</span>
+<span class="sd">        </span>
+<span class="sd">        save_html : bool, optional</span>
+<span class="sd">            Whether to save the visualization as an HTML file. Default is False.</span>
+<span class="sd">        </span>
+<span class="sd">        html_file_name : str, optional</span>
+<span class="sd">            The name of the HTML file to save. Default is &#39;embedding_visualization.html&#39;.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; visualizer = EmbeddingsVisualizer()</span>
+<span class="sd">        &gt;&gt;&gt; visualizer.visualize(method=&#39;tsne&#39;, pca_components=50, final_components=3, random_state=42)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_index</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extract_vectors</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reduce_dimensionality</span><span class="p">(</span>
+            <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>
+            <span class="n">pca_components</span><span class="o">=</span><span class="n">pca_components</span><span class="p">,</span>
+            <span class="n">final_components</span><span class="o">=</span><span class="n">final_components</span><span class="p">,</span>
+            <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span>
+        <span class="p">)</span>
+
+        <span class="n">fig</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_plot</span><span class="p">(</span>
+            <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+            <span class="n">point_size</span><span class="o">=</span><span class="n">point_size</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">save_html</span><span class="p">:</span>
+            <span class="n">pio</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span>
+                <span class="n">fig</span><span class="p">,</span> 
+                <span class="n">file</span><span class="o">=</span><span class="n">html_file_name</span><span class="p">,</span>
+                <span class="n">auto_open</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">)</span>
+
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Visualization saved as </span><span class="si">{</span><span class="n">html_file_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">(</span>
+            <span class="n">config</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;displayModeBar&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;scrollZoom&quot;</span><span class="p">:</span> <span class="kc">True</span>
+            <span class="p">}</span>
+        <span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Louis Brulé Naudet.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
