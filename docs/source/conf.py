@@ -43,8 +43,6 @@ html_theme = "pydata_sphinx_theme"
 html_static_path = ['_static']
 
 html_theme_options = {
-	"show_nav_level": 2,  # Controls the number of navigation levels to show
-    "navigation_depth": 4,  # Adjust the depth of navigation levels
     "external_links": [
         {"name": "GitHub", "url": "https://github.com/louisbrulenaudet"},
         {"name": "Twitter", "url": "https://x.com/louisbrulenaudet"}

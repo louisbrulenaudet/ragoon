@@ -13,16 +13,29 @@ Contents:
    :caption: Modules:
 
    modules
-   api_reference
    ragoon
-<<<<<<< HEAD
-   
-=======
 
->>>>>>> parent of f9a7317 (Add section navigation to Sphinx documentation)
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+ragoon package
+===============
+
+.. automodule:: ragoon
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 2
+
+   ragoon.embeddings
+   ragoon.similarity_search
+   ragoon.web_rag
