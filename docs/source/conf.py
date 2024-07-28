@@ -5,49 +5,45 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-import os
-import sys
-sys.path.insert(0, os.path.abspath('../../src'))
-
 
 project = 'RAGoon'
 copyright = '2024, Louis Brulé Naudet'
 author = 'Louis Brulé Naudet'
 release = '0.0.4'
 
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+import os
+import sys
+sys.path.insert(0, os.path.abspath('../../src'))
+
+project = 'RAGoon'
+author = 'Your Name'
+release = '0.0.4'
 
 extensions = [
-    'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
-    'sphinx.ext.viewcode',
     'numpydoc',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.todo',
+    'sphinx.ext.coverage',
 ]
-
-napoleon_google_docstring = False
-napoleon_numpy_docstring = True
-numpydoc_show_class_members = False
-
 templates_path = ['_templates']
 exclude_patterns = []
 
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-
-html_theme = "pydata_sphinx_theme"
+html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
 
 html_theme_options = {
-	"show_nav_level": 2,  # Controls the number of navigation levels to show
-    "navigation_depth": 4,  # Adjust the depth of navigation levels
-    "external_links": [
-        {"name": "GitHub", "url": "https://github.com/louisbrulenaudet"},
-        {"name": "Twitter", "url": "https://x.com/louisbrulenaudet"}
-    ],
+    "show_nav_level": 2,
+    "navigation_depth": 4,
+    "collapse_navigation": False,
     # "logo": {
     #     "text": "RAGoon",
     #     "image_light": "_static/your_logo.png",
     #     "image_dark": "_static/your_logo.png"
-    # }
+    # },
+    "icon_links": [
+        {"name": "GitHub", "url": "https://github.com/yourprofile", "icon": "fab fa-github"},
+        {"name": "Twitter", "url": "https://twitter.com/yourprofile", "icon": "fab fa-twitter"},
+        {"name": "LinkedIn", "url": "https://linkedin.com/in/yourprofile", "icon": "fab fa-linkedin"},
+    ]
 }
