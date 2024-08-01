@@ -1,0 +1,1184 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ragoon.embeddings &#8212; RAGoon 0.0.5 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=6424ca4d"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/ragoon.embeddings';</script>
+    <link rel="icon" href="../_static/logo.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ragoon.similarity_search" href="ragoon.similarity_search.html" />
+    <link rel="prev" title="ragoon.chunks" href="ragoon.chunks.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">📖 Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../modules.html">ragoon</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ragoon.chunks.html">ragoon.chunks</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ragoon.embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ragoon.similarity_search.html">ragoon.similarity_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ragoon.web_rag.html">ragoon.web_rag</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/louisbrulenaudet/ragoon" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/api/ragoon.embeddings.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ragoon.embeddings</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.dataset_name"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.dataset_name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.token"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.token</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.model_configs"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.model_configs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.batch_size"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.batch_size</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.dataset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.convert_to_tensor"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.convert_to_tensor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.cuda_available"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.cuda_available</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.load_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.load_model"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_model()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.encode"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.encode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.embed"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.embed()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.process_split"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_split()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.process_splits"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_splits()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.get_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.get_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.save_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.save_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.upload_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.upload_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.__init__"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_model()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.encode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.embed()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_split()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_splits()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.get_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.save_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.upload_dataset()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.index_path"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.index_path</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.dataset_path"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.dataset_path</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.index"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.index</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.dataset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.vectors"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.vectors</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.reduced_vectors"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.reduced_vectors</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.labels"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.labels</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.load_index"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_index()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.load_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.extract_vectors"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.extract_vectors()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.plot_3d"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.plot_3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.__init__"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_index()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.extract_vectors()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.reduce_dimensionality"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.reduce_dimensionality()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.create_plot"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.create_plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.visualize"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.visualize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-ragoon.embeddings">
+<span id="ragoon-embeddings"></span><h1>ragoon.embeddings<a class="headerlink" href="#module-ragoon.embeddings" title="Link to this heading">#</a></h1>
+<p class="rubric">Classes</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ragoon.embeddings.EmbeddingsDataLoader" title="ragoon.embeddings.EmbeddingsDataLoader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EmbeddingsDataLoader</span></code></a>(dataset_name, token, ...)</p></td>
+<td><p>A class to load a dataset and process it to add embeddings using specified models.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ragoon.embeddings.EmbeddingsVisualizer" title="ragoon.embeddings.EmbeddingsVisualizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EmbeddingsVisualizer</span></code></a>(index_path, dataset_path)</p></td>
+<td><p>A class for Embedding Exploration Lab, visualizing high-dimensional embeddings in 3D space.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ragoon.embeddings.</span></span><span class="sig-name descname"><span class="pre">EmbeddingsDataLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_configs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_to_tensor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to load a dataset and process it to add embeddings using specified models.</p>
+<p>This class handles loading a dataset from Hugging Face, processing it to add
+embeddings using specified models, and provides methods to save the processed dataset.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.dataset_name">
+<span class="sig-name descname"><span class="pre">dataset_name</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.dataset_name" title="Link to this definition">#</a></dt>
+<dd><p>The name of the dataset to load from Hugging Face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.token">
+<span class="sig-name descname"><span class="pre">token</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.token" title="Link to this definition">#</a></dt>
+<dd><p>The token for accessing Hugging Face API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.model_configs">
+<span class="sig-name descname"><span class="pre">model_configs</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.model_configs" title="Link to this definition">#</a></dt>
+<dd><p>The list of dictionaries with model configurations to use for generating embeddings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.batch_size">
+<span class="sig-name descname"><span class="pre">batch_size</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.batch_size" title="Link to this definition">#</a></dt>
+<dd><p>The number of samples to process in each batch.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.dataset">
+<span class="sig-name descname"><span class="pre">dataset</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.dataset" title="Link to this definition">#</a></dt>
+<dd><p>The loaded and processed dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>datasets.DatasetDict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.convert_to_tensor">
+<span class="sig-name descname"><span class="pre">convert_to_tensor</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.convert_to_tensor" title="Link to this definition">#</a></dt>
+<dd><p>Whether the output should be one large tensor. Default is False.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.cuda_available">
+<span class="sig-name descname"><span class="pre">cuda_available</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.cuda_available" title="Link to this definition">#</a></dt>
+<dd><p>Whether CUDA is available for GPU acceleration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.load_dataset">
+<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.load_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.load_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Load the dataset from Hugging Face.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.load_model">
+<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.load_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.load_model" title="Link to this definition">#</a></dt>
+<dd><p>Load the specified model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.encode">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passage_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.encode" title="Link to this definition">#</a></dt>
+<dd><p>Create embeddings for a list of texts using a loaded model with optional prefixes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.embed">
+<span class="sig-name descname"><span class="pre">embed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'text'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passage_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.embed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.embed" title="Link to this definition">#</a></dt>
+<dd><p>Add embeddings columns to the dataset for each model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.process_split">
+<span class="sig-name descname"><span class="pre">process_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'text'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.process_split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.process_split" title="Link to this definition">#</a></dt>
+<dd><p>Process a specific split of the dataset and add embeddings for each model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.process_splits">
+<span class="sig-name descname"><span class="pre">process_splits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">splits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'text'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.process_splits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.process_splits" title="Link to this definition">#</a></dt>
+<dd><p>Process specified splits of the dataset and add embeddings for each model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.get_dataset">
+<span class="sig-name descname"><span class="pre">get_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.get_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.get_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Return the processed dataset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.save_dataset">
+<span class="sig-name descname"><span class="pre">save_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.save_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.save_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Save the processed dataset to disk.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.upload_dataset">
+<span class="sig-name descname"><span class="pre">upload_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repo_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.upload_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.upload_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Upload the processed dataset to the Hugging Face Hub.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_configs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_to_tensor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initialize the EmbeddingsDataLoader with the specified parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset_name</strong> (<em>str</em>) – The name of the dataset to load from Hugging Face.</p></li>
+<li><p><strong>token</strong> (<em>str</em>) – The token for accessing Hugging Face API.</p></li>
+<li><p><strong>model_configs</strong> (<em>list</em><em> of </em><em>dict</em>) – The list of dictionaries with model configurations to use for generating embeddings.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of samples to process in each batch. Default is 16.</p></li>
+<li><p><strong>convert_to_tensor</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether the output should be one large tensor. Default is False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.load_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">#</a></dt>
+<dd><p>Load the dataset from Hugging Face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – If the dataset fails to load from Hugging Face.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">InferenceClient</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">SentenceTransformer</span></span></span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.load_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition">#</a></dt>
+<dd><p>Load the specified model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model_name</strong> (<em>str</em>) – The name of the model to load.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>model</strong> – The loaded model, either a SentenceTransformer or an InferenceClient.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[InferenceClient, SentenceTransformer]</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – If the model fails to load.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">InferenceClient</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">SentenceTransformer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passage_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition">#</a></dt>
+<dd><p>Create embeddings for a list of texts using a loaded model with optional prefixes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>texts</strong> (<em>list</em><em> of </em><em>str</em>) – The list of texts to encode.</p></li>
+<li><p><strong>model</strong> (<em>model</em>) – The loaded model to use for encoding.</p></li>
+<li><p><strong>query_prefix</strong> (<em>str</em><em>, </em><em>optional</em>) – The prefix to add to each query. Default is None.</p></li>
+<li><p><strong>passage_prefix</strong> (<em>str</em><em>, </em><em>optional</em>) – The prefix to add to each passage. Default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The embeddings for the texts.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – If encoding fails.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">embed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">InferenceClient</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">SentenceTransformer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'text'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passage_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.embed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition">#</a></dt>
+<dd><p>Add embeddings columns to the dataset for each model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>batch</strong> (<em>dict</em>) – A batch of data from the dataset.</p></li>
+<li><p><strong>model</strong> (<em>model</em>) – The loaded model to use for encoding.</p></li>
+<li><p><strong>model_name</strong> (<em>str</em>) – The name of the model to use for encoding.</p></li>
+<li><p><strong>column</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the column containing the text to encode (default is “text”).</p></li>
+<li><p><strong>query_prefix</strong> (<em>str</em><em>, </em><em>optional</em>) – The prefix to add to each query (default is None).</p></li>
+<li><p><strong>passage_prefix</strong> (<em>str</em><em>, </em><em>optional</em>) – The prefix to add to each passage (default is None).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the embeddings for the model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – If embedding fails.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">process_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'text'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.process_split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition">#</a></dt>
+<dd><p>Process a specific split of the dataset and add embeddings for each model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>split</strong> (<em>str</em>) – The split of the dataset to process.</p></li>
+<li><p><strong>column</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the column containing the text to encode (default is “text”).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the dataset is not loaded.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">process_splits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">splits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'text'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.process_splits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id5" title="Link to this definition">#</a></dt>
+<dd><p>Process specified splits of the dataset and add embeddings for each model.
+If splits are not provided, process all splits available in the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>splits</strong> (<em>list</em><em> of </em><em>str</em>) – The list of splits to process. If None, process all splits.</p></li>
+<li><p><strong>column</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the column containing the text to encode (default is “text”).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the dataset is not loaded.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">get_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dataset</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DatasetDict</span></span></span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.get_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id6" title="Link to this definition">#</a></dt>
+<dd><p>Return the processed dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The processed dataset.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>datasets.DatasetDict</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the dataset is not processed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">save_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.save_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id7" title="Link to this definition">#</a></dt>
+<dd><p>Save the processed dataset to disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>output_dir</strong> (<em>str</em>) – The directory where the dataset will be saved.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the dataset is not processed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">upload_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repo_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsDataLoader.upload_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id8" title="Link to this definition">#</a></dt>
+<dd><p>Upload the processed dataset to the Hugging Face Hub.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>repo_id</strong> (<em>str</em>) – The repository ID on the Hugging Face Hub.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the dataset is not processed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ragoon.embeddings.</span></span><span class="sig-name descname"><span class="pre">EmbeddingsVisualizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsVisualizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class for Embedding Exploration Lab, visualizing high-dimensional embeddings in 3D space.</p>
+<p>This class provides functionality to load embeddings from a FAISS index,
+reduce their dimensionality using PCA and/or t-SNE, and visualize them
+in an interactive 3D plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index_path</strong> (<em>str</em>) – Path to the FAISS index file.</p></li>
+<li><p><strong>dataset_path</strong> (<em>str</em>) – Path to the dataset containing labels.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.index_path">
+<span class="sig-name descname"><span class="pre">index_path</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.index_path" title="Link to this definition">#</a></dt>
+<dd><p>Path to the FAISS index file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.dataset_path">
+<span class="sig-name descname"><span class="pre">dataset_path</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.dataset_path" title="Link to this definition">#</a></dt>
+<dd><p>Path to the dataset containing labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.index">
+<span class="sig-name descname"><span class="pre">index</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.index" title="Link to this definition">#</a></dt>
+<dd><p>Loaded FAISS index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>faiss.Index or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.dataset">
+<span class="sig-name descname"><span class="pre">dataset</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.dataset" title="Link to this definition">#</a></dt>
+<dd><p>Loaded dataset containing labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>datasets.Dataset or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.vectors">
+<span class="sig-name descname"><span class="pre">vectors</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.vectors" title="Link to this definition">#</a></dt>
+<dd><p>Extracted vectors from the FAISS index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.reduced_vectors">
+<span class="sig-name descname"><span class="pre">reduced_vectors</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.reduced_vectors" title="Link to this definition">#</a></dt>
+<dd><p>Dimensionality-reduced vectors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.labels">
+<span class="sig-name descname"><span class="pre">labels</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.labels" title="Link to this definition">#</a></dt>
+<dd><p>Labels from the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.load_index">
+<span class="sig-name descname"><span class="pre">load_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">'EmbeddingsVisualizer':</span></span></span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsVisualizer.load_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.load_index" title="Link to this definition">#</a></dt>
+<dd><p>Load the FAISS index from the specified file path.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.load_dataset">
+<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">'EmbeddingsVisualizer':</span></span></span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsVisualizer.load_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.load_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Load the dataset containing labels from the specified file path.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.extract_vectors">
+<span class="sig-name descname"><span class="pre">extract_vectors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">'EmbeddingsVisualizer':</span></span></span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsVisualizer.extract_vectors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.extract_vectors" title="Link to this definition">#</a></dt>
+<dd><p>Extract all vectors from the loaded FAISS index.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">reduce_dimensionality(</span></span></dt>
+<dd><p>method: str = “umap”,
+pca_components: int = 50,
+final_components: int = 3,
+random_state: int = 42</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">)</span> <span class="pre">-&gt;</span> <span class="pre">'EmbeddingsVisualizer':</span></span></dt>
+<dd><p>Reduce dimensionality of the extracted vectors with dynamic progress tracking.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.plot_3d">
+<span class="sig-name descname"><span class="pre">plot_3d</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None:</span></span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.plot_3d" title="Link to this definition">#</a></dt>
+<dd><p>Generate a 3D scatter plot of the reduced vectors with labels.</p>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">EmbeddingsVisualizer</span><span class="p">(</span><span class="n">index_path</span><span class="o">=</span><span class="s2">&quot;path/to/index&quot;</span><span class="p">,</span> <span class="n">dataset_path</span><span class="o">=</span><span class="s2">&quot;path/to/dataset&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">visualizer</span><span class="o">.</span><span class="n">load_index</span><span class="p">()</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">()</span><span class="o">.</span><span class="n">extract_vectors</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">visualizer</span><span class="o">.</span><span class="n">reduce_dimensionality</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;pca_umap&quot;</span><span class="p">,</span> <span class="n">pca_components</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">final_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">visualizer</span><span class="o">.</span><span class="n">plot_3d</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsVisualizer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.__init__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">load_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsVisualizer.load_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id9" title="Link to this definition">#</a></dt>
+<dd><p>Load the FAISS index from the specified file path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self</strong> – The instance itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#ragoon.embeddings.EmbeddingsVisualizer" title="ragoon.embeddings.EmbeddingsVisualizer">EmbeddingsVisualizer</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'document'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsVisualizer.load_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id10" title="Link to this definition">#</a></dt>
+<dd><p>Load the Dataset containing labels from the specified file path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>column</strong> (<em>str</em><em>, </em><em>optional</em>) – The column of the split corresponding to the embeddings stored in
+the index. Default is ‘document’.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The instance itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>datasets.Dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">extract_vectors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsVisualizer.extract_vectors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id11" title="Link to this definition">#</a></dt>
+<dd><p>Extract all vectors from the loaded FAISS index.</p>
+<p>This method should be called after <cite>load_index()</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self</strong> – The instance itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#ragoon.embeddings.EmbeddingsVisualizer" title="ragoon.embeddings.EmbeddingsVisualizer">EmbeddingsVisualizer</a></p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ValueError</strong> – If the index has not been loaded yet.</p></li>
+<li><p><strong>RuntimeError</strong> – If there’s an issue with vector extraction.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.reduce_dimensionality">
+<span class="sig-name descname"><span class="pre">reduce_dimensionality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'umap'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pca_components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsVisualizer.reduce_dimensionality"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.reduce_dimensionality" title="Link to this definition">#</a></dt>
+<dd><p>Reduce dimensionality of the extracted vectors with dynamic progress tracking.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<em>{'pca'</em><em>, </em><em>'umap'</em><em>, </em><em>'pca_umap'}</em><em>, </em><em>optional</em>) – <p>The method to use for dimensionality reduction, by default ‘umap’.</p>
+<ul>
+<li><p>pca : Principal Component Analysis (PCA) is a linear dimensionality reduction technique</p></li>
+</ul>
+<p>that is commonly used to reduce the dimensionality of high-dimensional data.
+It identifies the directions (principal components) in which the data varies the most
+and projects the data onto these components, resulting in a lower-dimensional representation.</p>
+<ul>
+<li><p>umap : Uniform Manifold Approximation and Projection (UMAP) is a non-linear dimensionality</p></li>
+</ul>
+<p>reduction technique that is particularly well-suited for visualizing high-dimensional
+data in lower-dimensional space. It preserves both local and global structure of the data
+by constructing a low-dimensional representation that captures the underlying manifold
+structure of the data.</p>
+<ul>
+<li><p>pca_umap : PCA followed by UMAP is a two-step dimensionality reduction technique.</p></li>
+</ul>
+<p>First, PCA is applied to reduce the dimensionality of the data.
+Then, UMAP is applied to further reduce the dimensionality and capture the
+non-linear structure of the data. This combination can be effective in
+preserving both global and local structure of the data.</p>
+</p></li>
+<li><p><strong>pca_components</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of components for PCA (used in ‘pca’ and ‘pca_umap’), by default 50.</p></li>
+<li><p><strong>final_components</strong> (<em>int</em><em>, </em><em>optional</em>) – Final number of components (3 for 3D visualization), by default 3.</p></li>
+<li><p><strong>random_state</strong> (<em>int</em><em>, </em><em>optional</em>) – Random state for reproducibility, by default 42.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self</strong> – The instance itself, allowing for method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ragoon.embeddings.EmbeddingsVisualizer" title="ragoon.embeddings.EmbeddingsVisualizer">EmbeddingsVisualizer</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If vectors have not been extracted yet or if an invalid method is specified.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.create_plot">
+<span class="sig-name descname"><span class="pre">create_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'3D</span> <span class="pre">Visualization</span> <span class="pre">of</span> <span class="pre">Embeddings'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsVisualizer.create_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.create_plot" title="Link to this definition">#</a></dt>
+<dd><p>Generate a 3D scatter plot of the reduced vectors with labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> (<em>str</em><em>, </em><em>optional</em>) – The title of the plot (default is ‘3D Visualization of Embeddings’).</p></li>
+<li><p><strong>point_size</strong> (<em>int</em><em>, </em><em>optional</em>) – The size of the markers in the scatter plot (default is 3).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The generated 3D scatter plot.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>go.Figure</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If vectors have not been reduced yet.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>This method requires the <cite>plotly</cite> library to be installed.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">EmbeddingsVisualizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span> <span class="o">=</span> <span class="n">visualizer</span><span class="o">.</span><span class="n">create_plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;My Embeddings&#39;</span><span class="p">,</span> <span class="n">point_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.visualize">
+<span class="sig-name descname"><span class="pre">visualize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tsne'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pca_components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'3D</span> <span class="pre">Visualization</span> <span class="pre">of</span> <span class="pre">Embeddings'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_html</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">html_file_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'embedding_visualization.html'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/embeddings.html#EmbeddingsVisualizer.visualize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.visualize" title="Link to this definition">#</a></dt>
+<dd><p>Full pipeline: load index, extract vectors, reduce dimensionality, and visualize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<em>str</em><em>, </em><em>optional</em>) – The dimensionality reduction method to use. Default is ‘tsne’.</p></li>
+<li><p><strong>pca_components</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of components to keep when using PCA for dimensionality reduction. Default is 50.</p></li>
+<li><p><strong>final_components</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of final components to visualize. Default is 3.</p></li>
+<li><p><strong>random_state</strong> (<em>int</em><em>, </em><em>optional</em>) – The random state for reproducibility. Default is 42.</p></li>
+<li><p><strong>title</strong> (<em>str</em><em>, </em><em>optional</em>) – The title of the visualization plot. Default is ‘3D Visualization of Embeddings’.</p></li>
+<li><p><strong>point_size</strong> (<em>int</em><em>, </em><em>optional</em>) – The size of the points in the visualization plot. Default is 3.</p></li>
+<li><p><strong>save_html</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to save the visualization as an HTML file. Default is False.</p></li>
+<li><p><strong>html_file_name</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the HTML file to save. Default is ‘embedding_visualization.html’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">EmbeddingsVisualizer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">visualizer</span><span class="o">.</span><span class="n">visualize</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;tsne&#39;</span><span class="p">,</span> <span class="n">pca_components</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">final_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ragoon.chunks.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ragoon.chunks</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ragoon.similarity_search.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ragoon.similarity_search</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.dataset_name"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.dataset_name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.token"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.token</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.model_configs"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.model_configs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.batch_size"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.batch_size</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.dataset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.convert_to_tensor"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.convert_to_tensor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.cuda_available"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.cuda_available</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.load_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.load_model"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_model()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.encode"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.encode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.embed"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.embed()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.process_split"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_split()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.process_splits"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_splits()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.get_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.get_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.save_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.save_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.upload_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.upload_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.__init__"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_model()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.encode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.embed()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_split()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_splits()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.get_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.save_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.upload_dataset()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.index_path"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.index_path</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.dataset_path"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.dataset_path</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.index"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.index</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.dataset</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.vectors"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.vectors</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.reduced_vectors"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.reduced_vectors</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.labels"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.labels</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.load_index"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_index()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.load_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.extract_vectors"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.extract_vectors()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.plot_3d"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.plot_3d()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.__init__"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_index()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.extract_vectors()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.reduce_dimensionality"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.reduce_dimensionality()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.create_plot"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.create_plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.visualize"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.visualize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Louis Brulé Naudet
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Louis Brulé Naudet.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

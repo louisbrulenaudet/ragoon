@@ -29,7 +29,7 @@ install_requires = [
     "groq==0.9.0",
     "httpx==0.27.0",
     "huggingface_hub==0.24.2",
-    "numpy==2.0.1",
+    "numpy<2",
     "numpydoc==1.7.0",
     "openai==1.37.1",
     "plotly==5.23.0",
@@ -48,6 +48,23 @@ install_requires = [
 [tool.pytest.ini_options]
 testpaths = [
     "tests"
+]
+
+[project.optional-dependencies]
+docs = [
+    "sphinx>=6.0.0",
+    "sphinx-book-theme>=1.0.1",  # Older versions fail to pin pydata-sphinx-theme
+    "sphinxcontrib-katex",
+    "sphinx-autodoc-typehints",
+    "ipython>=8.8.0",  # 8.7.0 has ipython3 lexer error
+    "myst-nb>=1.0.0",
+    "matplotlib>=3.5.0",
+    "sphinx-gallery>=0.14.0",
+    "sphinx-collections>=0.0.1",
+    "tensorflow>=2.4.0",
+    "tensorflow-datasets>=4.2.0",
+    "flax",
+    "sphinx_contributors",
 ]
 
 [tool.env]

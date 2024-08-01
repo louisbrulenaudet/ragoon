@@ -3,53 +3,71 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+import inspect
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../src/ragoon'))
+sys.path.insert(0, os.path.abspath("../../src"))
+
+import ragoon
+
+# -- Project information -----------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'RAGoon'
 copyright = '2024, Louis Brulé Naudet'
 author = 'Louis Brulé Naudet'
-release = '0.0.4'
+release = '0.0.5'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon',
-    'numpydoc',
-    'sphinx.ext.viewcode',
-    'sphinx.ext.todo',
-    'sphinx.ext.coverage',
-    'sphinx.ext.mathjax',
     'sphinx.ext.autosummary',
+    'sphinx.ext.doctest',
+    'sphinx.ext.inheritance_diagram',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.napoleon',
+		'sphinx.ext.viewcode',
 ]
-
-autosummary_generate = True
-napoleon_google_docstring = False
-napoleon_numpy_docstring = True
-numpydoc_show_class_members = False
 
 templates_path = ['_templates']
 exclude_patterns = []
 
+# Numpydoc configuration
+numpydoc_show_class_members = False
+napoleon_google_docstring = False
+napoleon_numpy_docstring = True
+
+autodoc_default_options = {
+    'member-order': 'bysource',
+    'exclude-members': '__repr__, __str__, __weakref__',
+    'members': True,             # Include all members (methods, attributes) of classes
+    'undoc-members': True,       # Include members without docstrings
+    'show-inheritance': True,    # Show class inheritance
+    'special-members': '__init__',  # Include special methods like __init__
+}
+
+html_logo = 'images/logo.svg'
+html_favicon = 'images/logo.svg'
+
+# Generate autosummary pages automatically
+autosummary_generate = True
+
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = "pydata_sphinx_theme"
-html_static_path = ['_static']
+html_theme = 'sphinx_book_theme'
 
 html_theme_options = {
-    "external_links": [
-        {"name": "GitHub", "url": "https://github.com/louisbrulenaudet"},
-        {"name": "Twitter", "url": "https://x.com/louisbrulenaudet"}
-    ],
-    # "logo": {
-    #     "text": "RAGoon",
-    #     "image_light": "_static/your_logo.png",
-    #     "image_dark": "_static/your_logo.png"
-    # }
+    'show_toc_level': 2,
+    'repository_url': 'https://github.com/louisbrulenaudet/ragoon',
+    'use_repository_button': True,     # add a "link to repository" button
+    'navigation_with_keys': False,
 }
+
+# Add any paths that contain custom static files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static files,
+# so a file named "default.css" will overwrite the builtin "default.css".
+
+html_static_path = ['_static']

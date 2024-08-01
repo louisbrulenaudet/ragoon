@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ragoon package &#8212; RAGoon 0.0.4 documentation</title>
+    <title>RAGoon Module &#8212; RAGoon 0.0.5 documentation</title>
   
   
   
@@ -29,19 +29,22 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=8c5712d9"></script>
+    <script src="_static/documentation_options.js?v=6424ca4d"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ragoon';</script>
+    <link rel="icon" href="_static/logo.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="ragoon" href="modules.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -80,8 +83,8 @@
          class="form-control"
          name="q"
          id="search-input"
-         placeholder="Search the docs ..."
-         aria-label="Search the docs ..."
+         placeholder="Search..."
+         aria-label="Search..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -96,15 +99,29 @@
 
   
     <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
+    </header>
   
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
   
-  <div class="col-lg-3 navbar-header-items__start">
+  <div class="sidebar-header-items sidebar-primary__section">
     
-      <div class="navbar-item">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
 
   
     
@@ -116,191 +133,41 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/logo.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
+    <script>document.write(`<img src="_static/logo.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
   
-    <p class="title logo__title">RAGoon 0.0.4 documentation</p>
   
 </a></div>
-    
-  </div>
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    <div class="me-auto navbar-header-items__center">
-      
-        <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="modules.html">
-    ragoon
-  </a>
-</li>
-
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
-    ragoon package
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-external" href="https://github.com/louisbrulenaudet">
-    GitHub
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-external" href="https://x.com/louisbrulenaudet">
-    Twitter
-  </a>
-</li>
-
-  </ul>
-</nav></div>
-      
-    </div>
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
-        </div>
-      
-      
-        <div class="navbar-item">
-
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
-      
-      
-      
-      <div class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-      <div class="sidebar-header-items__center">
-        
-          
-          
-            <div class="navbar-item">
-<nav>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="modules.html">
-    ragoon
-  </a>
-</li>
-
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
-    ragoon package
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-external" href="https://github.com/louisbrulenaudet">
-    GitHub
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-external" href="https://x.com/louisbrulenaudet">
-    Twitter
-  </a>
-</li>
-
-  </ul>
-</nav></div>
-          
-        
-      </div>
-    
-    
-    
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script></div>
-        
-      </div>
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">📖 Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">ragoon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/ragoon.chunks.html">ragoon.chunks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ragoon.embeddings.html">ragoon.embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ragoon.similarity_search.html">ragoon.similarity_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ragoon.web_rag.html">ragoon.web_rag</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
 </nav></div>
     </div>
   
@@ -316,6 +183,9 @@ document.write(`
       <main id="main-content" class="bd-main" role="main">
         
         
+
+<div class="sbt-scroll-pixel-helper"></div>
+
           <div class="bd-content">
             <div class="bd-article-container">
               
@@ -324,978 +194,182 @@ document.write(`
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item">
-
-
-
-<nav aria-label="Breadcrumb" class="d-print-none">
-  <ul class="bd-breadcrumbs">
-    
-    <li class="breadcrumb-item breadcrumb-home">
-      <a href="index.html" class="nav-link" aria-label="Home">
-        <i class="fa-solid fa-home"></i>
-      </a>
-    </li>
-    
-    <li class="breadcrumb-item"><a href="modules.html" class="nav-link">ragoon</a></li>
-    
-    <li class="breadcrumb-item active" aria-current="page">ragoon package</li>
-  </ul>
-</nav>
-</div>
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
       
     </div>
   
   
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/louisbrulenaudet/ragoon" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ragoon.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
 </div>
 </div>
               
               
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>RAGoon Module</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
               
                 
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="ragoon-package">
-<h1>ragoon package<a class="headerlink" href="#ragoon-package" title="Link to this heading">#</a></h1>
+  <section id="module-ragoon">
+<span id="ragoon-module"></span><h1>RAGoon Module<a class="headerlink" href="#module-ragoon" title="Link to this heading">#</a></h1>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
-</section>
-<section id="module-ragoon.embeddings">
-<span id="ragoon-embeddings-module"></span><h2>ragoon.embeddings module<a class="headerlink" href="#module-ragoon.embeddings" title="Link to this heading">#</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ragoon.embeddings.</span></span><span class="sig-name descname"><span class="pre">EmbeddingsDataLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_configs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_to_tensor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A class to load a dataset and process it to add embeddings using specified models.</p>
-<p>This class handles loading a dataset from Hugging Face, processing it to add
-embeddings using specified models, and provides methods to save the processed dataset.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.dataset_name">
-<span class="sig-name descname"><span class="pre">dataset_name</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.dataset_name" title="Link to this definition">#</a></dt>
-<dd><p>The name of the dataset to load from Hugging Face.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.token">
-<span class="sig-name descname"><span class="pre">token</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.token" title="Link to this definition">#</a></dt>
-<dd><p>The token for accessing Hugging Face API.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.model_configs">
-<span class="sig-name descname"><span class="pre">model_configs</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.model_configs" title="Link to this definition">#</a></dt>
-<dd><p>The list of dictionaries with model configurations to use for generating embeddings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.batch_size">
-<span class="sig-name descname"><span class="pre">batch_size</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.batch_size" title="Link to this definition">#</a></dt>
-<dd><p>The number of samples to process in each batch.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.dataset">
-<span class="sig-name descname"><span class="pre">dataset</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.dataset" title="Link to this definition">#</a></dt>
-<dd><p>The loaded and processed dataset.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>datasets.DatasetDict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.convert_to_tensor">
-<span class="sig-name descname"><span class="pre">convert_to_tensor</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.convert_to_tensor" title="Link to this definition">#</a></dt>
-<dd><p>Whether the output should be one large tensor. Default is False.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool, optional</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.cuda_available">
-<span class="sig-name descname"><span class="pre">cuda_available</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.cuda_available" title="Link to this definition">#</a></dt>
-<dd><p>Whether CUDA is available for GPU acceleration.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.load_dataset">
-<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.load_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.load_dataset" title="Link to this definition">#</a></dt>
-<dd><p>Load the dataset from Hugging Face.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.load_model">
-<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.load_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.load_model" title="Link to this definition">#</a></dt>
-<dd><p>Load the specified model.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.encode">
-<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passage_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.encode" title="Link to this definition">#</a></dt>
-<dd><p>Create embeddings for a list of texts using a loaded model with optional prefixes.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.embed">
-<span class="sig-name descname"><span class="pre">embed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'text'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passage_prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.embed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.embed" title="Link to this definition">#</a></dt>
-<dd><p>Add embeddings columns to the dataset for each model.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.process_split">
-<span class="sig-name descname"><span class="pre">process_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'text'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.process_split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.process_split" title="Link to this definition">#</a></dt>
-<dd><p>Process a specific split of the dataset and add embeddings for each model.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.process_splits">
-<span class="sig-name descname"><span class="pre">process_splits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">splits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'text'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.process_splits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.process_splits" title="Link to this definition">#</a></dt>
-<dd><p>Process specified splits of the dataset and add embeddings for each model.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.get_dataset">
-<span class="sig-name descname"><span class="pre">get_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.get_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.get_dataset" title="Link to this definition">#</a></dt>
-<dd><p>Return the processed dataset.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.save_dataset">
-<span class="sig-name descname"><span class="pre">save_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.save_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.save_dataset" title="Link to this definition">#</a></dt>
-<dd><p>Save the processed dataset to disk.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsDataLoader.upload_dataset">
-<span class="sig-name descname"><span class="pre">upload_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repo_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.upload_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsDataLoader.upload_dataset" title="Link to this definition">#</a></dt>
-<dd><p>Upload the processed dataset to the Hugging Face Hub.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">embed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">InferenceClient</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">SentenceTransformer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'text'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passage_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.embed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">#</a></dt>
-<dd><p>Add embeddings columns to the dataset for each model.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>batch</strong> (<em>dict</em>) – A batch of data from the dataset.</p></li>
-<li><p><strong>model</strong> (<em>model</em>) – The loaded model to use for encoding.</p></li>
-<li><p><strong>model_name</strong> (<em>str</em>) – The name of the model to use for encoding.</p></li>
-<li><p><strong>column</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the column containing the text to encode (default is “text”).</p></li>
-<li><p><strong>query_prefix</strong> (<em>str</em><em>, </em><em>optional</em>) – The prefix to add to each query (default is None).</p></li>
-<li><p><strong>passage_prefix</strong> (<em>str</em><em>, </em><em>optional</em>) – The prefix to add to each passage (default is None).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dictionary containing the embeddings for the model.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – If embedding fails.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id1">
-<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">InferenceClient</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">SentenceTransformer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passage_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition">#</a></dt>
-<dd><p>Create embeddings for a list of texts using a loaded model with optional prefixes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>texts</strong> (<em>list</em><em> of </em><em>str</em>) – The list of texts to encode.</p></li>
-<li><p><strong>model</strong> (<em>model</em>) – The loaded model to use for encoding.</p></li>
-<li><p><strong>query_prefix</strong> (<em>str</em><em>, </em><em>optional</em>) – The prefix to add to each query. Default is None.</p></li>
-<li><p><strong>passage_prefix</strong> (<em>str</em><em>, </em><em>optional</em>) – The prefix to add to each passage. Default is None.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The embeddings for the texts.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – If encoding fails.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id2">
-<span class="sig-name descname"><span class="pre">get_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dataset</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DatasetDict</span></span></span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.get_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition">#</a></dt>
-<dd><p>Return the processed dataset.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The processed dataset.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>datasets.DatasetDict</p>
-</dd>
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ValueError</strong> – If the dataset is not processed.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id3">
-<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.load_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition">#</a></dt>
-<dd><p>Load the dataset from Hugging Face.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>Exception</strong> – If the dataset fails to load from Hugging Face.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id4">
-<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">InferenceClient</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">SentenceTransformer</span></span></span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.load_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition">#</a></dt>
-<dd><p>Load the specified model.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>model_name</strong> (<em>str</em>) – The name of the model to load.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>model</strong> – The loaded model, either a SentenceTransformer or an InferenceClient.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Union[InferenceClient, SentenceTransformer]</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>Exception</strong> – If the model fails to load.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id5">
-<span class="sig-name descname"><span class="pre">process_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'text'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.process_split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id5" title="Link to this definition">#</a></dt>
-<dd><p>Process a specific split of the dataset and add embeddings for each model.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>split</strong> (<em>str</em>) – The split of the dataset to process.</p></li>
-<li><p><strong>column</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the column containing the text to encode (default is “text”).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If the dataset is not loaded.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id6">
-<span class="sig-name descname"><span class="pre">process_splits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">splits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'text'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.process_splits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id6" title="Link to this definition">#</a></dt>
-<dd><p>Process specified splits of the dataset and add embeddings for each model.
-If splits are not provided, process all splits available in the dataset.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>splits</strong> (<em>list</em><em> of </em><em>str</em>) – The list of splits to process. If None, process all splits.</p></li>
-<li><p><strong>column</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the column containing the text to encode (default is “text”).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If the dataset is not loaded.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id7">
-<span class="sig-name descname"><span class="pre">save_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.save_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id7" title="Link to this definition">#</a></dt>
-<dd><p>Save the processed dataset to disk.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>output_dir</strong> (<em>str</em>) – The directory where the dataset will be saved.</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If the dataset is not processed.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id8">
-<span class="sig-name descname"><span class="pre">upload_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repo_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsDataLoader.upload_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id8" title="Link to this definition">#</a></dt>
-<dd><p>Upload the processed dataset to the Hugging Face Hub.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>repo_id</strong> (<em>str</em>) – The repository ID on the Hugging Face Hub.</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If the dataset is not processed.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ragoon.embeddings.</span></span><span class="sig-name descname"><span class="pre">EmbeddingsVisualizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsVisualizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A class for Embedding Exploration Lab, visualizing high-dimensional embeddings in 3D space.</p>
-<p>This class provides functionality to load embeddings from a FAISS index,
-reduce their dimensionality using PCA and/or t-SNE, and visualize them
-in an interactive 3D plot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>index_path</strong> (<em>str</em>) – Path to the FAISS index file.</p></li>
-<li><p><strong>dataset_path</strong> (<em>str</em>) – Path to the dataset containing labels.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.index_path">
-<span class="sig-name descname"><span class="pre">index_path</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.index_path" title="Link to this definition">#</a></dt>
-<dd><p>Path to the FAISS index file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.dataset_path">
-<span class="sig-name descname"><span class="pre">dataset_path</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.dataset_path" title="Link to this definition">#</a></dt>
-<dd><p>Path to the dataset containing labels.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.index">
-<span class="sig-name descname"><span class="pre">index</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.index" title="Link to this definition">#</a></dt>
-<dd><p>Loaded FAISS index.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>faiss.Index or None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.dataset">
-<span class="sig-name descname"><span class="pre">dataset</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.dataset" title="Link to this definition">#</a></dt>
-<dd><p>Loaded dataset containing labels.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>datasets.Dataset or None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.vectors">
-<span class="sig-name descname"><span class="pre">vectors</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.vectors" title="Link to this definition">#</a></dt>
-<dd><p>Extracted vectors from the FAISS index.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray or None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.reduced_vectors">
-<span class="sig-name descname"><span class="pre">reduced_vectors</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.reduced_vectors" title="Link to this definition">#</a></dt>
-<dd><p>Dimensionality-reduced vectors.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray or None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.labels">
-<span class="sig-name descname"><span class="pre">labels</span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.labels" title="Link to this definition">#</a></dt>
-<dd><p>Labels from the dataset.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of str or None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.load_index">
-<span class="sig-name descname"><span class="pre">load_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">'EmbeddingsVisualizer':</span></span></span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsVisualizer.load_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.load_index" title="Link to this definition">#</a></dt>
-<dd><p>Load the FAISS index from the specified file path.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.load_dataset">
-<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">'EmbeddingsVisualizer':</span></span></span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsVisualizer.load_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.load_dataset" title="Link to this definition">#</a></dt>
-<dd><p>Load the dataset containing labels from the specified file path.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.extract_vectors">
-<span class="sig-name descname"><span class="pre">extract_vectors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">'EmbeddingsVisualizer':</span></span></span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsVisualizer.extract_vectors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.extract_vectors" title="Link to this definition">#</a></dt>
-<dd><p>Extract all vectors from the loaded FAISS index.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">reduce_dimensionality(</span></span></dt>
-<dd><p>method: str = “umap”,
-pca_components: int = 50,
-final_components: int = 3,
-random_state: int = 42</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">)</span> <span class="pre">-&gt;</span> <span class="pre">'EmbeddingsVisualizer':</span></span></dt>
-<dd><p>Reduce dimensionality of the extracted vectors with dynamic progress tracking.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.plot_3d">
-<span class="sig-name descname"><span class="pre">plot_3d</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None:</span></span></span><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.plot_3d" title="Link to this definition">#</a></dt>
-<dd><p>Generate a 3D scatter plot of the reduced vectors with labels.</p>
-</dd></dl>
-
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">EmbeddingsVisualizer</span><span class="p">(</span><span class="n">index_path</span><span class="o">=</span><span class="s2">&quot;path/to/index&quot;</span><span class="p">,</span> <span class="n">dataset_path</span><span class="o">=</span><span class="s2">&quot;path/to/dataset&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">visualizer</span><span class="o">.</span><span class="n">load_index</span><span class="p">()</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">()</span><span class="o">.</span><span class="n">extract_vectors</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">visualizer</span><span class="o">.</span><span class="n">reduce_dimensionality</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;pca_umap&quot;</span><span class="p">,</span> <span class="n">pca_components</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">final_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">visualizer</span><span class="o">.</span><span class="n">plot_3d</span><span class="p">()</span>
-</pre></div>
-</div>
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.create_plot">
-<span class="sig-name descname"><span class="pre">create_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'3D</span> <span class="pre">Visualization</span> <span class="pre">of</span> <span class="pre">Embeddings'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Figure</span></span></span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsVisualizer.create_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.create_plot" title="Link to this definition">#</a></dt>
-<dd><p>Generate a 3D scatter plot of the reduced vectors with labels.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>title</strong> (<em>str</em><em>, </em><em>optional</em>) – The title of the plot (default is ‘3D Visualization of Embeddings’).</p></li>
-<li><p><strong>point_size</strong> (<em>int</em><em>, </em><em>optional</em>) – The size of the markers in the scatter plot (default is 3).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The generated 3D scatter plot.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>go.Figure</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If vectors have not been reduced yet.</p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>This method requires the <cite>plotly</cite> library to be installed.</p>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">EmbeddingsVisualizer</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span> <span class="o">=</span> <span class="n">visualizer</span><span class="o">.</span><span class="n">create_plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;My Embeddings&#39;</span><span class="p">,</span> <span class="n">point_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id9">
-<span class="sig-name descname"><span class="pre">extract_vectors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsVisualizer.extract_vectors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id9" title="Link to this definition">#</a></dt>
-<dd><p>Extract all vectors from the loaded FAISS index.</p>
-<p>This method should be called after <cite>load_index()</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>self</strong> – The instance itself, allowing for method chaining.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#ragoon.embeddings.EmbeddingsVisualizer" title="ragoon.embeddings.EmbeddingsVisualizer">EmbeddingsVisualizer</a></p>
-</dd>
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ValueError</strong> – If the index has not been loaded yet.</p></li>
-<li><p><strong>RuntimeError</strong> – If there’s an issue with vector extraction.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id10">
-<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'document'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsVisualizer.load_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id10" title="Link to this definition">#</a></dt>
-<dd><p>Load the Dataset containing labels from the specified file path.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>column</strong> (<em>str</em><em>, </em><em>optional</em>) – The column of the split corresponding to the embeddings stored in
-the index. Default is ‘document’.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>self</strong> – The instance itself, allowing for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>datasets.Dataset</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id11">
-<span class="sig-name descname"><span class="pre">load_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsVisualizer.load_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id11" title="Link to this definition">#</a></dt>
-<dd><p>Load the FAISS index from the specified file path.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>self</strong> – The instance itself, allowing for method chaining.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#ragoon.embeddings.EmbeddingsVisualizer" title="ragoon.embeddings.EmbeddingsVisualizer">EmbeddingsVisualizer</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.reduce_dimensionality">
-<span class="sig-name descname"><span class="pre">reduce_dimensionality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'umap'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pca_components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsVisualizer.reduce_dimensionality"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.reduce_dimensionality" title="Link to this definition">#</a></dt>
-<dd><p>Reduce dimensionality of the extracted vectors with dynamic progress tracking.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>method</strong> (<em>{'pca'</em><em>, </em><em>'umap'</em><em>, </em><em>'pca_umap'}</em><em>, </em><em>optional</em>) – <p>The method to use for dimensionality reduction, by default ‘umap’.</p>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Submodules</span></p>
 <ul>
-<li><p>pca : Principal Component Analysis (PCA) is a linear dimensionality reduction technique</p></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ragoon.chunks.html">ragoon.chunks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/ragoon.embeddings.html">ragoon.embeddings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsDataLoader"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsVisualizer"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer</span></code></a></li>
 </ul>
-<p>that is commonly used to reduce the dimensionality of high-dimensional data.
-It identifies the directions (principal components) in which the data varies the most
-and projects the data onto these components, resulting in a lower-dimensional representation.</p>
-<ul>
-<li><p>umap : Uniform Manifold Approximation and Projection (UMAP) is a non-linear dimensionality</p></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/ragoon.similarity_search.html">ragoon.similarity_search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/ragoon.similarity_search.html#ragoon.similarity_search.SimilaritySearch"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch</span></code></a></li>
 </ul>
-<p>reduction technique that is particularly well-suited for visualizing high-dimensional
-data in lower-dimensional space. It preserves both local and global structure of the data
-by constructing a low-dimensional representation that captures the underlying manifold
-structure of the data.</p>
-<ul>
-<li><p>pca_umap : PCA followed by UMAP is a two-step dimensionality reduction technique.</p></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/ragoon.web_rag.html">ragoon.web_rag</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/ragoon.web_rag.html#ragoon.web_rag.WebRAG"><code class="docutils literal notranslate"><span class="pre">WebRAG</span></code></a></li>
 </ul>
-<p>First, PCA is applied to reduce the dimensionality of the data.
-Then, UMAP is applied to further reduce the dimensionality and capture the
-non-linear structure of the data. This combination can be effective in
-preserving both global and local structure of the data.</p>
-</p></li>
-<li><p><strong>pca_components</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of components for PCA (used in ‘pca’ and ‘pca_umap’), by default 50.</p></li>
-<li><p><strong>final_components</strong> (<em>int</em><em>, </em><em>optional</em>) – Final number of components (3 for 3D visualization), by default 3.</p></li>
-<li><p><strong>random_state</strong> (<em>int</em><em>, </em><em>optional</em>) – Random state for reproducibility, by default 42.</p></li>
+</li>
 </ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>self</strong> – The instance itself, allowing for method chaining.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#ragoon.embeddings.EmbeddingsVisualizer" title="ragoon.embeddings.EmbeddingsVisualizer">EmbeddingsVisualizer</a></p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If vectors have not been extracted yet or if an invalid method is specified.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.embeddings.EmbeddingsVisualizer.visualize">
-<span class="sig-name descname"><span class="pre">visualize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tsne'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pca_components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_components</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'3D</span> <span class="pre">Visualization</span> <span class="pre">of</span> <span class="pre">Embeddings'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_html</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">html_file_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'embedding_visualization.html'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/embeddings.html#EmbeddingsVisualizer.visualize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.embeddings.EmbeddingsVisualizer.visualize" title="Link to this definition">#</a></dt>
-<dd><p>Full pipeline: load index, extract vectors, reduce dimensionality, and visualize.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>method</strong> (<em>str</em><em>, </em><em>optional</em>) – The dimensionality reduction method to use. Default is ‘tsne’.</p></li>
-<li><p><strong>pca_components</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of components to keep when using PCA for dimensionality reduction. Default is 50.</p></li>
-<li><p><strong>final_components</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of final components to visualize. Default is 3.</p></li>
-<li><p><strong>random_state</strong> (<em>int</em><em>, </em><em>optional</em>) – The random state for reproducibility. Default is 42.</p></li>
-<li><p><strong>title</strong> (<em>str</em><em>, </em><em>optional</em>) – The title of the visualization plot. Default is ‘3D Visualization of Embeddings’.</p></li>
-<li><p><strong>point_size</strong> (<em>int</em><em>, </em><em>optional</em>) – The size of the points in the visualization plot. Default is 3.</p></li>
-<li><p><strong>save_html</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to save the visualization as an HTML file. Default is False.</p></li>
-<li><p><strong>html_file_name</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the HTML file to save. Default is ‘embedding_visualization.html’.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-<dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>None</strong> – </p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">EmbeddingsVisualizer</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">visualizer</span><span class="o">.</span><span class="n">visualize</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;tsne&#39;</span><span class="p">,</span> <span class="n">pca_components</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">final_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-</pre></div>
 </div>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-ragoon.similarity_search">
-<span id="ragoon-similarity-search-module"></span><h2>ragoon.similarity_search module<a class="headerlink" href="#module-ragoon.similarity_search" title="Link to this heading">#</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="ragoon.similarity_search.SimilaritySearch">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ragoon.similarity_search.</span></span><span class="sig-name descname"><span class="pre">SimilaritySearch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cuda'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ip'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'i8'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.similarity_search.SimilaritySearch" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A class dedicated to encoding text data, quantizing embeddings, and managing indices for efficient similarity search.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.similarity_search.SimilaritySearch.model_name">
-<span class="sig-name descname"><span class="pre">model_name</span></span><a class="headerlink" href="#ragoon.similarity_search.SimilaritySearch.model_name" title="Link to this definition">#</a></dt>
-<dd><p>Name or identifier of the embedding model.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.similarity_search.SimilaritySearch.device">
-<span class="sig-name descname"><span class="pre">device</span></span><a class="headerlink" href="#ragoon.similarity_search.SimilaritySearch.device" title="Link to this definition">#</a></dt>
-<dd><p>Computation device (‘cpu’ or ‘cuda’).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.similarity_search.SimilaritySearch.ndim">
-<span class="sig-name descname"><span class="pre">ndim</span></span><a class="headerlink" href="#ragoon.similarity_search.SimilaritySearch.ndim" title="Link to this definition">#</a></dt>
-<dd><p>Dimension of the embeddings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.similarity_search.SimilaritySearch.metric">
-<span class="sig-name descname"><span class="pre">metric</span></span><a class="headerlink" href="#ragoon.similarity_search.SimilaritySearch.metric" title="Link to this definition">#</a></dt>
-<dd><p>Metric used for the index (‘ip’ for inner product, etc.).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ragoon.similarity_search.SimilaritySearch.dtype">
-<span class="sig-name descname"><span class="pre">dtype</span></span><a class="headerlink" href="#ragoon.similarity_search.SimilaritySearch.dtype" title="Link to this definition">#</a></dt>
-<dd><p>Data type for the index (‘i8’ for int8, etc.).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.similarity_search.SimilaritySearch.encode">
-<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">corpus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize_embeddings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.similarity_search.SimilaritySearch.encode" title="Link to this definition">#</a></dt>
-<dd><p>Encodes a list of text data into embeddings.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.similarity_search.SimilaritySearch.quantize_embeddings">
-<span class="sig-name descname"><span class="pre">quantize_embeddings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embeddings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantization_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch.quantize_embeddings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.similarity_search.SimilaritySearch.quantize_embeddings" title="Link to this definition">#</a></dt>
-<dd><p>Quantizes the embeddings for efficient storage and search.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.similarity_search.SimilaritySearch.create_faiss_index">
-<span class="sig-name descname"><span class="pre">create_faiss_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ubinary_embeddings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch.create_faiss_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.similarity_search.SimilaritySearch.create_faiss_index" title="Link to this definition">#</a></dt>
-<dd><p>Creates and saves a FAISS binary index.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.similarity_search.SimilaritySearch.create_usearch_index">
-<span class="sig-name descname"><span class="pre">create_usearch_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">int8_embeddings</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch.create_usearch_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.similarity_search.SimilaritySearch.create_usearch_index" title="Link to this definition">#</a></dt>
-<dd><p>Creates and saves a USEARCH integer index.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.similarity_search.SimilaritySearch.load_usearch_index_view">
-<span class="sig-name descname"><span class="pre">load_usearch_index_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch.load_usearch_index_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.similarity_search.SimilaritySearch.load_usearch_index_view" title="Link to this definition">#</a></dt>
-<dd><p>Loads a USEARCH index as a view for memory-efficient operations.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.similarity_search.SimilaritySearch.load_faiss_index">
-<span class="sig-name descname"><span class="pre">load_faiss_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch.load_faiss_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.similarity_search.SimilaritySearch.load_faiss_index" title="Link to this definition">#</a></dt>
-<dd><p>Loads a FAISS binary index for searching.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.similarity_search.SimilaritySearch.search">
-<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rescore_multiplier</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.similarity_search.SimilaritySearch.search" title="Link to this definition">#</a></dt>
-<dd><p>Performs a search operation against the indexed embeddings.</p>
-</dd></dl>
-
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span> <span class="o">=</span> <span class="n">SimilaritySearch</span><span class="p">(</span>
-<span class="go">    model_name=&quot;louisbrulenaudet/tsdae-lemone-mbert-base&quot;,</span>
-<span class="go">    device=&quot;cuda&quot;,</span>
-<span class="go">    ndim=768,</span>
-<span class="go">    metric=&quot;ip&quot;,</span>
-<span class="go">    dtype=&quot;i8&quot;</span>
-<span class="go">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">embeddings</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">corpus</span><span class="o">=</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;output&quot;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ubinary_embeddings</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">quantize_embeddings</span><span class="p">(</span>
-<span class="go">    embeddings=embeddings,</span>
-<span class="go">    quantization_type=&quot;ubinary&quot;</span>
-<span class="go">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">int8_embeddings</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">quantize_embeddings</span><span class="p">(</span>
-<span class="go">    embeddings=embeddings,</span>
-<span class="go">    quantization_type=&quot;int8&quot;</span>
-<span class="go">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span><span class="o">.</span><span class="n">create_usearch_index</span><span class="p">(</span>
-<span class="go">    int8_embeddings=int8_embeddings,</span>
-<span class="go">    index_path=&quot;./usearch_int8.index&quot;</span>
-<span class="go">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span><span class="o">.</span><span class="n">create_faiss_index</span><span class="p">(</span>
-<span class="go">    ubinary_embeddings=ubinary_embeddings,</span>
-<span class="go">    index_path=&quot;./faiss_ubinary.index&quot;</span>
-<span class="go">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">top_k_scores</span><span class="p">,</span> <span class="n">top_k_indices</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-<span class="go">    query=&quot;Sont considérées comme ayant leur domicile fiscal en France au sens de l&#39;article 4 A&quot;,</span>
-<span class="go">    top_k=10,</span>
-<span class="go">    rescore_multiplier=4</span>
-<span class="go">)</span>
-</pre></div>
-</div>
-<dl class="py method">
-<dt class="sig sig-object py" id="id12">
-<span class="sig-name descname"><span class="pre">create_faiss_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ubinary_embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytearray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch.create_faiss_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id12" title="Link to this definition">#</a></dt>
-<dd><p>Creates and saves a FAISS binary index from ubinary embeddings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ubinary_embeddings</strong> (<em>bytearray</em>) – The ubinary-quantized embeddings.</p></li>
-<li><p><strong>index_path</strong> (<em>str</em><em>, </em><em>optional</em>) – The file path to save the FAISS binary index. Default is None.</p></li>
-<li><p><strong>save</strong> (<em>bool</em><em>, </em><em>optional</em>) – Indicator for saving the index. Default is False.</p></li>
-</ul>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>The dimensionality of the index is specified during the class initialization (default is 1024).</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id13">
-<span class="sig-name descname"><span class="pre">create_usearch_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">int8_embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch.create_usearch_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id13" title="Link to this definition">#</a></dt>
-<dd><p>Creates and saves a USEARCH integer index from int8 embeddings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>int8_embeddings</strong> (<em>np.ndarray</em>) – The int8-quantized embeddings.</p></li>
-<li><p><strong>index_path</strong> (<em>str</em><em>, </em><em>optional</em>) – The file path to save the USEARCH integer index. Default is None.</p></li>
-<li><p><strong>save</strong> (<em>bool</em><em>, </em><em>optional</em>) – Indicator for saving the index. Default is False.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>The dimensionality and metric of the index are specified during class initialization.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id14">
-<span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">corpus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize_embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id14" title="Link to this definition">#</a></dt>
-<dd><p>Encodes the given corpus into full-precision embeddings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>corpus</strong> (<em>list</em>) – A list of sentences to be encoded.</p></li>
-<li><p><strong>normalize_embeddings</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to normalize returned vectors to have length 1. In that case,
-the faster dot-product (util.dot_score) instead of cosine similarity can be used. Default is True.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The full-precision embeddings of the corpus.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>This method normalizes the embeddings and shows the progress bar during the encoding process.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id15">
-<span class="sig-name descname"><span class="pre">load_faiss_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch.load_faiss_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id15" title="Link to this definition">#</a></dt>
-<dd><p>Loads a FAISS binary index from a specified file path.</p>
-<p>This method loads a binary index created by FAISS into the class
-attribute <cite>binary_index</cite>, ready for performing similarity searches.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>index_path</strong> (<em>str</em>) – The file path to the saved FAISS binary index.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>The loaded index is stored in the <cite>binary_index</cite> attribute of the class.
-Ensure that the index at <cite>index_path</cite> is compatible with the configurations
-(e.g., dimensions) used for this class instance.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id16">
-<span class="sig-name descname"><span class="pre">load_usearch_index_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">any</span></span></span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch.load_usearch_index_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id16" title="Link to this definition">#</a></dt>
-<dd><p>Loads a USEARCH index as a view for memory-efficient operations.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>index_path</strong> (<em>str</em>) – The file path to the USEARCH index to be loaded as a view.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A view of the USEARCH index for memory-efficient similarity search operations.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>object</p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Implementing this would depend on the specific USEARCH index handling library being used.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id17">
-<span class="sig-name descname"><span class="pre">quantize_embeddings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">embeddings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantization_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytearray</span></span></span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch.quantize_embeddings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id17" title="Link to this definition">#</a></dt>
-<dd><p>Quantizes the given embeddings based on the specified quantization type (‘ubinary’ or ‘int8’).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>embeddings</strong> (<em>np.ndarray</em>) – The full-precision embeddings to be quantized.</p></li>
-<li><p><strong>quantization_type</strong> (<em>str</em>) – The type of quantization (‘ubinary’ for unsigned binary, ‘int8’ for 8-bit integers).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The quantized embeddings.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Union[np.ndarray, bytearray]</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If an unsupported quantization type is provided.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="id18">
-<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rescore_multiplier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/ragoon/similarity_search.html#SimilaritySearch.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id18" title="Link to this definition">#</a></dt>
-<dd><p>Performs a search operation against the indexed embeddings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>query</strong> (<em>str</em>) – The query sentence/string to be searched.</p></li>
-<li><p><strong>top_k</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of top results to return.</p></li>
-<li><p><strong>rescore_multiplier</strong> (<em>int</em><em>, </em><em>optional</em>) – The multiplier used to increase the initial retrieval size for re-scoring.
-Higher values can increase precision at the cost of performance.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A tuple containing the scores and the indices of the top k results.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tuple[List[float], List[int]]</p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>This method assumes that <cite>binary_index</cite> and <cite>int8_index</cite> are already loaded or created.</p>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-ragoon.web_rag">
-<span id="ragoon-web-rag-module"></span><h2>ragoon.web_rag module<a class="headerlink" href="#module-ragoon.web_rag" title="Link to this heading">#</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="ragoon.web_rag.WebRAG">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ragoon.web_rag.</span></span><span class="sig-name descname"><span class="pre">WebRAG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">google_api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">google_cx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">completion_client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_agent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Mozilla/5.0</span> <span class="pre">(Windows</span> <span class="pre">NT</span> <span class="pre">10.0;</span> <span class="pre">Win64;</span> <span class="pre">x64)</span> <span class="pre">AppleWebKit/537.36</span> <span class="pre">(KHTML,</span> <span class="pre">like</span> <span class="pre">Gecko)</span> <span class="pre">Chrome/98.0.4758.102</span> <span class="pre">Safari/537.36'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/web_rag.html#WebRAG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.web_rag.WebRAG" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="ragoon.web_rag.WebRAG.search">
-<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">completion_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_prompt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&quot;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Given</span> <span class="pre">the</span> <span class="pre">user's</span> <span class="pre">input</span> <span class="pre">query,</span> <span class="pre">generate</span> <span class="pre">a</span> <span class="pre">concise</span> <span class="pre">and</span> <span class="pre">relevant</span> <span class="pre">Google</span> <span class="pre">search\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">query</span> <span class="pre">that</span> <span class="pre">directly</span> <span class="pre">addresses</span> <span class="pre">the</span> <span class="pre">main</span> <span class="pre">intent</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">user's</span> <span class="pre">question.</span> <span class="pre">The</span> <span class="pre">search</span> <span class="pre">query</span> <span class="pre">must\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">be</span> <span class="pre">specifically</span> <span class="pre">tailored</span> <span class="pre">to</span> <span class="pre">retrieve</span> <span class="pre">results</span> <span class="pre">that</span> <span class="pre">can</span> <span class="pre">significantly</span> <span class="pre">enhance</span> <span class="pre">the</span> <span class="pre">context</span> <span class="pre">for</span> <span class="pre">a\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">subsequent</span> <span class="pre">dialogue</span> <span class="pre">with</span> <span class="pre">an</span> <span class="pre">LLM.</span> <span class="pre">This</span> <span class="pre">approach</span> <span class="pre">will</span> <span class="pre">facilitate</span> <span class="pre">few-shot</span> <span class="pre">learning</span> <span class="pre">by</span> <span class="pre">providing\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">rich,</span> <span class="pre">specific,</span> <span class="pre">and</span> <span class="pre">contextually</span> <span class="pre">relevant</span> <span class="pre">information.</span> <span class="pre">Please</span> <span class="pre">ensure</span> <span class="pre">that</span> <span class="pre">the</span> <span class="pre">response</span> <span class="pre">is\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">well-formed</span> <span class="pre">and</span> <span class="pre">format</span> <span class="pre">it</span> <span class="pre">as</span> <span class="pre">a</span> <span class="pre">JSON</span> <span class="pre">object</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">key</span> <span class="pre">named</span> <span class="pre">'search_query'.</span> <span class="pre">This\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">structured</span> <span class="pre">approach</span> <span class="pre">will</span> <span class="pre">help</span> <span class="pre">in</span> <span class="pre">assimilating</span> <span class="pre">the</span> <span class="pre">fetched</span> <span class="pre">results</span> <span class="pre">into</span> <span class="pre">an</span> <span class="pre">enhanced</span> <span class="pre">conversational\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">model,</span> <span class="pre">contributing</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">more</span> <span class="pre">nuanced</span> <span class="pre">and</span> <span class="pre">informed</span> <span class="pre">interaction.\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&quot;</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ragoon/web_rag.html#WebRAG.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.web_rag.WebRAG.search" title="Link to this definition">#</a></dt>
-<dd><p>Search for information and perform completion.</p>
-<p>This method searches for information related to the given query
-and performs completion using the specified model. Additional
-parameters can be passed to the completion method.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>query</strong> (<em>str</em>) – The search query.</p></li>
-<li><p><strong>completion_model</strong> (<em>str</em>) – The name or identifier of the completion model to be used.</p></li>
-<li><p><strong>*args</strong> – Additional positional arguments to be passed to the completion method.</p></li>
-<li><p><strong>**kwargs</strong> – Additional keyword arguments to be passed to the completion method.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>completion_data</strong> – A dictionary containing the generated completion data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-ragoon">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ragoon" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
 
                 </article>
               
+
               
               
               
@@ -1303,15 +377,6 @@ parameters can be passed to the completion method.</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="modules.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ragoon</p>
-      </div>
-    </a>
 </div>
                 </footer>
               
@@ -1323,109 +388,14 @@ parameters can be passed to the completion method.</p>
 
 
   <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+  <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ragoon.embeddings">ragoon.embeddings module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.dataset_name"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.dataset_name</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.token"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.token</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.model_configs"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.model_configs</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.batch_size"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.batch_size</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.dataset</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.convert_to_tensor"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.convert_to_tensor</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.cuda_available"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.cuda_available</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.load_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_dataset()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.load_model"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_model()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.encode"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.encode()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.embed"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.embed()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.process_split"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_split()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.process_splits"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_splits()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.get_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.get_dataset()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.save_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.save_dataset()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsDataLoader.upload_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.upload_dataset()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.embed()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.encode()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.get_dataset()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_dataset()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_model()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_split()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_splits()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.save_dataset()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.upload_dataset()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.index_path"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.index_path</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.dataset_path"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.dataset_path</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.index"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.index</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.dataset</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.vectors"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.vectors</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.reduced_vectors"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.reduced_vectors</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.labels"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.labels</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.load_index"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_index()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.load_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_dataset()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.extract_vectors"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.extract_vectors()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.plot_3d"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.plot_3d()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.create_plot"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.create_plot()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.extract_vectors()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_dataset()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_index()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.reduce_dimensionality"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.reduce_dimensionality()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.embeddings.EmbeddingsVisualizer.visualize"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.visualize()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ragoon.similarity_search">ragoon.similarity_search module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.similarity_search.SimilaritySearch"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.similarity_search.SimilaritySearch.model_name"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.model_name</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.similarity_search.SimilaritySearch.device"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.device</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.similarity_search.SimilaritySearch.ndim"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.ndim</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.similarity_search.SimilaritySearch.metric"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.metric</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.similarity_search.SimilaritySearch.dtype"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.dtype</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.similarity_search.SimilaritySearch.encode"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.encode()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.similarity_search.SimilaritySearch.quantize_embeddings"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.quantize_embeddings()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.similarity_search.SimilaritySearch.create_faiss_index"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.create_faiss_index()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.similarity_search.SimilaritySearch.create_usearch_index"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.create_usearch_index()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.similarity_search.SimilaritySearch.load_usearch_index_view"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.load_usearch_index_view()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.similarity_search.SimilaritySearch.load_faiss_index"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.load_faiss_index()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.similarity_search.SimilaritySearch.search"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.search()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.create_faiss_index()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.create_usearch_index()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.encode()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.load_faiss_index()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.load_usearch_index_view()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.quantize_embeddings()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.search()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ragoon.web_rag">ragoon.web_rag module</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.web_rag.WebRAG"><code class="docutils literal notranslate"><span class="pre">WebRAG</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.web_rag.WebRAG.search"><code class="docutils literal notranslate"><span class="pre">WebRAG.search()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-ragoon">Module contents</a></li>
 </ul>
   </nav></div>
-
-  <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="_sources/ragoon.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
 
 </div></div>
               
@@ -1433,8 +403,40 @@ parameters can be passed to the completion method.</p>
           </div>
           <footer class="bd-footer-content">
             
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Louis Brulé Naudet
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Louis Brulé Naudet.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
           </footer>
         
+
       </main>
     </div>
   </div>
@@ -1444,43 +446,6 @@ parameters can be passed to the completion method.</p>
 <script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
-<div class="bd-footer__inner bd-page-width">
-  
-    <div class="footer-items__start">
-      
-        <div class="footer-item">
-
-  <p class="copyright">
-    
-      © Copyright 2024, Louis Brulé Naudet.
-      <br/>
-    
-  </p>
-</div>
-      
-        <div class="footer-item">
-
-  <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
-    <br/>
-  </p>
-</div>
-      
-    </div>
-  
-  
-  
-    <div class="footer-items__end">
-      
-        <div class="footer-item">
-<p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
-</p></div>
-      
-    </div>
-  
-</div>
-
   </footer>
   </body>
 </html>
