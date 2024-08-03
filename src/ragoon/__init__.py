@@ -4,6 +4,11 @@
 # For example, you might define a variable like this:
 # version = "1.0.0"
 
+from ragoon.chunks import (
+	ChunkMetadata,
+	DatasetChunker
+)
+
 from ragoon.embeddings import (
 	EmbeddingsDataLoader,
 	EmbeddingsVisualizer

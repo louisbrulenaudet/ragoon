@@ -39,9 +39,10 @@
     <script src="../../_static/documentation_options.js?v=6424ca4d"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/theme_switcher.js?v=2728e04b"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/ragoon/embeddings';</script>
-    <link rel="icon" href="../../_static/logo.svg"/>
+    <link rel="icon" href="../../_static/logo_light.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -137,8 +138,8 @@
       
     
     
-    <img src="../../_static/logo.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
+    <img src="../../_static/logo_light.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo_light.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -341,7 +342,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="EmbeddingsDataLoader">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsDataLoader">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader">[docs]</a>
 <span class="k">class</span> <span class="nc">EmbeddingsDataLoader</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class to load a dataset and process it to add embeddings using specified models.</span>
@@ -402,7 +403,7 @@ document.write(`
 <span class="sd">        Upload the processed dataset to the Hugging Face Hub.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="EmbeddingsDataLoader.__init__">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsDataLoader.__init__">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
         <span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
@@ -454,7 +455,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="EmbeddingsDataLoader.load_dataset">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsDataLoader.load_dataset">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.load_dataset">[docs]</a>
     <span class="k">def</span> <span class="nf">load_dataset</span><span class="p">(</span>
         <span class="bp">self</span>
     <span class="p">):</span>
@@ -480,7 +481,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="EmbeddingsDataLoader.load_model">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsDataLoader.load_model">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.load_model">[docs]</a>
     <span class="k">def</span> <span class="nf">load_model</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
         <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span>
@@ -527,7 +528,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="EmbeddingsDataLoader.encode">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsDataLoader.encode">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.encode">[docs]</a>
     <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
         <span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> 
@@ -593,7 +594,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="EmbeddingsDataLoader.embed">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsDataLoader.embed">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.embed">[docs]</a>
     <span class="k">def</span> <span class="nf">embed</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
         <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> 
@@ -661,7 +662,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="EmbeddingsDataLoader.process_split">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsDataLoader.process_split">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.process_split">[docs]</a>
     <span class="k">def</span> <span class="nf">process_split</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
         <span class="n">split</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
@@ -730,7 +731,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="EmbeddingsDataLoader.process_splits">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsDataLoader.process_splits">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.process_splits">[docs]</a>
     <span class="k">def</span> <span class="nf">process_splits</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
         <span class="n">splits</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
@@ -776,7 +777,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="EmbeddingsDataLoader.get_dataset">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsDataLoader.get_dataset">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.get_dataset">[docs]</a>
     <span class="k">def</span> <span class="nf">get_dataset</span><span class="p">(</span>
         <span class="bp">self</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">]:</span>
@@ -801,7 +802,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="EmbeddingsDataLoader.save_dataset">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsDataLoader.save_dataset">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.save_dataset">[docs]</a>
     <span class="k">def</span> <span class="nf">save_dataset</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
         <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span>
@@ -828,7 +829,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="EmbeddingsDataLoader.upload_dataset">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsDataLoader.upload_dataset">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.upload_dataset">[docs]</a>
     <span class="k">def</span> <span class="nf">upload_dataset</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
         <span class="n">repo_id</span><span class="p">:</span> <span class="nb">str</span>
@@ -908,7 +909,7 @@ document.write(`
     
 
 <div class="viewcode-block" id="EmbeddingsVisualizer">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsVisualizer">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsVisualizer">[docs]</a>
 <span class="k">class</span> <span class="nc">EmbeddingsVisualizer</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class for Embedding Exploration Lab, visualizing high-dimensional embeddings in 3D space.</span>
@@ -978,7 +979,7 @@ document.write(`
 <span class="sd">    &gt;&gt;&gt; visualizer.plot_3d()</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="EmbeddingsVisualizer.__init__">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsVisualizer.__init__">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
         <span class="n">index_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -994,7 +995,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="EmbeddingsVisualizer.load_index">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsVisualizer.load_index">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.load_index">[docs]</a>
     <span class="nd">@memory</span><span class="p">(</span><span class="n">print_report</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="nd">@timer</span><span class="p">(</span><span class="n">print_time</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">load_index</span><span class="p">(</span>
@@ -1017,7 +1018,7 @@ document.write(`
 
     
 <div class="viewcode-block" id="EmbeddingsVisualizer.load_dataset">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsVisualizer.load_dataset">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.load_dataset">[docs]</a>
     <span class="k">def</span> <span class="nf">load_dataset</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;document&quot;</span>
@@ -1047,7 +1048,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="EmbeddingsVisualizer.extract_vectors">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsVisualizer.extract_vectors">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.extract_vectors">[docs]</a>
     <span class="nd">@memory</span><span class="p">(</span><span class="n">print_report</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="nd">@timer</span><span class="p">(</span><span class="n">print_time</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">extract_vectors</span><span class="p">(</span>
@@ -1169,7 +1170,7 @@ document.write(`
         
 
 <div class="viewcode-block" id="EmbeddingsVisualizer.reduce_dimensionality">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsVisualizer.reduce_dimensionality">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.reduce_dimensionality">[docs]</a>
     <span class="nd">@memory</span><span class="p">(</span><span class="n">print_report</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="nd">@timer</span><span class="p">(</span><span class="n">print_time</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">reduce_dimensionality</span><span class="p">(</span>
@@ -1301,7 +1302,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="EmbeddingsVisualizer.create_plot">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsVisualizer.create_plot">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.create_plot">[docs]</a>
     <span class="nd">@memory</span><span class="p">(</span><span class="n">print_report</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="nd">@timer</span><span class="p">(</span><span class="n">print_time</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">create_plot</span><span class="p">(</span>
@@ -1520,7 +1521,7 @@ document.write(`
 
 
 <div class="viewcode-block" id="EmbeddingsVisualizer.visualize">
-<a class="viewcode-back" href="../../api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsVisualizer.visualize">[docs]</a>
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.visualize">[docs]</a>
     <span class="k">def</span> <span class="nf">visualize</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
         <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tsne&quot;</span><span class="p">,</span> 

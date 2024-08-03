@@ -29,6 +29,20 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.napoleon',
 		'sphinx.ext.viewcode',
+		'myst_parser'
+]
+
+myst_enable_extensions = [
+    "colon_fence",
+    "deflist",
+    "fieldlist",
+    "html_admonition",
+    "html_image",
+    "linkify",
+    "replacements",
+    "smartquotes",
+    "substitution",
+    "tasklist",
 ]
 
 templates_path = ['_templates']
@@ -48,15 +62,22 @@ autodoc_default_options = {
     'special-members': '__init__',  # Include special methods like __init__
 }
 
-html_logo = 'images/logo.svg'
-html_favicon = 'images/logo.svg'
+html_logo = '_static/images/logo_light.svg'  # Default logo
+html_favicon = '_static/images/logo_light.svg'  # Default favicon
 
 # Generate autosummary pages automatically
 autosummary_generate = True
 
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
+}
+
+extensions.append('sphinx.ext.viewcode')
+
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-
 html_theme = 'sphinx_book_theme'
 
 html_theme_options = {
@@ -71,3 +92,6 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 
 html_static_path = ['_static']
+
+def setup(app):
+    app.add_js_file('theme_switcher.js')

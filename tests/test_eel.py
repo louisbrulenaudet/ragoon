@@ -54,22 +54,6 @@ def test_embeddings_visualizer(
     ----------
     assert os.path.exists("embedding_visualization.html")
         Asserts that the HTML file `embedding_visualization.html` is created by the `EEL.visualize` method.
-
-    Examples
-    --------
-    >>> def test_EEL(setup_test_data):
-    >>>     index_path = os.path.join(setup_test_data, "faiss_cgi_ubinary.index")
-    >>>     dataset_path = os.path.join(setup_test_data, "cgi.hf")
-    >>>     
-    >>>     visualizer = EEL(index_path=index_path, dataset_path=dataset_path)
-    >>>     
-    >>>     visualizer.visualize(
-    >>>         method="pca",
-    >>>         save_html=True,
-    >>>         html_file_name="embedding_visualization.html"
-    >>>     )
-    >>>     
-    >>>     assert os.path.exists("embedding_visualization.html")
     """
     index_path = os.path.join(setup_test_data, "faiss_cgi_ubinary.index")
     dataset_path = os.path.join(setup_test_data, "cgi.hf")

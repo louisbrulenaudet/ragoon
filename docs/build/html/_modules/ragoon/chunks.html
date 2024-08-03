@@ -1,0 +1,981 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ragoon.chunks &#8212; RAGoon 0.0.5 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=6424ca4d"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/theme_switcher.js?v=2728e04b"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/ragoon/chunks';</script>
+    <link rel="icon" href="../../_static/logo_light.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo_light.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo_light.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">📖 Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">ragoon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/ragoon.chunks.html">ragoon.chunks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/ragoon.embeddings.html">ragoon.embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/ragoon.similarity_search.html">ragoon.similarity_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/ragoon.web_rag.html">ragoon.web_rag</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/louisbrulenaudet/ragoon" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for ragoon.chunks</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright (c) Louis Brulé Naudet. All Rights Reserved.</span>
+<span class="c1"># This software may be used and distributed according to the terms of License Agreement.</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">json</span> 
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+
+<span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ThreadPoolExecutor</span><span class="p">,</span> 
+    <span class="n">as_completed</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">IO</span><span class="p">,</span>
+    <span class="n">TYPE_CHECKING</span><span class="p">,</span>
+    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Type</span><span class="p">,</span>
+    <span class="n">Tuple</span><span class="p">,</span>
+    <span class="n">Union</span><span class="p">,</span>
+    <span class="n">Mapping</span><span class="p">,</span>
+    <span class="n">TypeVar</span><span class="p">,</span>
+    <span class="n">Callable</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">,</span>
+    <span class="n">Sequence</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Dataset</span><span class="p">,</span> 
+    <span class="n">DatasetDict</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoTokenizer</span>
+
+
+<div class="viewcode-block" id="ChunkMetadata">
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.chunks.ChunkMetadata">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">ChunkMetadata</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Metadata for a text chunk within a dataset.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    uuid : str</span>
+<span class="sd">        The UUID of the original text.</span>
+
+<span class="sd">    chunk_uuid : str</span>
+<span class="sd">        The UUID of the chunked text.</span>
+
+<span class="sd">    chunk_number : str</span>
+<span class="sd">        The identifier of the chunk indicating its order and total number of chunks.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">uuid</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">chunk_uuid</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">chunk_number</span><span class="p">:</span> <span class="nb">str</span></div>
+
+
+
+<div class="viewcode-block" id="DatasetChunker">
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.chunks.DatasetChunker">[docs]</a>
+<span class="k">class</span> <span class="nc">DatasetChunker</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to chunk text data within a dataset for processing with embeddings models.</span>
+
+<span class="sd">    This class splits large texts into smaller chunks based on a specified maximum token limit,</span>
+<span class="sd">    while maintaining an overlap between chunks to preserve context.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dataset : Union[datasets.Dataset, datasets.DatasetDict]</span>
+<span class="sd">        The dataset to be chunked. It can be either a `Dataset` or a `DatasetDict`.</span>
+
+<span class="sd">    max_tokens : int</span>
+<span class="sd">        The maximum number of tokens allowed in each chunk.</span>
+
+<span class="sd">    overlap_percentage : float</span>
+<span class="sd">        The percentage of tokens to overlap between consecutive chunks.</span>
+
+<span class="sd">    column : str</span>
+<span class="sd">        The name of the column containing the text to be chunked.</span>
+
+<span class="sd">    model_name : str, optional</span>
+<span class="sd">        The name of the tokenizer model to use (default is &quot;bert-base-uncased&quot;).</span>
+
+<span class="sd">    uuid_column : Optional[str], optional</span>
+<span class="sd">        The name of the column containing UUIDs for the texts. If not provided, new UUIDs will be generated.</span>
+
+<span class="sd">    separators : List[str], optional</span>
+<span class="sd">        List of separators used to split the text.</span>
+
+<span class="sd">    space_after_splitters : Optional[List[str]], optional</span>
+<span class="sd">        List of separators that require a space after splitting (default is None).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from datasets import load_dataset</span>
+<span class="sd">    &gt;&gt;&gt; dataset = load_dataset(&quot;louisbrulenaudet/dac6-instruct&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; chunker = DatasetChunker(</span>
+<span class="sd">    ...     dataset[&#39;train&#39;],</span>
+<span class="sd">    ...     max_tokens=512,</span>
+<span class="sd">    ...     overlap_percentage=0.5,</span>
+<span class="sd">    ...     column=&quot;document&quot;,</span>
+<span class="sd">    ...     model_name=&quot;intfloat/multilingual-e5-large&quot;,</span>
+<span class="sd">    ...     separators=[&quot;\n&quot;, &quot;.&quot;, &quot;!&quot;, &quot;?&quot;]</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; dataset_chunked = chunker.chunk_dataset()</span>
+<span class="sd">    &gt;&gt;&gt; dataset_chunked.to_list()[:3]</span>
+<span class="sd">    [{&#39;text&#39;: &#39;This is a chunked text.&#39;}, {&#39;text&#39;: &#39;This is another chunked text.&#39;}, ...]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="DatasetChunker.__init__">
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.chunks.DatasetChunker.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dataset</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">],</span>
+        <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">overlap_percentage</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;bert-base-uncased&quot;</span><span class="p">,</span>
+        <span class="n">uuid_column</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">separators</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">],</span>
+        <span class="n">space_after_splitters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_inputs</span><span class="p">(</span>
+            <span class="n">dataset</span><span class="p">,</span> 
+            <span class="n">max_tokens</span><span class="p">,</span> 
+            <span class="n">overlap_percentage</span><span class="p">,</span> 
+            <span class="n">column</span><span class="p">,</span> 
+            <span class="n">model_name</span><span class="p">,</span> 
+            <span class="n">uuid_column</span><span class="p">,</span> 
+            <span class="n">separators</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span> <span class="o">=</span> <span class="n">max_tokens</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">overlap_percentage</span> <span class="o">=</span> <span class="n">overlap_percentage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uuid_column</span> <span class="o">=</span> <span class="n">uuid_column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">separators</span> <span class="o">=</span> <span class="n">separators</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">space_after_splitters</span> <span class="o">=</span> <span class="n">space_after_splitters</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">splitter_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="s1">&#39;|&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">separators</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span></div>
+
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_validate_inputs</span><span class="p">(</span>
+        <span class="n">dataset</span><span class="p">,</span> 
+        <span class="n">max_tokens</span><span class="p">,</span> 
+        <span class="n">overlap_percentage</span><span class="p">,</span> 
+        <span class="n">column</span><span class="p">,</span> 
+        <span class="n">model_name</span><span class="p">,</span> 
+        <span class="n">uuid_column</span><span class="p">,</span> 
+        <span class="n">separators</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validates the inputs for the DatasetChunker class.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        dataset : Union[Dataset, DatasetDict]</span>
+<span class="sd">            The dataset to be chunked.</span>
+
+<span class="sd">        max_tokens : int</span>
+<span class="sd">            The maximum number of tokens allowed in each chunk.</span>
+
+<span class="sd">        overlap_percentage : float</span>
+<span class="sd">            The percentage of tokens to overlap between consecutive chunks.</span>
+
+<span class="sd">        column : str</span>
+<span class="sd">            The name of the column containing the text to be chunked.</span>
+
+<span class="sd">        model_name : str</span>
+<span class="sd">            The name of the tokenizer model to use.</span>
+
+<span class="sd">        uuid_column : Optional[str]</span>
+<span class="sd">            The name of the column containing UUIDs for the texts.</span>
+
+<span class="sd">        separators : List[str]</span>
+<span class="sd">            List of separators used to split the text.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        AssertionError</span>
+<span class="sd">            If any of the inputs are not valid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="p">(</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">)),</span> <span class="s2">&quot;dataset must be of type Dataset or DatasetDict&quot;</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">max_tokens</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">max_tokens</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;max_tokens must be a positive integer&quot;</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">overlap_percentage</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">overlap_percentage</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;overlap_percentage must be a float between 0 and 1&quot;</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">column</span><span class="p">,</span> <span class="s2">&quot;column must be a non-empty string&quot;</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">model_name</span><span class="p">,</span> <span class="s2">&quot;model_name must be a non-empty string&quot;</span>
+        <span class="k">if</span> <span class="n">uuid_column</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">uuid_column</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">uuid_column</span><span class="p">,</span> <span class="s2">&quot;uuid_column must be a non-empty string if provided&quot;</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">separators</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">separators</span><span class="p">),</span> <span class="s2">&quot;separators must be a list of strings&quot;</span>
+
+
+<div class="viewcode-block" id="DatasetChunker.split_text">
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.chunks.DatasetChunker.split_text">[docs]</a>
+    <span class="k">def</span> <span class="nf">split_text</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Splits a text into segments based on the specified separators.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        text : str</span>
+<span class="sd">            The text to be split.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        List[str]</span>
+<span class="sd">            A list of text segments.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; chunker = DatasetChunker(dataset, 512, 0.1, &#39;text&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; chunker.split_text(&quot;This is a sentence. This is another one.&quot;)</span>
+<span class="sd">        [&#39;This is a sentence&#39;, &#39;.&#39;, &#39; This is another one&#39;, &#39;.&#39;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">seg</span> <span class="k">for</span> <span class="n">seg</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">splitter_pattern</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">if</span> <span class="n">seg</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="DatasetChunker.create_chunks">
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.chunks.DatasetChunker.create_chunks">[docs]</a>
+    <span class="k">def</span> <span class="nf">create_chunks</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates text chunks from a given text based on the maximum tokens limit.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        text : str</span>
+<span class="sd">            The text to be chunked.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        List[str]</span>
+<span class="sd">            A list of text chunks.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the text cannot be chunked properly.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; chunker = DatasetChunker(dataset, 512, 0.1, &#39;text&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; text = &quot;This is a very long text that needs to be chunked.&quot;</span>
+<span class="sd">        &gt;&gt;&gt; chunks = chunker.create_chunks(text)</span>
+<span class="sd">        &gt;&gt;&gt; len(chunks)</span>
+<span class="sd">        2</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>  <span class="c1"># Store the original text</span>
+        <span class="n">segments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_text</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">chunks</span><span class="p">,</span> <span class="n">current_chunk</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+        <span class="n">current_tokens</span><span class="p">,</span> <span class="n">overlap_tokens</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">overlap_percentage</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">segment</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">segments</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">segments</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">next_segment</span> <span class="o">=</span> <span class="n">segments</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">segment</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">space_after_splitters</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">next_segment</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
+                    <span class="n">segment</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span>
+
+            <span class="n">segment_tokens</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">segment</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">current_tokens</span> <span class="o">+</span> <span class="n">segment_tokens</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">current_chunk</span><span class="p">:</span>
+                    <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">finalize_chunk</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_chunk</span><span class="p">),</span> <span class="n">is_last</span><span class="o">=</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">segments</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span>
+
+                <span class="n">overlap_segments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_overlap_segments</span><span class="p">(</span><span class="n">current_chunk</span><span class="p">,</span> <span class="n">overlap_tokens</span><span class="p">)</span>
+                <span class="n">current_chunk</span> <span class="o">=</span> <span class="n">overlap_segments</span> <span class="o">+</span> <span class="p">[</span><span class="n">segment</span><span class="p">]</span>
+                <span class="n">current_tokens</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">seg</span><span class="p">))</span> <span class="k">for</span> <span class="n">seg</span> <span class="ow">in</span> <span class="n">current_chunk</span><span class="p">)</span>
+            
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">current_chunk</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span>
+                <span class="n">current_tokens</span> <span class="o">+=</span> <span class="n">segment_tokens</span>
+
+        <span class="k">if</span> <span class="n">current_chunk</span><span class="p">:</span>
+            <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">finalize_chunk</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_chunk</span><span class="p">),</span> <span class="n">is_last</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">chunks</span></div>
+
+
+
+<div class="viewcode-block" id="DatasetChunker.finalize_chunk">
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.chunks.DatasetChunker.finalize_chunk">[docs]</a>
+    <span class="k">def</span> <span class="nf">finalize_chunk</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">chunk_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+        <span class="n">is_last</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finalizes the chunk text by adjusting leading/trailing separators.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        chunk_text : str</span>
+<span class="sd">            The chunk text to be finalized.</span>
+
+<span class="sd">        is_last : bool</span>
+<span class="sd">            Indicates whether this is the last chunk.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The finalized chunk text.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; chunker = DatasetChunker(dataset, 512, 0.1, &#39;text&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; chunk = &quot; This is a chunk.&quot;</span>
+<span class="sd">        &gt;&gt;&gt; chunker.finalize_chunk(chunk, is_last=True)</span>
+<span class="sd">        &#39;This is a chunk.&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">chunk_text</span> <span class="o">=</span> <span class="n">chunk_text</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">chunk_text</span> <span class="ow">and</span> <span class="n">chunk_text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">separators</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">chunk_text</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">chunk_text</span> <span class="o">=</span> <span class="n">chunk_text</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">is_last</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">separators</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">chunk_text</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">chunk_text</span> <span class="o">=</span> <span class="n">chunk_text</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">is_last</span> <span class="ow">and</span> <span class="n">chunk_text</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">separators</span><span class="p">:</span>
+            <span class="n">chunk_text</span> <span class="o">=</span> <span class="n">chunk_text</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span>
+        
+        <span class="k">return</span> <span class="n">chunk_text</span></div>
+
+
+
+    <span class="k">def</span> <span class="nf">_get_overlap_segments</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">segments</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> 
+        <span class="n">overlap_tokens</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieves segments to be used as the overlapping part of a chunk.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        segments : List[str]</span>
+<span class="sd">            The list of text segments.</span>
+
+<span class="sd">        overlap_tokens : int</span>
+<span class="sd">            The number of tokens to overlap between chunks.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        List[str]</span>
+<span class="sd">            A list of segments that will be included in the overlap.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; chunker = DatasetChunker(dataset, 512, 0.1, &#39;text&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; segments = [&quot;Segment 1&quot;, &quot;Segment 2&quot;, &quot;Segment 3&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; chunker._get_overlap_segments(segments, 10)</span>
+<span class="sd">        [&#39;Segment 2&#39;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">overlap_segments</span><span class="p">,</span> <span class="n">total_tokens</span> <span class="o">=</span> <span class="p">[],</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">segment</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">segments</span><span class="p">):</span>
+            <span class="n">segment_tokens</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">segment</span><span class="p">))</span>
+            
+            <span class="k">if</span> <span class="n">total_tokens</span> <span class="o">+</span> <span class="n">segment_tokens</span> <span class="o">&gt;</span> <span class="n">overlap_tokens</span><span class="p">:</span>
+                <span class="k">break</span>
+            
+            <span class="n">overlap_segments</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">segment</span><span class="p">)</span>
+            <span class="n">total_tokens</span> <span class="o">+=</span> <span class="n">segment_tokens</span>
+        
+        <span class="k">return</span> <span class="n">overlap_segments</span>
+
+<div class="viewcode-block" id="DatasetChunker.chunk_dataset">
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.chunks.DatasetChunker.chunk_dataset">[docs]</a>
+    <span class="k">def</span> <span class="nf">chunk_dataset</span><span class="p">(</span>
+        <span class="bp">self</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Chunks the entire dataset into smaller segments.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Union[Dataset, DatasetDict]</span>
+<span class="sd">            The chunked dataset, with each entry split into smaller chunks.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; chunker = DatasetChunker(dataset, 512, 0.1, &#39;text&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; chunked_dataset = chunker.chunk_dataset()</span>
+<span class="sd">        &gt;&gt;&gt; len(chunked_dataset)</span>
+<span class="sd">        1000</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chunk_dataset_dict</span><span class="p">()</span>
+        
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chunk_single_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span></div>
+
+
+
+    <span class="k">def</span> <span class="nf">_chunk_dataset_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DatasetDict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Chunks each split in a `DatasetDict`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        DatasetDict</span>
+<span class="sd">            A new `DatasetDict` with each split chunked.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; chunker = DatasetChunker(dataset_dict, 512, 0.1, &#39;text&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; chunked_dataset_dict = chunker._chunk_dataset_dict()</span>
+<span class="sd">        &gt;&gt;&gt; len(chunked_dataset_dict)</span>
+<span class="sd">        3</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">new_splits</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">split_name</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chunk_single_dataset</span><span class="p">(</span><span class="n">split</span><span class="p">)</span> <span class="k">for</span> <span class="n">split_name</span><span class="p">,</span> <span class="n">split</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Chunking completed successfully for DatasetDict.&quot;</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">DatasetDict</span><span class="p">(</span><span class="n">new_splits</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_chunk_single_dataset</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">dataset</span><span class="p">:</span> <span class="n">Dataset</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataset</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Chunks a single `Dataset` into smaller segments.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        dataset : Dataset</span>
+<span class="sd">            The dataset to be chunked.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Dataset</span>
+<span class="sd">            A new `Dataset` with the text data chunked.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        KeyError</span>
+<span class="sd">            If a row is missing the specified column.</span>
+
+<span class="sd">        Exception</span>
+<span class="sd">            If an unexpected error occurs during processing.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; chunker = DatasetChunker(dataset, 512, 0.1, &#39;text&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; chunked_dataset = chunker._chunk_single_dataset(dataset)</span>
+<span class="sd">        &gt;&gt;&gt; len(chunked_dataset)</span>
+<span class="sd">        500</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+            <span class="n">futures</span> <span class="o">=</span> <span class="p">[</span><span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_process_row</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">]</span>
+            
+            <span class="k">for</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">as_completed</span><span class="p">(</span><span class="n">futures</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">futures</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Splitting rows&quot;</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">new_data</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">())</span>
+                
+                <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;KeyError while processing row: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Row data: </span><span class="si">{</span><span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                    <span class="c1"># logger.error(f&quot;Unexpected error while processing row: {e}. Row data: {future.result()}&quot;)</span>
+        
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Chunking completed successfully for Dataset.&quot;</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+
+    
+    <span class="k">def</span> <span class="nf">_process_row</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">row</span><span class="p">:</span> <span class="nb">dict</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Processes a single row of the dataset to create chunks.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        row : dict</span>
+<span class="sd">            The row of the dataset to be processed.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        List[dict]</span>
+<span class="sd">            A list of rows representing the chunks.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        KeyError</span>
+<span class="sd">            If the specified column is not found in the row.</span>
+
+<span class="sd">        Exception</span>
+<span class="sd">            If an unexpected error occurs while processing the row.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; chunker = DatasetChunker(dataset, 512, 0.1, &#39;text&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; row = {&#39;text&#39;: &quot;This is a long text that needs to be chunked.&quot;}</span>
+<span class="sd">        &gt;&gt;&gt; chunked_rows = chunker._process_row(row)</span>
+<span class="sd">        &gt;&gt;&gt; len(chunked_rows)</span>
+<span class="sd">        2</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">]</span>
+            <span class="n">chunks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_chunks</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+            
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_chunk_rows</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">chunks</span><span class="p">)</span>
+        
+        <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;KeyError: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Row: </span><span class="si">{</span><span class="n">row</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span>
+        
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="c1"># logger.error(f&quot;Error processing row: {e}. Row: {row}&quot;)</span>
+            <span class="c1"># raise</span>
+            <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">_create_chunk_rows</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">original_row</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> 
+        <span class="n">chunks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates rows for each chunk with metadata.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        original_row : dict</span>
+<span class="sd">            The original row of the dataset.</span>
+
+<span class="sd">        chunks : List[str]</span>
+<span class="sd">            The list of text chunks.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        List[dict]</span>
+<span class="sd">            A list of new rows with chunk metadata.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; chunker = DatasetChunker(dataset, 512, 0.1, &#39;text&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; original_row = {&#39;text&#39;: &quot;This is a chunked text.&quot;}</span>
+<span class="sd">        &gt;&gt;&gt; chunks = [&quot;This is a chunked&quot;, &quot; text.&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; chunk_rows = chunker._create_chunk_rows(original_row, chunks)</span>
+<span class="sd">        &gt;&gt;&gt; len(chunk_rows)</span>
+<span class="sd">        2</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">original_uuid</span> <span class="o">=</span> <span class="n">original_row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uuid_column</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()))</span>
+        
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_create_chunk_row</span><span class="p">(</span><span class="n">original_row</span><span class="p">,</span> <span class="n">chunk</span><span class="p">,</span> <span class="n">ChunkMetadata</span><span class="p">(</span>
+                <span class="n">uuid</span><span class="o">=</span><span class="n">original_uuid</span><span class="p">,</span>
+                <span class="n">chunk_uuid</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()),</span>
+                <span class="n">chunk_number</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">-of-</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">))</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chunks</span><span class="p">)]</span>
+
+
+    <span class="k">def</span> <span class="nf">_create_chunk_row</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">original_row</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> 
+        <span class="n">chunk</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+        <span class="n">metadata</span><span class="p">:</span> <span class="n">ChunkMetadata</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a new row for a chunk with metadata.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        original_row : dict</span>
+<span class="sd">            The original row of the dataset.</span>
+
+<span class="sd">        chunk : str</span>
+<span class="sd">            The text chunk.</span>
+
+<span class="sd">        metadata : ChunkMetadata</span>
+<span class="sd">            The metadata for the chunk.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            The new row with the chunk and its metadata.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; chunker = DatasetChunker(dataset, 512, 0.1, &#39;text&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; original_row = {&#39;text&#39;: &quot;This is a chunked text.&quot;}</span>
+<span class="sd">        &gt;&gt;&gt; chunk = &quot;This is a chunked text.&quot;</span>
+<span class="sd">        &gt;&gt;&gt; metadata = ChunkMetadata(uuid=&quot;123&quot;, chunk_uuid=&quot;456&quot;, chunk_number=&quot;00001-of-00002&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; new_row = chunker._create_chunk_row(original_row, chunk, metadata)</span>
+<span class="sd">        &gt;&gt;&gt; new_row</span>
+<span class="sd">        {&#39;text&#39;: &#39;This is a chunked text.&#39;, &#39;uuid&#39;: &#39;123&#39;, &#39;chunk_uuid&#39;: &#39;456&#39;, &#39;chunk_number&#39;: &#39;00001-of-00002&#39;}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">new_row</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">original_row</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">column</span>
+        <span class="p">}</span>
+
+        <span class="n">new_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">:</span> <span class="n">chunk</span><span class="p">,</span>
+                <span class="s2">&quot;uuid&quot;</span><span class="p">:</span> <span class="n">metadata</span><span class="o">.</span><span class="n">uuid</span><span class="p">,</span>
+                <span class="s2">&quot;chunk_uuid&quot;</span><span class="p">:</span> <span class="n">metadata</span><span class="o">.</span><span class="n">chunk_uuid</span><span class="p">,</span>
+                <span class="s2">&quot;chunk_number&quot;</span><span class="p">:</span> <span class="n">metadata</span><span class="o">.</span><span class="n">chunk_number</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">new_row</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Louis Brulé Naudet
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Louis Brulé Naudet.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

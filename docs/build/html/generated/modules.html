@@ -1,0 +1,522 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ragoon &#8212; RAGoon 0.0.5 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=6424ca4d"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/theme_switcher.js?v=2728e04b"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generated/modules';</script>
+    <link rel="icon" href="../_static/logo_light.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo_light.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo_light.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">📖 Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">ragoon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/ragoon.chunks.html">ragoon.chunks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/ragoon.embeddings.html">ragoon.embeddings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/ragoon.similarity_search.html">ragoon.similarity_search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/ragoon.web_rag.html">ragoon.web_rag</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/louisbrulenaudet/ragoon" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/generated/modules.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ragoon</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ragoon">
+<h1>ragoon<a class="headerlink" href="#ragoon" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ragoon.html">ragoon package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ragoon.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ragoon.html#module-ragoon.chunks">ragoon.chunks module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ragoon.html#ragoon.chunks.ChunkMetadata"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.chunks.ChunkMetadata.uuid"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.uuid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.chunks.ChunkMetadata.chunk_uuid"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.chunk_uuid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.chunks.ChunkMetadata.chunk_number"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.chunk_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id0"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.uuid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id1"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.chunk_uuid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id2"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.chunk_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.chunks.ChunkMetadata.__init__"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ragoon.html#ragoon.chunks.DatasetChunker"><code class="docutils literal notranslate"><span class="pre">DatasetChunker</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.chunks.DatasetChunker.__init__"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.chunks.DatasetChunker.split_text"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.split_text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.chunks.DatasetChunker.create_chunks"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.create_chunks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.chunks.DatasetChunker.finalize_chunk"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.finalize_chunk()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.chunks.DatasetChunker.chunk_dataset"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.chunk_dataset()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ragoon.html#module-ragoon.embeddings">ragoon.embeddings module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.dataset_name"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.dataset_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.token"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.token</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.model_configs"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.model_configs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.batch_size"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.batch_size</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.dataset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.convert_to_tensor"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.convert_to_tensor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.cuda_available"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.cuda_available</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.load_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.load_model"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.encode"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.embed"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.embed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.process_split"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_split()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.process_splits"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_splits()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.get_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.get_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.save_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.save_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.upload_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.upload_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.__init__"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id3"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id4"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id5"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id6"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.embed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id7"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_split()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id8"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_splits()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id9"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.get_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id10"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.save_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id11"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.upload_dataset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.index_path"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.index_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.dataset_path"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.dataset_path</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.index"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.index</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.dataset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.vectors"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.vectors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.reduced_vectors"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.reduced_vectors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.labels"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.labels</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.load_index"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.load_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.extract_vectors"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.extract_vectors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.plot_3d"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.plot_3d()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.__init__"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id12"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id13"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id14"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.extract_vectors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.reduce_dimensionality"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.reduce_dimensionality()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.create_plot"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.create_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.visualize"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.visualize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ragoon.html#module-ragoon.similarity_search">ragoon.similarity_search module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.model_name"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.model_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.device"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.device</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.ndim"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.ndim</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.metric"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.metric</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.dtype"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.encode"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.quantize_embeddings"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.quantize_embeddings()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.create_faiss_index"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.create_faiss_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.create_usearch_index"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.create_usearch_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.load_usearch_index_view"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.load_usearch_index_view()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.load_faiss_index"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.load_faiss_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.search"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.search()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.__init__"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id15"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id16"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.quantize_embeddings()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id17"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.create_faiss_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id18"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.create_usearch_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id19"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.load_usearch_index_view()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id20"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.load_faiss_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id21"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.search()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ragoon.html#module-ragoon.web_rag">ragoon.web_rag module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ragoon.html#ragoon.web_rag.WebRAG"><code class="docutils literal notranslate"><span class="pre">WebRAG</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.web_rag.WebRAG.__init__"><code class="docutils literal notranslate"><span class="pre">WebRAG.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.web_rag.WebRAG.search"><code class="docutils literal notranslate"><span class="pre">WebRAG.search()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ragoon.html#module-ragoon">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Louis Brulé Naudet
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Louis Brulé Naudet.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

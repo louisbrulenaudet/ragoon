@@ -40,9 +40,10 @@
     <script src="../_static/documentation_options.js?v=6424ca4d"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/theme_switcher.js?v=2728e04b"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/ragoon.chunks';</script>
-    <link rel="icon" href="../_static/logo.svg"/>
+    <link rel="icon" href="../_static/logo_light.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ragoon.embeddings" href="ragoon.embeddings.html" />
@@ -138,8 +139,8 @@
       
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
+    <img src="../_static/logo_light.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo_light.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -305,7 +306,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -321,6 +324,31 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.ChunkMetadata"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.ChunkMetadata.uuid"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.uuid</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.ChunkMetadata.chunk_uuid"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.chunk_uuid</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.ChunkMetadata.chunk_number"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.chunk_number</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.uuid</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.chunk_uuid</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.chunk_number</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.ChunkMetadata.__init__"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.DatasetChunker"><code class="docutils literal notranslate"><span class="pre">DatasetChunker</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.DatasetChunker.__init__"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.DatasetChunker.split_text"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.split_text()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.DatasetChunker.create_chunks"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.create_chunks()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.DatasetChunker.finalize_chunk"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.finalize_chunk()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.DatasetChunker.chunk_dataset"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.chunk_dataset()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -332,6 +360,229 @@ document.write(`
                   
   <section id="module-ragoon.chunks">
 <span id="ragoon-chunks"></span><h1>ragoon.chunks<a class="headerlink" href="#module-ragoon.chunks" title="Link to this heading">#</a></h1>
+<p class="rubric">Classes</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../generated/ragoon.html#ragoon.chunks.ChunkMetadata" title="ragoon.chunks.ChunkMetadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChunkMetadata</span></code></a>(uuid, chunk_uuid, chunk_number)</p></td>
+<td><p>Metadata for a text chunk within a dataset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../generated/ragoon.html#ragoon.chunks.DatasetChunker" title="ragoon.chunks.DatasetChunker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatasetChunker</span></code></a>(dataset, max_tokens, ...[, ...])</p></td>
+<td><p>A class to chunk text data within a dataset for processing with embeddings models.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="ragoon.chunks.ChunkMetadata">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ragoon.chunks.</span></span><span class="sig-name descname"><span class="pre">ChunkMetadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_uuid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/chunks.html#ChunkMetadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.chunks.ChunkMetadata" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Metadata for a text chunk within a dataset.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.chunks.ChunkMetadata.uuid">
+<span class="sig-name descname"><span class="pre">uuid</span></span><a class="headerlink" href="#ragoon.chunks.ChunkMetadata.uuid" title="Link to this definition">#</a></dt>
+<dd><p>The UUID of the original text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.chunks.ChunkMetadata.chunk_uuid">
+<span class="sig-name descname"><span class="pre">chunk_uuid</span></span><a class="headerlink" href="#ragoon.chunks.ChunkMetadata.chunk_uuid" title="Link to this definition">#</a></dt>
+<dd><p>The UUID of the chunked text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ragoon.chunks.ChunkMetadata.chunk_number">
+<span class="sig-name descname"><span class="pre">chunk_number</span></span><a class="headerlink" href="#ragoon.chunks.ChunkMetadata.chunk_number" title="Link to this definition">#</a></dt>
+<dd><p>The identifier of the chunk indicating its order and total number of chunks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">uuid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id0" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">chunk_uuid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">chunk_number</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.chunks.ChunkMetadata.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uuid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_uuid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#ragoon.chunks.ChunkMetadata.__init__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ragoon.chunks.DatasetChunker">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ragoon.chunks.</span></span><span class="sig-name descname"><span class="pre">DatasetChunker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dataset</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DatasetDict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlap_percentage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'bert-base-uncased'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['.',</span> <span class="pre">'\n']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space_after_splitters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ragoon/chunks.html#DatasetChunker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.chunks.DatasetChunker" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<blockquote>
+<div><p>A class to chunk text data within a dataset for processing with embeddings models.</p>
+<p>This class splits large texts into smaller chunks based on a specified maximum token limit,
+while maintaining an overlap between chunks to preserve context.</p>
+<dl class="simple">
+<dt>dataset<span class="classifier">Union[datasets.Dataset, datasets.DatasetDict]</span></dt><dd><p>The dataset to be chunked. It can be either a <cite>Dataset</cite> or a <cite>DatasetDict</cite>.</p>
+</dd>
+<dt>max_tokens<span class="classifier">int</span></dt><dd><p>The maximum number of tokens allowed in each chunk.</p>
+</dd>
+<dt>overlap_percentage<span class="classifier">float</span></dt><dd><p>The percentage of tokens to overlap between consecutive chunks.</p>
+</dd>
+<dt>column<span class="classifier">str</span></dt><dd><p>The name of the column containing the text to be chunked.</p>
+</dd>
+<dt>model_name<span class="classifier">str, optional</span></dt><dd><p>The name of the tokenizer model to use (default is “bert-base-uncased”).</p>
+</dd>
+<dt>uuid_column<span class="classifier">Optional[str], optional</span></dt><dd><p>The name of the column containing UUIDs for the texts. If not provided, new UUIDs will be generated.</p>
+</dd>
+<dt>separators<span class="classifier">List[str], optional</span></dt><dd><p>List of separators used to split the text.</p>
+</dd>
+<dt>space_after_splitters<span class="classifier">Optional[List[str]], optional</span></dt><dd><p>List of separators that require a space after splitting (default is None).</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;louisbrulenaudet/dac6-instruct&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chunker</span> <span class="o">=</span> <span class="n">DatasetChunker</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">overlap_percentage</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;document&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;intfloat/multilingual-e5-large&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">separators</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
+<dt>“, “.”, “!”, “?”]</dt><dd><p>… )
+&gt;&gt;&gt; dataset_chunked = chunker.chunk_dataset()
+&gt;&gt;&gt; dataset_chunked.to_list()[:3]
+[{‘text’: ‘This is a chunked text.’}, {‘text’: ‘This is another chunked text.’}, …]</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.chunks.DatasetChunker.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dataset</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DatasetDict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_tokens</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overlap_percentage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'bert-base-uncased'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uuid_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separators</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['.',</span> <span class="pre">'\n']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space_after_splitters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/ragoon/chunks.html#DatasetChunker.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.chunks.DatasetChunker.__init__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.chunks.DatasetChunker.split_text">
+<span class="sig-name descname"><span class="pre">split_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/ragoon/chunks.html#DatasetChunker.split_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.chunks.DatasetChunker.split_text" title="Link to this definition">#</a></dt>
+<dd><p>Splits a text into segments based on the specified separators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – The text to be split.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of text segments.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[str]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">chunker</span> <span class="o">=</span> <span class="n">DatasetChunker</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chunker</span><span class="o">.</span><span class="n">split_text</span><span class="p">(</span><span class="s2">&quot;This is a sentence. This is another one.&quot;</span><span class="p">)</span>
+<span class="go">[&#39;This is a sentence&#39;, &#39;.&#39;, &#39; This is another one&#39;, &#39;.&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.chunks.DatasetChunker.create_chunks">
+<span class="sig-name descname"><span class="pre">create_chunks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/ragoon/chunks.html#DatasetChunker.create_chunks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.chunks.DatasetChunker.create_chunks" title="Link to this definition">#</a></dt>
+<dd><p>Creates text chunks from a given text based on the maximum tokens limit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> (<em>str</em>) – The text to be chunked.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of text chunks.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[str]</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the text cannot be chunked properly.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">chunker</span> <span class="o">=</span> <span class="n">DatasetChunker</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;This is a very long text that needs to be chunked.&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chunks</span> <span class="o">=</span> <span class="n">chunker</span><span class="o">.</span><span class="n">create_chunks</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.chunks.DatasetChunker.finalize_chunk">
+<span class="sig-name descname"><span class="pre">finalize_chunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chunk_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_last</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/ragoon/chunks.html#DatasetChunker.finalize_chunk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.chunks.DatasetChunker.finalize_chunk" title="Link to this definition">#</a></dt>
+<dd><p>Finalizes the chunk text by adjusting leading/trailing separators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chunk_text</strong> (<em>str</em>) – The chunk text to be finalized.</p></li>
+<li><p><strong>is_last</strong> (<em>bool</em>) – Indicates whether this is the last chunk.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The finalized chunk text.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">chunker</span> <span class="o">=</span> <span class="n">DatasetChunker</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chunk</span> <span class="o">=</span> <span class="s2">&quot; This is a chunk.&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chunker</span><span class="o">.</span><span class="n">finalize_chunk</span><span class="p">(</span><span class="n">chunk</span><span class="p">,</span> <span class="n">is_last</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;This is a chunk.&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ragoon.chunks.DatasetChunker.chunk_dataset">
+<span class="sig-name descname"><span class="pre">chunk_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dataset</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DatasetDict</span></span></span><a class="reference internal" href="../_modules/ragoon/chunks.html#DatasetChunker.chunk_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ragoon.chunks.DatasetChunker.chunk_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Chunks the entire dataset into smaller segments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The chunked dataset, with each entry split into smaller chunks.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Union[Dataset, DatasetDict]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">chunker</span> <span class="o">=</span> <span class="n">DatasetChunker</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chunked_dataset</span> <span class="o">=</span> <span class="n">chunker</span><span class="o">.</span><span class="n">chunk_dataset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">chunked_dataset</span><span class="p">)</span>
+<span class="go">1000</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
@@ -369,6 +620,38 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.ChunkMetadata"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.ChunkMetadata.uuid"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.uuid</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.ChunkMetadata.chunk_uuid"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.chunk_uuid</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.ChunkMetadata.chunk_number"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.chunk_number</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.uuid</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.chunk_uuid</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.chunk_number</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.ChunkMetadata.__init__"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.DatasetChunker"><code class="docutils literal notranslate"><span class="pre">DatasetChunker</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.DatasetChunker.__init__"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.DatasetChunker.split_text"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.split_text()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.DatasetChunker.create_chunks"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.create_chunks()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.DatasetChunker.finalize_chunk"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.finalize_chunk()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragoon.chunks.DatasetChunker.chunk_dataset"><code class="docutils literal notranslate"><span class="pre">DatasetChunker.chunk_dataset()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

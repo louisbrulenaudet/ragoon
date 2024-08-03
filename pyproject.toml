@@ -1,7 +1,7 @@
 [project]
 name = "ragoon"
-version = "0.0.4"
-description = "Improve large language models (LLM) retrieval using dynamic web-search based on blazingly fast query generation from Groq chips."
+version = "0.0.5"
+description = "RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing ⚡"
 readme = "README.md"
 keywords = ["language-models", "retrieval", "web-scraping", "few-shot-learning", "nlp", "machine-learning", "retrieval-augmented-generation", "RAG", "groq", "generative-ai", "llama", "Mistral"]
 classifiers = [
@@ -31,6 +31,7 @@ install_requires = [
     "huggingface_hub==0.24.2",
     "numpy<2",
     "numpydoc==1.7.0",
+    "myst-parser",
     "openai==1.37.1",
     "plotly==5.23.0",
     "pydata-sphinx-theme==0.15.4",
@@ -40,6 +41,7 @@ install_requires = [
     "sphinx==7.4.7",
     "sphinx_book_theme==1.1.3",
     "torch==2.2.1",
+    "transformers",
     "tqdm==4.66.4",
     "umap==0.1.1",
     "umap_learn==0.5.6",
@@ -59,6 +61,7 @@ docs = [
     "sphinx-autodoc-typehints",
     "ipython>=8.8.0",  # 8.7.0 has ipython3 lexer error
     "myst-nb>=1.0.0",
+    "myst-parser",
     "matplotlib>=3.5.0",
     "sphinx_book_theme==1.1.3",
     "sphinx-gallery>=0.14.0",
@@ -74,11 +77,11 @@ PYTHONPATH = "src"
 
 [metadata]
 name = "ragoon"
-version = "0.0.4"
+version = "0.0.5"
 license = "Apache License 2.0"
 author = "Louis Brulé Naudet"
 author_email = "louisbrulenaudet@icloud.com"
-description = "Improve large language models (LLM) retrieval using dynamic web-search based on blazingly fast query generation from Groq chips."
+description = "RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing"
 long_description = "file: README.md"
 long_description_content_type = "text/markdown"
 url = "https://github.com/louisbrulenaudet/ragoon"

@@ -4,6 +4,7 @@ ragoon
 .. toctree::
     :maxdepth: 2
     :caption: 📚 Modules
+    :glob:
 
     api/ragoon.chunks
     api/ragoon.embeddings
