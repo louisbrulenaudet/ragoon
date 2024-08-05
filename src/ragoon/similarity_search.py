@@ -8,9 +8,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import concurrent.futures
-import os
-
 from typing import (
     IO,
     TYPE_CHECKING,
@@ -27,13 +24,11 @@ from typing import (
     Sequence,
 )
 
-import datasets
 import faiss
 import numpy as np
 
 from sentence_transformers import SentenceTransformer
 from sentence_transformers.quantization import quantize_embeddings
-from tqdm.notebook import tqdm
 from usearch.index import Index
 
 from ragoon._logger import Logger

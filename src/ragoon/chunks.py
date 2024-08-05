@@ -8,15 +8,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import json 
 import re
-import string
 import uuid
 
 from concurrent.futures import (
     ThreadPoolExecutor, 
     as_completed
 )
+
 from dataclasses import dataclass
 from typing import (
     IO,
@@ -41,6 +40,10 @@ from datasets import (
 
 from tqdm import tqdm
 from transformers import AutoTokenizer
+
+from ragoon._logger import Logger
+
+logger = Logger()
 
 
 @dataclass

@@ -33,6 +33,7 @@ install_requires = [
     "numpy<2",
     "numpydoc==1.7.0",
     "openai==1.37.1",
+    "overload==1.1",
     "plotly==5.23.0",
     "pydata-sphinx-theme==0.15.4",
     "pytest==8.3.2",
@@ -52,6 +53,27 @@ install_requires = [
 testpaths = [
     "tests"
 ]
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 88
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+inline-quotes = "double"
+multiline-quotes = "double"
 
 [project.optional-dependencies]
 docs = [

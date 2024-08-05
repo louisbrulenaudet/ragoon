@@ -27,13 +27,11 @@ from typing import (
 )
 
 from datasets import load_dataset, Dataset
-from transformers import AutoTokenizer
 
 from src.ragoon import (
     ChunkMetadata,
     DatasetChunker
 )
-from dataset_chunker import DatasetChunker, ChunkMetadata
 
 
 @pytest.fixture(scope="module")
@@ -50,9 +48,7 @@ def dataset():
 
 
 @pytest.fixture(scope="module")
-def chunker(
-    dataset
-):
+def chunker(dataset):
     """
     Fixture to initialize the DatasetChunker with example parameters.
 

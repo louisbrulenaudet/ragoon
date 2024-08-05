@@ -7,6 +7,7 @@ ragoon
     :glob:
 
     api/ragoon.chunks
+    api/ragoon.datasets
     api/ragoon.embeddings
     api/ragoon.similarity_search
     api/ragoon.web_rag

@@ -9,7 +9,8 @@
 # limitations under the License.
 
 import concurrent.futures
-import os
+
+import datasets
 
 from typing import (
     IO,
@@ -27,7 +28,8 @@ from typing import (
     Sequence,
 )
 
-import datasets
+from datasets import load_dataset
+from tqdm import tqdm
 
 from ragoon._logger import Logger
 
@@ -35,8 +37,9 @@ logger = Logger()
 
 
 def dataset_loader(
-    name: str,
-    streaming: bool=True
+    name: str, 
+    streaming: Optional[bool] = True,
+    split: Optional[Union[str, List[str]]] = None
 ) -> datasets.Dataset:
     """
     Helper function to load a single dataset in parallel.
@@ -49,6 +52,9 @@ def dataset_loader(
     streaming : bool, optional
         Determines if datasets are streamed. Default is True.
 
+    split : Optional[Union[str, List[str]]], optional
+        Which split of the data to load. If None, will return a dict with all splits (typically datasets.Split.TRAIN and datasets.Split.TEST). If given, will return a single Dataset. Splits can be combined and specified like in tensorflow-datasets.
+
     Returns
     -------
     dataset : datasets.Dataset
@@ -59,13 +65,11 @@ def dataset_loader(
     Exception
         If an error occurs during dataset loading.
     """
-    global logger
-
     try:
-        return datasets.load_dataset(
-            name,
-            split="train",
-            streaming=streaming
+        return load_dataset(
+            name, 
+            streaming=streaming,
+            split=split
         )
 
     except Exception as exc:
@@ -76,7 +80,7 @@ def dataset_loader(
 
 def load_datasets(
     req: list,
-    streaming: bool=True
+    streaming: Optional[bool] = False,
 ) -> list:
     """
     Downloads datasets specified in a list and creates a list of loaded datasets.
@@ -87,7 +91,7 @@ def load_datasets(
         A list containing the names of datasets to be downloaded.
 
     streaming : bool, optional
-        Determines if datasets are streamed. Default is True.
+        Determines if datasets are streamed. Default is False.
 
     Returns
     -------
@@ -101,16 +105,31 @@ def load_datasets(
 
     Examples
     --------
-    >>> datasets = load_datasets(["dataset1", "dataset2"], streaming=False)
+    >>> req = [
+    ...    "louisbrulenaudet/code-artisanat",
+    ...    "louisbrulenaudet/code-action-sociale-familles",
+    ... # ...
+    ]
+
+    >>> datasets_list = load_datasets(
+    ...    req=req,
+    ...    streaming=True
+    )
+
+    >>> dataset = datasets.concatenate_datasets(
+    ...    datasets_list
+    )
     """
-    global logger
-    
-    datasets_list: str = []
+    datasets_list = []
 
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        future_to_dataset = {executor.submit(dataset_loader, name, streaming): name for name in req}
+        future_to_dataset = {
+            executor.submit(dataset_loader, name, streaming): name for name in req
+        }
 
-        for future in tqdm(concurrent.futures.as_completed(future_to_dataset), total=len(req)):
+        for future in tqdm(
+            concurrent.futures.as_completed(future_to_dataset), total=len(req)
+        ):
             name = future_to_dataset[future]
 
             try:

@@ -8,10 +8,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
-
-from groq import Groq
-from openai import OpenAI
+from typing import (
+    IO,
+    TYPE_CHECKING,
+    Any,
+    Dict,
+    List,
+    Type,
+    Tuple,
+    Union,
+    Mapping,
+    TypeVar,
+    Callable,
+    Optional,
+    Sequence,
+)
 
 from ragoon._retrieval import Retriever
 from ragoon._scrape import WebScraper
@@ -21,10 +32,10 @@ from ragoon._search import GoogleSearch
 class WebRAG:
     def __init__(
         self,
-        google_api_key:str,
-        google_cx:str,
+        google_api_key: str,
+        google_cx: str,
         completion_client,
-        user_agent:str="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
+        user_agent: Optional[str] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
     ) -> None:
         """
         WebRAG class.
@@ -88,9 +99,9 @@ class WebRAG:
 
     def search(
         self,
-        query:str,
-        completion_model:str,
-        system_prompt:str="""
+        query: str,
+        completion_model: str,
+        system_prompt: Optional[str] = """
         Given the user's input query, generate a concise and relevant Google search
         query that directly addresses the main intent of the user's question. The search query must
         be specifically tailored to retrieve results that can significantly enhance the context for a
