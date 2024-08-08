@@ -99,7 +99,6 @@ setup(
             "sphinx_contributors",
         ]
     },
-    python_requires=">=3.7",
     include_package_data=True,
     zip_safe=False,
     entry_points={
