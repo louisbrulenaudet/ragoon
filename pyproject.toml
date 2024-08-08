@@ -14,6 +14,11 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
     "Topic :: Software Development :: Libraries :: Python Modules"
 ]
+requires-python = ">=3.7"
+license = { text = "Apache License 2.0" }
+authors = [
+    { name = "Louis Brulé Naudet", email = "louisbrulenaudet@icloud.com" }
+]
 
 [build-system]
 requires = ["setuptools", "wheel"]
@@ -25,6 +30,7 @@ install_requires = [
     "beautifulsoup4==4.12.3",
     "datasets==2.20.0",
     "faiss_cpu==1.8.0",
+    "flash-attn==2.6.3",
     "google_api_python_client==2.126.0",
     "groq==0.9.0",
     "httpx==0.27.0",
@@ -48,6 +54,28 @@ install_requires = [
     "umap_learn==0.5.6",
     "usearch==2.12.0"
 ]
+
+[project.optional-dependencies]
+docs = [
+    "sphinx>=6.0.0",
+    "sphinx-book-theme>=1.0.1",
+    "sphinxcontrib-katex",
+    "sphinx-autodoc-typehints",
+    "ipython>=8.8.0",
+    "myst-nb>=1.0.0",
+    "myst-parser",
+    "matplotlib>=3.5.0",
+    "sphinx_book_theme==1.1.3",
+    "sphinx-gallery>=0.14.0",
+    "sphinx-collections>=0.0.1",
+    "tensorflow>=2.4.0",
+    "tensorflow-datasets>=4.2.0",
+    "flax",
+    "sphinx_contributors",
+]
+
+[tool.env]
+PYTHONPATH = "src"
 
 [tool.pytest.ini_options]
 testpaths = [
@@ -74,39 +102,3 @@ max-line-length = 88
 docstring-quotes = "double"
 inline-quotes = "double"
 multiline-quotes = "double"
-
-[project.optional-dependencies]
-docs = [
-    "sphinx>=6.0.0",
-    "sphinx-book-theme>=1.0.1",  # Older versions fail to pin pydata-sphinx-theme
-    "sphinxcontrib-katex",
-    "sphinx-autodoc-typehints",
-    "ipython>=8.8.0",  # 8.7.0 has ipython3 lexer error
-    "myst-nb>=1.0.0",
-    "myst-parser",
-    "matplotlib>=3.5.0",
-    "sphinx_book_theme==1.1.3",
-    "sphinx-gallery>=0.14.0",
-    "sphinx-collections>=0.0.1",
-    "tensorflow>=2.4.0",
-    "tensorflow-datasets>=4.2.0",
-    "flax",
-    "sphinx_contributors",
-]
-
-[tool.env]
-PYTHONPATH = "src"
-
-[metadata]
-name = "ragoon"
-version = "0.0.4"
-license = "Apache License 2.0"
-author = "Louis Brulé Naudet"
-author_email = "louisbrulenaudet@icloud.com"
-description = "RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing"
-long_description = "file: README.md"
-long_description_content_type = "text/markdown"
-url = "https://github.com/louisbrulenaudet/ragoon"
-homepage = "https://github.com/louisbrulenaudet/ragoon"
-project_urls = {repository = "https://github.com/louisbrulenaudet/ragoon"}
-keywords = "language-models retrieval web-scraping few-shot-learning nlp machine-learning ai llama generative-ai groqapi groq rag retrieval-augmented-generation"
