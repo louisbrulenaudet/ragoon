@@ -1,7 +1,7 @@
 [project]
 name = "ragoon"
 version = "0.0.4"
-description = "RAGoon: High-level library for batched embeddings generation, blazingly-fast web-based RAG, and quantized indexes processing ⚡"
+description = "RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing ⚡"
 readme = "README.md"
 keywords = ["language-models", "retrieval", "web-scraping", "few-shot-learning", "nlp", "machine-learning", "retrieval-augmented-generation", "RAG", "groq", "generative-ai", "llama", "Mistral"]
 classifiers = [
@@ -16,57 +16,44 @@ classifiers = [
 ]
 requires-python = ">=3.9"
 
-[project.dependencies]
-beautifulsoup4 = "==4.12.3"
-datasets = "==2.20.0"
-faiss_cpu = "==1.8.0"
-google_api_python_client = "==2.126.0"
-groq = "==0.9.0"
-httpx = "==0.27.0"
-huggingface_hub = "==0.24.2"
-myst-parser = "==3.0.1"
-numpy = "<2"
-numpydoc = "==1.7.0"
-openai = "==1.37.1"
-overload = "==1.1"
-plotly = "==5.23.0"
-pydata-sphinx-theme = "==0.15.4"
-pytest = "==8.3.2"
-scikit_learn = "==1.5.1"
-sentence_transformers = "==3.0.1"
-sphinx = "==7.4.7"
-sphinx_book_theme = "==1.1.3"
-torch = "==2.2.1"
-transformers = "*"
-tqdm = "==4.66.4"
-umap = "==0.1.1"
-umap_learn = "==0.5.6"
-usearch = "==2.12.0"
-
-[project.optional-dependencies]
-docs = [
-    "sphinx>=6.0.0",
-    "sphinx-book-theme>=1.0.1",  # Older versions fail to pin pydata-sphinx-theme
-    "sphinxcontrib-katex",
-    "sphinx-autodoc-typehints",
-    "ipython>=8.8.0",  # 8.7.0 has ipython3 lexer error
-    "myst-nb>=1.0.0",
-    "myst-parser",
-    "matplotlib>=3.5.0",
-    "sphinx-gallery>=0.14.0",
-    "sphinx-collections>=0.0.1",
-    "tensorflow>=2.4.0",
-    "tensorflow-datasets>=4.2.0",
-    "flax",
-    "sphinx_contributors"
-]
-
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[options]
+packages = ["find:"]
+install_requires = [
+    "beautifulsoup4==4.12.3",
+    "datasets==2.20.0",
+    "faiss_cpu==1.8.0",
+    "google_api_python_client==2.126.0",
+    "groq==0.9.0",
+    "httpx==0.27.0",
+    "huggingface_hub==0.24.2",
+    "myst-parser==3.0.1",
+    "numpy<2",
+    "numpydoc==1.7.0",
+    "openai==1.37.1",
+    "overload==1.1",
+    "plotly==5.23.0",
+    "pydata-sphinx-theme==0.15.4",
+    "pytest==8.3.2",
+    "scikit_learn==1.5.1",
+    "sentence_transformers==3.0.1",
+    "sphinx==7.4.7",
+    "sphinx_book_theme==1.1.3",
+    "torch==2.2.1",
+    "transformers",
+    "tqdm==4.66.4",
+    "umap==0.1.1",
+    "umap_learn==0.5.6",
+    "usearch==2.12.0"
+]
+
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = [
+    "tests"
+]
 
 [tool.ruff]
 line-length = 88
@@ -88,3 +75,39 @@ max-line-length = 88
 docstring-quotes = "double"
 inline-quotes = "double"
 multiline-quotes = "double"
+
+[project.optional-dependencies]
+docs = [
+    "sphinx>=6.0.0",
+    "sphinx-book-theme>=1.0.1",  # Older versions fail to pin pydata-sphinx-theme
+    "sphinxcontrib-katex",
+    "sphinx-autodoc-typehints",
+    "ipython>=8.8.0",  # 8.7.0 has ipython3 lexer error
+    "myst-nb>=1.0.0",
+    "myst-parser",
+    "matplotlib>=3.5.0",
+    "sphinx_book_theme==1.1.3",
+    "sphinx-gallery>=0.14.0",
+    "sphinx-collections>=0.0.1",
+    "tensorflow>=2.4.0",
+    "tensorflow-datasets>=4.2.0",
+    "flax",
+    "sphinx_contributors",
+]
+
+[tool.env]
+PYTHONPATH = "src"
+
+[metadata]
+name = "ragoon"
+version = "0.0.4"
+license = "Apache License 2.0"
+author = "Louis Brulé Naudet"
+author_email = "louisbrulenaudet@icloud.com"
+description = "RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing"
+long_description = "file: README.md"
+long_description_content_type = "text/markdown"
+url = "https://github.com/louisbrulenaudet/ragoon"
+homepage = "https://github.com/louisbrulenaudet/ragoon"
+project_urls = {repository = "https://github.com/louisbrulenaudet/ragoon"}
+keywords = "language-models retrieval web-scraping few-shot-learning nlp machine-learning ai llama generative-ai groqapi groq rag retrieval-augmented-generation"
