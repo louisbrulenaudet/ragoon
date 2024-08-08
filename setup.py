@@ -57,7 +57,6 @@ setup(
         "beautifulsoup4==4.12.3",
         "datasets==2.20.0",
         "faiss_cpu==1.8.0",
-        "flash-attn==2.6.3",
         "google_api_python_client==2.126.0",
         "groq==0.9.0",
         "httpx==0.27.0",
