@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ragoon.web_rag &#8212; RAGoon 0.0.4 documentation</title>
+    <title>ragoon.datasets &#8212; RAGoon 0.0.4 documentation</title>
   
   
   
@@ -40,7 +40,7 @@
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/ragoon/web_rag';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/ragoon/datasets';</script>
     <link rel="icon" href="../../_static/logo.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -287,7 +287,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <h1>Source code for ragoon.web_rag</h1><div class="highlight"><pre>
+  <h1>Source code for ragoon.datasets</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1"># Copyright (c) Louis Brulé Naudet. All Rights Reserved.</span>
 <span class="c1"># This software may be used and distributed according to the terms of License Agreement.</span>
@@ -297,6 +297,10 @@ document.write(`
 <span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">concurrent.futures</span>
+
+<span class="kn">import</span> <span class="nn">datasets</span>
 
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">IO</span><span class="p">,</span>
@@ -314,163 +318,125 @@ document.write(`
     <span class="n">Sequence</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">ragoon._retrieval</span> <span class="kn">import</span> <span class="n">Retriever</span>
-<span class="kn">from</span> <span class="nn">ragoon._scrape</span> <span class="kn">import</span> <span class="n">WebScraper</span>
-<span class="kn">from</span> <span class="nn">ragoon._search</span> <span class="kn">import</span> <span class="n">GoogleSearch</span>
+<span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="kn">from</span> <span class="nn">ragoon._logger</span> <span class="kn">import</span> <span class="n">Logger</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">()</span>
 
 
-<div class="viewcode-block" id="WebRAG">
-<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.web_rag.WebRAG">[docs]</a>
-<span class="k">class</span> <span class="nc">WebRAG</span><span class="p">:</span>
-<div class="viewcode-block" id="WebRAG.__init__">
-<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.web_rag.WebRAG.__init__">[docs]</a>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">google_api_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">google_cx</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">completion_client</span><span class="p">,</span>
-        <span class="n">user_agent</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36&quot;</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        WebRAG class.</span>
+<div class="viewcode-block" id="dataset_loader">
+<a class="viewcode-back" href="../../api/ragoon.datasets.html#ragoon.datasets.dataset_loader">[docs]</a>
+<span class="k">def</span> <span class="nf">dataset_loader</span><span class="p">(</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+    <span class="n">streaming</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">split</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">datasets</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper function to load a single dataset in parallel.</span>
 
-<span class="sd">        This class facilitates retrieval-based querying and completion using various APIs.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">        Name of the dataset to be loaded.</span>
 
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        google_api_key : str</span>
-<span class="sd">            The API key for Google services.</span>
-<span class="sd">        </span>
-<span class="sd">        google_cx : str</span>
-<span class="sd">            The custom search engine ID for Google Custom Search.</span>
-<span class="sd">        </span>
-<span class="sd">        completion_client: str</span>
-<span class="sd">            The API client for the completion service (e.g., OpenAI&#39;s GPT-3).</span>
-<span class="sd">        </span>
-<span class="sd">        user_agent : str, optional</span>
-<span class="sd">            The user agent string to be used in web requests. Default is a Chrome user agent.</span>
+<span class="sd">    streaming : bool, optional</span>
+<span class="sd">        Determines if datasets are streamed. Default is True.</span>
 
-<span class="sd">        Attributes</span>
-<span class="sd">        ----------</span>
-<span class="sd">        web_scraper : WebScraper</span>
-<span class="sd">            An instance of the WebScraper class for web scraping.</span>
-<span class="sd">        </span>
-<span class="sd">        retriever : Retriever</span>
-<span class="sd">            An instance of the Retriever class for data retrieval.</span>
-<span class="sd">        </span>
-<span class="sd">        google_search : GoogleSearch</span>
-<span class="sd">            An instance of the GoogleSearch class for Google searches.</span>
+<span class="sd">    split : Optional[Union[str, List[str]]], optional</span>
+<span class="sd">        Which split of the data to load. If None, will return a dict with all splits (typically datasets.Split.TRAIN and datasets.Split.TEST). If given, will return a single Dataset. Splits can be combined and specified like in tensorflow-datasets.</span>
 
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        # Initialize RAGoon instance</span>
-<span class="sd">        &gt;&gt;&gt; ragoon = RAGoon(</span>
-<span class="sd">        &gt;&gt;&gt;    google_api_key=&quot;your_google_api_key&quot;,</span>
-<span class="sd">        &gt;&gt;&gt;    google_cx=&quot;your_google_cx&quot;,</span>
-<span class="sd">        &gt;&gt;&gt;    completion_client=Groq(api_key=&quot;your_groq_api_key&quot;)</span>
-<span class="sd">        &gt;&gt;&gt; )</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataset : datasets.Dataset</span>
+<span class="sd">        Loaded dataset object.</span>
 
-<span class="sd">        &gt;&gt;&gt; # Search and get results</span>
-<span class="sd">        &gt;&gt;&gt; query = &quot;I want to do a left join in python polars&quot;</span>
-<span class="sd">        &gt;&gt;&gt; results = ragoon.search(</span>
-<span class="sd">        &gt;&gt;&gt;    query=query,</span>
-<span class="sd">        &gt;&gt;&gt;    completion_model=&quot;Llama3-70b-8192&quot;,</span>
-<span class="sd">        &gt;&gt;&gt;    max_tokens=512,</span>
-<span class="sd">        &gt;&gt;&gt;    temperature=1,</span>
-<span class="sd">        &gt;&gt;&gt; )</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">web_search</span> <span class="o">=</span> <span class="n">GoogleSearch</span><span class="p">(</span>
-            <span class="n">developer_key</span><span class="o">=</span><span class="n">google_api_key</span><span class="p">,</span> 
-            <span class="n">cx</span><span class="o">=</span><span class="n">google_cx</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">retriever</span> <span class="o">=</span> <span class="n">Retriever</span><span class="p">(</span>
-            <span class="n">client</span><span class="o">=</span><span class="n">completion_client</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">web_scraper</span> <span class="o">=</span> <span class="n">WebScraper</span><span class="p">(</span>
-            <span class="n">user_agent</span><span class="o">=</span><span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36&quot;</span>
-        <span class="p">)</span></div>
-
-
-
-<div class="viewcode-block" id="WebRAG.search">
-<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.web_rag.WebRAG.search">[docs]</a>
-    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">completion_model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">system_prompt</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">        Given the user&#39;s input query, generate a concise and relevant Google search</span>
-<span class="s2">        query that directly addresses the main intent of the user&#39;s question. The search query must</span>
-<span class="s2">        be specifically tailored to retrieve results that can significantly enhance the context for a</span>
-<span class="s2">        subsequent dialogue with an LLM. This approach will facilitate few-shot learning by providing</span>
-<span class="s2">        rich, specific, and contextually relevant information. Please ensure that the response is</span>
-<span class="s2">        well-formed and format it as a JSON object with a key named &#39;search_query&#39;. This</span>
-<span class="s2">        structured approach will help in assimilating the fetched results into an enhanced conversational</span>
-<span class="s2">        model, contributing to a more nuanced and informed interaction.</span>
-<span class="s2">        &quot;&quot;&quot;</span><span class="p">,</span>
-        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-        <span class="o">**</span><span class="n">kargs</span>
-    <span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Search for information and perform completion.</span>
-
-<span class="sd">        This method searches for information related to the given query</span>
-<span class="sd">        and performs completion using the specified model. Additional</span>
-<span class="sd">        parameters can be passed to the completion method.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        query : str</span>
-<span class="sd">            The search query.</span>
-<span class="sd">        </span>
-<span class="sd">        completion_model : str</span>
-<span class="sd">            The name or identifier of the completion model to be used.</span>
-<span class="sd">        </span>
-<span class="sd">        *args</span>
-<span class="sd">            Additional positional arguments to be passed to the completion method.</span>
-<span class="sd">        </span>
-<span class="sd">        **kwargs</span>
-<span class="sd">            Additional keyword arguments to be passed to the completion method.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        completion_data : dict</span>
-<span class="sd">            A dictionary containing the generated completion data.</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">search_query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retriever</span><span class="o">.</span><span class="n">completion</span><span class="p">(</span>
-            <span class="n">model</span><span class="o">=</span><span class="n">completion_model</span><span class="p">,</span>
-            <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
-                <span class="p">{</span>
-                    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">system_prompt</span>
-                <span class="p">},</span>
-                <span class="p">{</span>
-                    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">query</span>
-                <span class="p">}</span>
-            <span class="p">],</span>
-            <span class="o">*</span><span class="n">args</span>
-        <span class="p">)[</span><span class="s2">&quot;search_query&quot;</span><span class="p">]</span>
-
-        <span class="n">search_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">web_search</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-            <span class="n">query</span><span class="o">=</span><span class="n">search_query</span>
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    Exception</span>
+<span class="sd">        If an error occurs during dataset loading.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">load_dataset</span><span class="p">(</span>
+            <span class="n">name</span><span class="p">,</span> 
+            <span class="n">streaming</span><span class="o">=</span><span class="n">streaming</span><span class="p">,</span>
+            <span class="n">split</span><span class="o">=</span><span class="n">split</span>
         <span class="p">)</span>
 
-        <span class="n">list_of_urls</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading dataset </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">search_results</span><span class="p">:</span>
-            <span class="n">list_of_urls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;link&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
 
-        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">web_scraper</span><span class="o">.</span><span class="n">parallel_scrape</span><span class="p">(</span>
-            <span class="n">urls</span><span class="o">=</span><span class="n">list_of_urls</span><span class="p">,</span>
-            <span class="n">element_selectors</span><span class="o">=</span> <span class="p">[</span>
-                <span class="s2">&quot;main&quot;</span>
-            <span class="p">]</span>
-        <span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">results</span></div>
-</div>
+
+<div class="viewcode-block" id="load_datasets">
+<a class="viewcode-back" href="../../api/ragoon.datasets.html#ragoon.datasets.load_datasets">[docs]</a>
+<span class="k">def</span> <span class="nf">load_datasets</span><span class="p">(</span>
+    <span class="n">req</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+    <span class="n">streaming</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Downloads datasets specified in a list and creates a list of loaded datasets.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    req : list</span>
+<span class="sd">        A list containing the names of datasets to be downloaded.</span>
+
+<span class="sd">    streaming : bool, optional</span>
+<span class="sd">        Determines if datasets are streamed. Default is False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    datasets_list : list</span>
+<span class="sd">        A list containing loaded datasets as per the requested names provided in &#39;req&#39;.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    Exception</span>
+<span class="sd">        If an error occurs during dataset loading or processing.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; req = [</span>
+<span class="sd">    ...    &quot;louisbrulenaudet/code-artisanat&quot;,</span>
+<span class="sd">    ...    &quot;louisbrulenaudet/code-action-sociale-familles&quot;,</span>
+<span class="sd">    ... # ...</span>
+<span class="sd">    ]</span>
+
+<span class="sd">    &gt;&gt;&gt; datasets_list = load_datasets(</span>
+<span class="sd">    ...    req=req,</span>
+<span class="sd">    ...    streaming=True</span>
+<span class="sd">    )</span>
+
+<span class="sd">    &gt;&gt;&gt; dataset = datasets.concatenate_datasets(</span>
+<span class="sd">    ...    datasets_list</span>
+<span class="sd">    )</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">datasets_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">with</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">ThreadPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+        <span class="n">future_to_dataset</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">dataset_loader</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">streaming</span><span class="p">):</span> <span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">req</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span>
+            <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">as_completed</span><span class="p">(</span><span class="n">future_to_dataset</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">future_to_dataset</span><span class="p">[</span><span class="n">future</span><span class="p">]</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">dataset</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="n">dataset</span><span class="p">:</span>
+                    <span class="n">datasets_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error processing dataset </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">datasets_list</span></div>
 
 </pre></div>
 

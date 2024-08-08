@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>RAGoon Module &#8212; RAGoon 0.0.4 documentation</title>
+    <title>🖼️ Tutorials &#8212; RAGoon 0.0.4 documentation</title>
   
   
   
@@ -41,10 +41,12 @@
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ragoon';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials';</script>
     <link rel="icon" href="_static/logo.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ragoon" href="modules.html" />
+    <link rel="prev" title="🚀 Installation" href="installation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -107,8 +109,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -157,9 +157,9 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">🚀 Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials.html">🖼️ Tutorials</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">🖼️ Tutorials</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">📖 Reference</span></p>
 <ul class="nav bd-sidenav">
@@ -240,7 +240,7 @@
       
       
       
-      <li><a href="_sources/ragoon.rst" target="_blank"
+      <li><a href="_sources/tutorials.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -324,7 +324,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>RAGoon Module</h1>
+    <h1>🖼️ Tutorials</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -334,7 +334,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embeddings-production">Embeddings Production</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embeddings-visualization">Embeddings Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-web-search">Dynamic Web Search</a></li>
 </ul>
             </nav>
         </div>
@@ -346,37 +348,110 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-ragoon">
-<span id="ragoon-module"></span><h1>RAGoon Module<a class="headerlink" href="#module-ragoon" title="Link to this heading">#</a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Submodules</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="api/ragoon.chunks.html">ragoon.chunks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/ragoon.chunks.html#ragoon.chunks.ChunkMetadata"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/ragoon.chunks.html#ragoon.chunks.DatasetChunker"><code class="docutils literal notranslate"><span class="pre">DatasetChunker</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/ragoon.datasets.html">ragoon.datasets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/ragoon.datasets.html#ragoon.datasets.dataset_loader"><code class="docutils literal notranslate"><span class="pre">dataset_loader()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/ragoon.datasets.html#ragoon.datasets.load_datasets"><code class="docutils literal notranslate"><span class="pre">load_datasets()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/ragoon.embeddings.html">ragoon.embeddings</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsDataLoader"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/ragoon.embeddings.html#ragoon.embeddings.EmbeddingsVisualizer"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/ragoon.similarity_search.html">ragoon.similarity_search</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/ragoon.similarity_search.html#ragoon.similarity_search.SimilaritySearch"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/ragoon.web_rag.html">ragoon.web_rag</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/ragoon.web_rag.html#ragoon.web_rag.WebRAG"><code class="docutils literal notranslate"><span class="pre">WebRAG</span></code></a></li>
-</ul>
-</li>
-</ul>
+  <section id="tutorials">
+<h1>🖼️ Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading">#</a></h1>
+<p>This section provides an overview of different code blocks that can be executed with RAGoon to enhance your NLP and language model projects.</p>
+<section id="embeddings-production">
+<h2>Embeddings Production<a class="headerlink" href="#embeddings-production" title="Link to this heading">#</a></h2>
+<p>This class handles loading a dataset from Hugging Face, processing it to add embeddings using specified models, and provides methods to save and upload the processed dataset.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ragoon</span> <span class="kn">import</span> <span class="n">EmbeddingsDataLoader</span>
+<span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
+
+<span class="c1"># Initialize the dataset loader with multiple models</span>
+<span class="n">loader</span> <span class="o">=</span> <span class="n">EmbeddingsDataLoader</span><span class="p">(</span>
+    <span class="n">token</span><span class="o">=</span><span class="s2">&quot;hf_token&quot;</span><span class="p">,</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;louisbrulenaudet/dac6-instruct&quot;</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">),</span>  <span class="c1"># If dataset is already loaded.</span>
+    <span class="c1"># dataset_name=&quot;louisbrulenaudet/dac6-instruct&quot;,  # If you want to load the dataset from the class.</span>
+    <span class="n">model_configs</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;bert-base-uncased&quot;</span><span class="p">,</span> <span class="s2">&quot;query_prefix&quot;</span><span class="p">:</span> <span class="s2">&quot;Query:&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;distilbert-base-uncased&quot;</span><span class="p">,</span> <span class="s2">&quot;query_prefix&quot;</span><span class="p">:</span> <span class="s2">&quot;Query:&quot;</span><span class="p">}</span>
+        <span class="c1"># Add more model configurations as needed</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Uncomment this line if passing dataset_name instead of dataset.</span>
+<span class="c1"># loader.load_dataset()</span>
+
+<span class="c1"># Process the splits with all models loaded</span>
+<span class="n">loader</span><span class="o">.</span><span class="n">process</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;output&quot;</span><span class="p">,</span>
+    <span class="n">preload_models</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># To access the processed dataset</span>
+<span class="n">processed_dataset</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">processed_dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>You can also embed a single text using multiple models:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ragoon</span> <span class="kn">import</span> <span class="n">EmbeddingsDataLoader</span>
+
+<span class="c1"># Initialize the dataset loader with multiple models</span>
+<span class="n">loader</span> <span class="o">=</span> <span class="n">EmbeddingsDataLoader</span><span class="p">(</span>
+    <span class="n">token</span><span class="o">=</span><span class="s2">&quot;hf_token&quot;</span><span class="p">,</span>
+    <span class="n">model_configs</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;bert-base-uncased&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;distilbert-base-uncased&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Load models</span>
+<span class="n">loader</span><span class="o">.</span><span class="n">load_models</span><span class="p">()</span>
+
+<span class="c1"># Embed a single text with all loaded models</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;This is a single text for embedding.&quot;</span>
+<span class="n">embedding_result</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">batch_encode</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># Output the embeddings</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">embedding_result</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="embeddings-visualization">
+<h2>Embeddings Visualization<a class="headerlink" href="#embeddings-visualization" title="Link to this heading">#</a></h2>
+<p>This class provides functionality to load embeddings from a FAISS index, reduce their dimensionality using PCA and/or t-SNE, and visualize them in an interactive 3D plot.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ragoon</span> <span class="kn">import</span> <span class="n">EmbeddingsVisualizer</span>
+
+<span class="n">visualizer</span> <span class="o">=</span> <span class="n">EmbeddingsVisualizer</span><span class="p">(</span>
+    <span class="n">index_path</span><span class="o">=</span><span class="s2">&quot;path/to/index&quot;</span><span class="p">,</span>
+    <span class="n">dataset_path</span><span class="o">=</span><span class="s2">&quot;path/to/dataset&quot;</span>
+<span class="p">)</span>
+
+<span class="n">visualizer</span><span class="o">.</span><span class="n">visualize</span><span class="p">(</span>
+    <span class="n">method</span><span class="o">=</span><span class="s2">&quot;pca&quot;</span><span class="p">,</span>
+    <span class="n">save_html</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">html_file_name</span><span class="o">=</span><span class="s2">&quot;embedding_visualization.html&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="dynamic-web-search">
+<h2>Dynamic Web Search<a class="headerlink" href="#dynamic-web-search" title="Link to this heading">#</a></h2>
+<p>RAGoon is a Python library that aims to improve the performance of language models by providing contextually relevant information through retrieval-based querying, web scraping, and data augmentation techniques. It integrates various APIs, enabling users to retrieve information from the web, enrich it with domain-specific knowledge, and feed it to language models for more informed responses.</p>
+<p>RAGoon’s core functionality revolves around the concept of few-shot learning, where language models are provided with a small set of high-quality examples to enhance their understanding and generate more accurate outputs. By curating and retrieving relevant data from the web, RAGoon equips language models with the necessary context and knowledge to tackle complex queries and generate insightful responses.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">groq</span> <span class="kn">import</span> <span class="n">Groq</span>
+<span class="c1"># from openai import OpenAI</span>
+<span class="kn">from</span> <span class="nn">ragoon</span> <span class="kn">import</span> <span class="n">WebRAG</span>
+
+<span class="c1"># Initialize RAGoon instance</span>
+<span class="n">ragoon</span> <span class="o">=</span> <span class="n">WebRAG</span><span class="p">(</span>
+    <span class="n">google_api_key</span><span class="o">=</span><span class="s2">&quot;your_google_api_key&quot;</span><span class="p">,</span>
+    <span class="n">google_cx</span><span class="o">=</span><span class="s2">&quot;your_google_cx&quot;</span><span class="p">,</span>
+    <span class="n">completion_client</span><span class="o">=</span><span class="n">Groq</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;your_groq_api_key&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Search and get results</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;I want to do a left join in Python Polars&quot;</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">ragoon</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+    <span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span>
+    <span class="n">completion_model</span><span class="o">=</span><span class="s2">&quot;Llama3-70b-8192&quot;</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Print results</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
 </div>
 </section>
 </section>
@@ -392,6 +467,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="installation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">🚀 Installation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="modules.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ragoon</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -408,7 +501,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embeddings-production">Embeddings Production</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embeddings-visualization">Embeddings Visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-web-search">Dynamic Web Search</a></li>
 </ul>
   </nav></div>
 

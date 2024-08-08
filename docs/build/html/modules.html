@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ragoon &#8212; RAGoon 0.0.5 documentation</title>
+    <title>ragoon &#8212; RAGoon 0.0.4 documentation</title>
   
   
   
@@ -37,17 +37,16 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=6424ca4d"></script>
+    <script src="_static/documentation_options.js?v=dfd84850"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/theme_switcher.js?v=2728e04b"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules';</script>
-    <link rel="icon" href="_static/logo_light.svg"/>
+    <link rel="icon" href="_static/logo.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="ragoon.chunks" href="api/ragoon.chunks.html" />
-    <link rel="prev" title="RAGoon : Improve Large Language Models retrieval using dynamic web-search ⚡" href="index.html" />
+    <link rel="prev" title="🖼️ Tutorials" href="tutorials.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -139,8 +138,8 @@
       
     
     
-    <img src="_static/logo_light.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
-    <script>document.write(`<img src="_static/logo_light.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
+    <img src="_static/logo.svg" class="logo__image only-light" alt="RAGoon 0.0.4 documentation - Home"/>
+    <script>document.write(`<img src="_static/logo.svg" class="logo__image only-dark" alt="RAGoon 0.0.4 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -157,10 +156,16 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">📖 Reference</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">🚀 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">🖼️ Tutorials</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📖 Reference</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">ragoon</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/ragoon.chunks.html">ragoon.chunks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ragoon.datasets.html">ragoon.datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/ragoon.embeddings.html">ragoon.embeddings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/ragoon.similarity_search.html">ragoon.similarity_search</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/ragoon.web_rag.html">ragoon.web_rag</a></li>
@@ -306,7 +311,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -322,6 +329,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key Features</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -339,6 +354,11 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="api/ragoon.chunks.html">ragoon.chunks</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/ragoon.chunks.html#ragoon.chunks.ChunkMetadata"><code class="docutils literal notranslate"><span class="pre">ChunkMetadata</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/ragoon.chunks.html#ragoon.chunks.DatasetChunker"><code class="docutils literal notranslate"><span class="pre">DatasetChunker</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/ragoon.datasets.html">ragoon.datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/ragoon.datasets.html#ragoon.datasets.dataset_loader"><code class="docutils literal notranslate"><span class="pre">dataset_loader()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ragoon.datasets.html#ragoon.datasets.load_datasets"><code class="docutils literal notranslate"><span class="pre">load_datasets()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api/ragoon.embeddings.html">ragoon.embeddings</a><ul>
@@ -359,11 +379,22 @@ document.write(`
 <p>This module provides the following submodules:</p>
 <ul class="simple">
 <li><p><cite>ragoon.chunks</cite>: Contains functions for handling text chunks.</p></li>
+<li><p><cite>ragoon.datasets</cite>: Contains functions for loading datasets concurrently.</p></li>
 <li><p><cite>ragoon.embeddings</cite>: Provides methods for working with text embeddings.</p></li>
 <li><p><cite>ragoon.similarity_search</cite>: Implements algorithms for similarity search.</p></li>
 <li><p><cite>ragoon.web_rag</cite>: Offers functionality for web-based retrieval augmented generation.</p></li>
 </ul>
 <p>Please refer to the individual submodules for detailed documentation and usage instructions.</p>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Query Generation</strong>: RAGoon generates search queries tailored to retrieve results that directly address the user’s intent, enhancing the context for subsequent language model interactions.</p></li>
+<li><p><strong>Web Scraping and Data Retrieval</strong>: RAGoon leverages web scraping capabilities to extract relevant content from various websites, providing language models with domain-specific knowledge.</p></li>
+<li><p><strong>Parallel Processing</strong>: RAGoon utilizes parallel processing techniques to efficiently scrape and retrieve data from multiple URLs simultaneously.</p></li>
+<li><p><strong>Language Model Integration</strong>: RAGoon integrates with language models, such as OpenAI’s GPT-3 or LLama 3 on Groq Cloud, enabling users to leverage natural language processing capabilities for their applications.</p></li>
+<li><p><strong>Extensible Design</strong>: RAGoon’s modular architecture allows for the integration of new data sources, retrieval methods, and language models, ensuring future extensibility.</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -378,12 +409,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="tutorials.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">RAGoon : Improve Large Language Models retrieval using dynamic web-search ⚡</p>
+        <p class="prev-next-title">🖼️ Tutorials</p>
       </div>
     </a>
     <a class="right-next"
@@ -401,6 +432,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key Features</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

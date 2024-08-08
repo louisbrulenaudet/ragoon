@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>RAGoon : Improve Large Language Models retrieval using dynamic web-search ⚡ &#8212; RAGoon 0.0.5 documentation</title>
+    <title>RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing ⚡ &#8212; RAGoon 0.0.4 documentation</title>
   
   
   
@@ -37,16 +37,15 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=6424ca4d"></script>
+    <script src="_static/documentation_options.js?v=dfd84850"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/theme_switcher.js?v=2728e04b"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
-    <link rel="icon" href="_static/logo_light.svg"/>
+    <link rel="icon" href="_static/logo.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ragoon" href="modules.html" />
+    <link rel="next" title="🚀 Installation" href="installation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -140,8 +139,8 @@
       
     
     
-    <img src="_static/logo_light.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
-    <script>document.write(`<img src="_static/logo_light.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
+    <img src="_static/logo.svg" class="logo__image only-light" alt="RAGoon 0.0.4 documentation - Home"/>
+    <script>document.write(`<img src="_static/logo.svg" class="logo__image only-dark" alt="RAGoon 0.0.4 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -158,10 +157,16 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">📖 Reference</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">🚀 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">🖼️ Tutorials</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📖 Reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">ragoon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/ragoon.chunks.html">ragoon.chunks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ragoon.datasets.html">ragoon.datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/ragoon.embeddings.html">ragoon.embeddings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/ragoon.similarity_search.html">ragoon.similarity_search</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/ragoon.web_rag.html">ragoon.web_rag</a></li>
@@ -320,7 +325,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>RAGoon : Improve Large Language Models retrieval using dynamic web-search ⚡</h1>
+    <h1>RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing ⚡</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -330,13 +335,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">RAGoon : Improve Large Language Models retrieval using dynamic web-search ⚡</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing ⚡</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-install">Quick install</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-example">Usage Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key Features</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">Dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citing-this-project">Citing this project</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback">Feedback</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback">Feedback</a><ul class="visible nav section-nav flex-column">
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-and-tables">Indices and tables</a></li>
@@ -352,66 +356,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="ragoon-improve-large-language-models-retrieval-using-dynamic-web-search">
-<h1>RAGoon : Improve Large Language Models retrieval using dynamic web-search ⚡<a class="headerlink" href="#ragoon-improve-large-language-models-retrieval-using-dynamic-web-search" title="Link to this heading">#</a></h1>
-<p>RAGoon is a Python library that aims to improve the performance of language models by providing contextually relevant information through retrieval-based querying, web scraping, and data augmentation techniques. It offers an integration of various APIs, enabling users to retrieve information from the web, enrich it with domain-specific knowledge, and feed it to language models for more informed responses.</p>
-<p>RAGoon’s core functionality revolves around the concept of few-shot learning, where language models are provided with a small set of high-quality examples to enhance their understanding and generate more accurate outputs. By curating and retrieving relevant data from the web, RAGoon equips language models with the necessary context and knowledge to tackle complex queries and generate insightful responses.</p>
+  <section id="ragoon-high-level-library-for-batched-embeddings-generation-blazingly-fast-web-based-rag-and-quantitized-indexes-processing">
+<h1>RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing ⚡<a class="headerlink" href="#ragoon-high-level-library-for-batched-embeddings-generation-blazingly-fast-web-based-rag-and-quantitized-indexes-processing" title="Link to this heading">#</a></h1>
+<p>RAGoon is a set of NLP utilities for multi-model embedding production, high-dimensional vector visualization, and aims to improve language model performance by providing contextually relevant information through search-based querying, web scraping and data augmentation techniques.</p>
 <section id="quick-install">
 <h2>Quick install<a class="headerlink" href="#quick-install" title="Link to this heading">#</a></h2>
 <p>The reference page for RAGoon is available on the official page of PyPI: <a class="reference external" href="https://pypi.org/project/ragoon/">RAGoon</a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ragoon</span>
 </pre></div>
 </div>
-</section>
-<section id="usage-example">
-<h2>Usage Example<a class="headerlink" href="#usage-example" title="Link to this heading">#</a></h2>
-<p>Here’s an example of how to use RAGoon:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">groq</span> <span class="kn">import</span> <span class="n">Groq</span>
-<span class="c1"># from openai import OpenAI</span>
-<span class="kn">from</span> <span class="nn">ragoon</span> <span class="kn">import</span> <span class="n">RAGoon</span>
-
-<span class="c1"># Initialize RAGoon instance</span>
-<span class="n">ragoon</span> <span class="o">=</span> <span class="n">RAGoon</span><span class="p">(</span>
-    <span class="n">google_api_key</span><span class="o">=</span><span class="s2">&quot;your_google_api_key&quot;</span><span class="p">,</span>
-    <span class="n">google_cx</span><span class="o">=</span><span class="s2">&quot;your_google_cx&quot;</span><span class="p">,</span>
-    <span class="n">completion_client</span><span class="o">=</span><span class="n">Groq</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;your_groq_api_key&quot;</span><span class="p">)</span>
-<span class="p">)</span>
-
-<span class="c1"># Search and get results</span>
-<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;I want to do a left join in python polars&quot;</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">ragoon</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-    <span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span>
-    <span class="n">completion_model</span><span class="o">=</span><span class="s2">&quot;Llama3-70b-8192&quot;</span><span class="p">,</span>
-    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
-    <span class="n">temperature</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="c1"># Print results</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="key-features">
-<h2>Key Features<a class="headerlink" href="#key-features" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Query Generation</strong>: RAGoon generates search queries tailored to retrieve results that directly address the user’s intent, enhancing the context for subsequent language model interactions.</p></li>
-<li><p><strong>Web Scraping and Data Retrieval</strong>: RAGoon leverages web scraping capabilities to extract relevant content from various websites, providing language models with domain-specific knowledge.</p></li>
-<li><p><strong>Parallel Processing</strong>: RAGoon utilizes parallel processing techniques to efficiently scrape and retrieve data from multiple URLs simultaneously.</p></li>
-<li><p><strong>Language Model Integration</strong>: RAGoon integrates with language models, such as OpenAI’s GPT-3 or LLama 3 on Groq Cloud, enabling users to leverage natural language processing capabilities for their applications.</p></li>
-<li><p><strong>Extensible Design</strong>: RAGoon’s modular architecture allows for the integration of new data sources, retrieval methods, and language models, ensuring future extensibility.</p></li>
-</ul>
-</section>
-<section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><cite>dotenv</cite>: A Python library that loads environment variables from a <cite>.env</cite> file.</p></li>
-<li><p><cite>groq</cite>: A Python client library for the Groq API, which provides access to language models.</p></li>
-<li><p><cite>openai</cite>: A Python library to interact with the OpenAI API, including access to GPT-3 and other language models.</p></li>
-<li><p><cite>requests</cite>: A popular Python library for making HTTP requests and interacting with web services.</p></li>
-<li><p><cite>beautifulsoup4</cite>: A Python library for web scraping, providing tools for parsing and navigating HTML and XML documents.</p></li>
-<li><p><cite>httpx</cite>: A modern, Python 3 library for making HTTP requests.</p></li>
-<li><p><cite>googleapiclient</cite>: A Python client library for accessing Google APIs.</p></li>
-</ul>
 </section>
 <section id="citing-this-project">
 <h2>Citing this project<a class="headerlink" href="#citing-this-project" title="Link to this heading">#</a></h2>
@@ -428,6 +381,18 @@ document.write(`
 <section id="feedback">
 <h2>Feedback<a class="headerlink" href="#feedback" title="Link to this heading">#</a></h2>
 <p>If you have any feedback, please reach out at <a class="reference external" href="mailto:louisbrulenaudet&#37;&#52;&#48;icloud&#46;com">louisbrulenaudet<span>&#64;</span>icloud<span>&#46;</span>com</a>.</p>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">🚀 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">🖼️ Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#embeddings-production">Embeddings Production</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#embeddings-visualization">Embeddings Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#dynamic-web-search">Dynamic Web Search</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -453,11 +418,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="modules.html"
+       href="installation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ragoon</p>
+        <p class="prev-next-title">🚀 Installation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -477,13 +442,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">RAGoon : Improve Large Language Models retrieval using dynamic web-search ⚡</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing ⚡</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-install">Quick install</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-example">Usage Example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features">Key Features</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">Dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citing-this-project">Citing this project</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback">Feedback</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback">Feedback</a><ul class="visible nav section-nav flex-column">
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-and-tables">Indices and tables</a></li>

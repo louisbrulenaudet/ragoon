@@ -1,6 +1,6 @@
 [project]
 name = "ragoon"
-version = "0.0.5"
+version = "0.0.4"
 description = "RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing ⚡"
 readme = "README.md"
 keywords = ["language-models", "retrieval", "web-scraping", "few-shot-learning", "nlp", "machine-learning", "retrieval-augmented-generation", "RAG", "groq", "generative-ai", "llama", "Mistral"]
@@ -25,6 +25,7 @@ install_requires = [
     "beautifulsoup4==4.12.3",
     "datasets==2.20.0",
     "faiss_cpu==1.8.0",
+    "flash-attn==2.6.3",
     "google_api_python_client==2.126.0",
     "groq==0.9.0",
     "httpx==0.27.0",
@@ -99,7 +100,7 @@ PYTHONPATH = "src"
 
 [metadata]
 name = "ragoon"
-version = "0.0.5"
+version = "0.0.4"
 license = "Apache License 2.0"
 author = "Louis Brulé Naudet"
 author_email = "louisbrulenaudet@icloud.com"

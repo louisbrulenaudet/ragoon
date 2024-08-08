@@ -16,7 +16,7 @@ import ragoon
 project = 'RAGoon'
 copyright = '2024, Louis Brulé Naudet'
 author = 'Louis Brulé Naudet'
-release = '0.0.5'
+release = '0.0.4'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -62,8 +62,8 @@ autodoc_default_options = {
     'special-members': '__init__',  # Include special methods like __init__
 }
 
-html_logo = '_static/images/logo_light.svg'  # Default logo
-html_favicon = '_static/images/logo_light.svg'  # Default favicon
+html_logo = '_static/images/logo.svg'  # Default logo
+html_favicon = "_static/images/logo.svg"  # Default favicon
 
 # Generate autosummary pages automatically
 autosummary_generate = True
@@ -92,6 +92,3 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 
 html_static_path = ['_static']
-
-def setup(app):
-    app.add_js_file('theme_switcher.js')

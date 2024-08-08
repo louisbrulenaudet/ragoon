@@ -17,7 +17,7 @@ from ragoon.embeddings import (
 from ragoon.similarity_search import SimilaritySearch
 from ragoon.web_rag import WebRAG
 
-from ragoon.dataset import (
+from ragoon.datasets import (
 	dataset_loader,
 	load_datasets
 )

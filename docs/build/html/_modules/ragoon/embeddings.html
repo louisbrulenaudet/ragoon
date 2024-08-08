@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ragoon.embeddings &#8212; RAGoon 0.0.5 documentation</title>
+    <title>ragoon.embeddings &#8212; RAGoon 0.0.4 documentation</title>
   
   
   
@@ -36,13 +36,12 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=6424ca4d"></script>
+    <script src="../../_static/documentation_options.js?v=dfd84850"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/theme_switcher.js?v=2728e04b"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/ragoon/embeddings';</script>
-    <link rel="icon" href="../../_static/logo_light.svg"/>
+    <link rel="icon" href="../../_static/logo.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -138,8 +137,8 @@
       
     
     
-    <img src="../../_static/logo_light.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/logo_light.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="RAGoon 0.0.4 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="RAGoon 0.0.4 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -156,10 +155,16 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">📖 Reference</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">🚀 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">🖼️ Tutorials</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📖 Reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">ragoon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/ragoon.chunks.html">ragoon.chunks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/ragoon.datasets.html">ragoon.datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/ragoon.embeddings.html">ragoon.embeddings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/ragoon.similarity_search.html">ragoon.similarity_search</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/ragoon.web_rag.html">ragoon.web_rag</a></li>
@@ -320,9 +325,8 @@ document.write(`
 <span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
 <span class="kn">import</span> <span class="nn">torch</span>
 
-<span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">,</span> <span class="n">concatenate_datasets</span>
+<span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span>
 <span class="kn">from</span> <span class="nn">huggingface_hub</span> <span class="kn">import</span> <span class="n">InferenceClient</span>
-<span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
 <span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span>
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">IncrementalPCA</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
@@ -345,41 +349,54 @@ document.write(`
 <a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader">[docs]</a>
 <span class="k">class</span> <span class="nc">EmbeddingsDataLoader</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A class to load a dataset and process it to add embeddings using specified models.</span>
+<span class="sd">    A class to load and process datasets to add embeddings using specified models.</span>
 
-<span class="sd">    This class handles loading a dataset from Hugging Face, processing it to add</span>
-<span class="sd">    embeddings using specified models, and provides methods to save the processed dataset.</span>
+<span class="sd">    This class handles loading a dataset from Hugging Face, processing it to add embeddings</span>
+<span class="sd">    using specified models, and provides methods to save and upload the processed dataset.</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    dataset_name : str</span>
 <span class="sd">        The name of the dataset to load from Hugging Face.</span>
-
+<span class="sd">   </span>
 <span class="sd">    token : str</span>
 <span class="sd">        The token for accessing Hugging Face API.</span>
-<span class="sd">    </span>
+<span class="sd">   </span>
 <span class="sd">    model_configs : list of dict</span>
 <span class="sd">        The list of dictionaries with model configurations to use for generating embeddings.</span>
-<span class="sd">    </span>
+<span class="sd">   </span>
 <span class="sd">    batch_size : int</span>
 <span class="sd">        The number of samples to process in each batch.</span>
-<span class="sd">    </span>
+<span class="sd">   </span>
 <span class="sd">    dataset : datasets.DatasetDict</span>
 <span class="sd">        The loaded and processed dataset.</span>
-<span class="sd">    </span>
-<span class="sd">    convert_to_tensor: bool, optional</span>
+<span class="sd">   </span>
+<span class="sd">    convert_to_tensor : bool, optional</span>
 <span class="sd">        Whether the output should be one large tensor. Default is False.</span>
-<span class="sd">    </span>
+<span class="sd">   </span>
 <span class="sd">    cuda_available : bool</span>
 <span class="sd">        Whether CUDA is available for GPU acceleration.</span>
+<span class="sd">   </span>
+<span class="sd">    device : str, optional</span>
+<span class="sd">        The device used for embedding processing if torch.cuda.is_available() is not reliable.</span>
+<span class="sd">        Useful when using the Zero GPU on Hugging Face Space. Default is None.</span>
+<span class="sd">   </span>
+<span class="sd">    models : dict</span>
+<span class="sd">        A dictionary to store loaded models and their configurations.</span>
 
 <span class="sd">    Methods</span>
 <span class="sd">    -------</span>
+<span class="sd">    __init__(token, model_configs, dataset_name=None, dataset=None, batch_size=16, convert_to_tensor=False, device=None)</span>
+<span class="sd">        Initializes the EmbeddingDatasetLoader with the specified parameters.</span>
+<span class="sd">    </span>
 <span class="sd">    load_dataset()</span>
 <span class="sd">        Load the dataset from Hugging Face.</span>
 <span class="sd">    </span>
 <span class="sd">    load_model(model_name)</span>
 <span class="sd">        Load the specified model.</span>
+<span class="sd">    </span>
+<span class="sd">    load_models()</span>
+<span class="sd">        Load all specified models.</span>
 <span class="sd">    </span>
 <span class="sd">    encode(texts, model, query_prefix=None, passage_prefix=None)</span>
 <span class="sd">        Create embeddings for a list of texts using a loaded model with optional prefixes.</span>
@@ -387,10 +404,10 @@ document.write(`
 <span class="sd">    embed(batch, model, model_name, column=&quot;text&quot;, query_prefix=None, passage_prefix=None)</span>
 <span class="sd">        Add embeddings columns to the dataset for each model.</span>
 <span class="sd">    </span>
-<span class="sd">    process_split(split, column=&quot;text&quot;)</span>
-<span class="sd">        Process a specific split of the dataset and add embeddings for each model.</span>
+<span class="sd">    batch_embed(text)</span>
+<span class="sd">        Embed a single text using all loaded models and return the results as a JSON string.</span>
 <span class="sd">    </span>
-<span class="sd">    process_splits(splits, column=&quot;text&quot;)</span>
+<span class="sd">    process_splits(splits=None, column=&quot;text&quot;, load_all_models=True)</span>
 <span class="sd">        Process specified splits of the dataset and add embeddings for each model.</span>
 <span class="sd">    </span>
 <span class="sd">    get_dataset()</span>
@@ -405,42 +422,48 @@ document.write(`
 <div class="viewcode-block" id="EmbeddingsDataLoader.__init__">
 <a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.__init__">[docs]</a>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> 
-        <span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
-        <span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
-        <span class="n">model_configs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span> 
-        <span class="n">batch_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span> 
-        <span class="n">convert_to_tensor</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">model_configs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
+        <span class="n">dataset_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">dataset</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="n">convert_to_tensor</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;cuda&quot;</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initialize the EmbeddingsDataLoader with the specified parameters.</span>
+<span class="sd">        Initialize the EmbeddingDatasetLoader with the specified parameters.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        dataset_name : str</span>
-<span class="sd">            The name of the dataset to load from Hugging Face.</span>
-<span class="sd">        </span>
 <span class="sd">        token : str</span>
 <span class="sd">            The token for accessing Hugging Face API.</span>
 <span class="sd">        </span>
 <span class="sd">        model_configs : list of dict</span>
 <span class="sd">            The list of dictionaries with model configurations to use for generating embeddings.</span>
 <span class="sd">        </span>
+<span class="sd">        dataset_name : str, optional</span>
+<span class="sd">            The name of the dataset to load from Hugging Face. Default is None.</span>
+<span class="sd">        </span>
+<span class="sd">        dataset : Dataset or DatasetDict, optional</span>
+<span class="sd">            The dataset to process. Default is None.</span>
+<span class="sd">        </span>
 <span class="sd">        batch_size : int, optional</span>
 <span class="sd">            The number of samples to process in each batch. Default is 16.</span>
-
-<span class="sd">        convert_to_tensor: bool, optional</span>
+<span class="sd">        </span>
+<span class="sd">        convert_to_tensor : bool, optional</span>
 <span class="sd">            Whether the output should be one large tensor. Default is False.</span>
+<span class="sd">        </span>
+<span class="sd">        device : str, optional</span>
+<span class="sd">            The device used for embedding processing if torch.cuda.is_available() is not reliable.</span>
+<span class="sd">            Useful when using the Zero GPU on Hugging Face Space. Default is &#39;cuda&#39;.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">dataset_name</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid dataset name. Please provide a non-empty string.&quot;</span><span class="p">)</span>
-
         <span class="k">if</span> <span class="ow">not</span> <span class="n">token</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid token. Please provide a non-empty string.&quot;</span><span class="p">)</span>
-        
         <span class="k">if</span> <span class="ow">not</span> <span class="n">model_configs</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model_configs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid model configurations. Please provide a non-empty list of dictionaries.&quot;</span><span class="p">)</span>
-        
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Invalid model configurations. Please provide a non-empty list of dictionaries.&quot;</span>
+            <span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="n">batch_size</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid batch size. Please provide a positive integer.&quot;</span><span class="p">)</span>
 
@@ -448,17 +471,19 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">token</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model_configs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">model_configs</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">batch_size</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">convert_to_tensor</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cuda_available</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cuda_available</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active_config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 
 
 <div class="viewcode-block" id="EmbeddingsDataLoader.load_dataset">
 <a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.load_dataset">[docs]</a>
-    <span class="k">def</span> <span class="nf">load_dataset</span><span class="p">(</span>
-        <span class="bp">self</span>
-    <span class="p">):</span>
+    <span class="k">def</span> <span class="nf">load_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load the dataset from Hugging Face.</span>
 
@@ -468,12 +493,9 @@ document.write(`
 <span class="sd">            If the dataset fails to load from Hugging Face.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span>
-                <span class="n">path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span>
-            <span class="p">)</span>
-
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span><span class="p">)</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">&#39; loaded successfully.&quot;</span><span class="p">)</span>
-
+        
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to load dataset &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="kc">None</span></div>
@@ -483,8 +505,7 @@ document.write(`
 <div class="viewcode-block" id="EmbeddingsDataLoader.load_model">
 <a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.load_model">[docs]</a>
     <span class="k">def</span> <span class="nf">load_model</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> 
-        <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">InferenceClient</span><span class="p">,</span> <span class="n">SentenceTransformer</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Load the specified model.</span>
@@ -505,17 +526,17 @@ document.write(`
 <span class="sd">            If the model fails to load.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda_available</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda_available</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">==</span> <span class="s2">&quot;cuda&quot;</span><span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading model </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> with CUDA.&quot;</span><span class="p">)</span>
-
-                <span class="k">return</span> <span class="n">SentenceTransformer</span><span class="p">(</span>
-                    <span class="n">model_name</span><span class="p">,</span>
-                    <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span>
-                <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">SentenceTransformer</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span>
+                    <span class="s2">&quot;cuda&quot;</span>
+                <span class="p">)</span>
 
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading model </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> using Hugging Face Inference API.&quot;</span><span class="p">)</span>
-
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Loading model </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> using Hugging Face Inference API.&quot;</span>
+                <span class="p">)</span>
+                
                 <span class="k">return</span> <span class="n">InferenceClient</span><span class="p">(</span>
                     <span class="n">token</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> 
                     <span class="n">model</span><span class="o">=</span><span class="n">model_name</span>
@@ -523,69 +544,147 @@ document.write(`
 
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to load model &#39;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            
             <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="EmbeddingsDataLoader.load_models">
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.load_models">[docs]</a>
+    <span class="k">def</span> <span class="nf">load_models</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span>
+        <span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="n">InferenceClient</span><span class="p">,</span> <span class="n">SentenceTransformer</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]]]</span>
+    <span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load all specified models.</span>
+
+<span class="sd">        This method loads all models specified in the `model_configs` and returns them</span>
+<span class="sd">        in a dictionary format.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        models : dict</span>
+<span class="sd">            A dictionary where each key is a model name and each value is a dictionary</span>
+<span class="sd">            containing the model and any prefixes.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; loader = EmbeddingDatasetLoader(token=&quot;your_token&quot;, model_configs=[{&quot;model&quot;: &quot;bert-base-uncased&quot;}])</span>
+<span class="sd">        &gt;&gt;&gt; models = loader.load_models()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">config</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_configs</span><span class="p">:</span>
+            <span class="n">model_name</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span>
+            <span class="n">query_prefix</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;query_prefix&quot;</span><span class="p">)</span>
+            <span class="n">passage_prefix</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;passage_prefix&quot;</span><span class="p">)</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span>
+                <span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span>
+            <span class="p">)</span>
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="n">model_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">model</span><span class="p">,</span>
+                <span class="s2">&quot;query_prefix&quot;</span><span class="p">:</span> <span class="n">query_prefix</span><span class="p">,</span>
+                <span class="s2">&quot;passage_prefix&quot;</span><span class="p">:</span> <span class="n">passage_prefix</span><span class="p">,</span>
+            <span class="p">}</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">)</span><span class="si">}</span><span class="s2"> models.&quot;</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span></div>
+
+
+
+<div class="viewcode-block" id="EmbeddingsDataLoader.delete_model">
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.delete_model">[docs]</a>
+    <span class="k">def</span> <span class="nf">delete_model</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">InferenceClient</span><span class="p">,</span> <span class="n">SentenceTransformer</span><span class="p">]</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete the specified model and clear GPU cache.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        model : Union[InferenceClient, SentenceTransformer]</span>
+<span class="sd">            The model to delete.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">del</span> <span class="n">model</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">empty_cache</span><span class="p">()</span></div>
 
 
 
 <div class="viewcode-block" id="EmbeddingsDataLoader.encode">
 <a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.encode">[docs]</a>
     <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> 
-        <span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> 
-        <span class="n">model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">InferenceClient</span><span class="p">,</span> <span class="n">SentenceTransformer</span><span class="p">],</span> 
-        <span class="n">query_prefix</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
-        <span class="n">passage_prefix</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="p">):</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Create embeddings for a list of texts using a loaded model with optional prefixes.</span>
+<span class="sd">        Create embeddings for a list of texts using a loaded model with optional prefixes,</span>
+<span class="sd">        and optionally embed them into a batch.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        texts : list of str</span>
-<span class="sd">            The list of texts to encode.</span>
-<span class="sd">        </span>
-<span class="sd">        model : model</span>
-<span class="sd">            The loaded model to use for encoding.</span>
-<span class="sd">        </span>
-<span class="sd">        query_prefix : str, optional</span>
-<span class="sd">            The prefix to add to each query. Default is None.</span>
-<span class="sd">        </span>
-<span class="sd">        passage_prefix : str, optional</span>
-<span class="sd">            The prefix to add to each passage. Default is None.</span>
+<span class="sd">        texts : list of str or dict</span>
+<span class="sd">            The list of texts to encode or a batch of data from the dataset.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        numpy.ndarray</span>
-<span class="sd">            The embeddings for the texts.</span>
+<span class="sd">        np.ndarray or dict</span>
+<span class="sd">            The embeddings for the texts, or the batch with added embedding columns.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        Exception</span>
-<span class="sd">            If encoding fails.</span>
+<span class="sd">            If encoding or embedding fails.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="ow">not</span> <span class="p">(</span><span class="n">query_prefix</span> <span class="ow">and</span> <span class="n">passage_prefix</span><span class="p">),</span> <span class="s2">&quot;Only one of query_prefix or passage_prefix should be set, or neither.&quot;</span>
-            
-            <span class="k">if</span> <span class="n">query_prefix</span><span class="p">:</span>
-                <span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">query_prefix</span><span class="si">}{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">:</span>
+                <span class="n">texts</span> <span class="o">=</span> <span class="n">texts</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">]</span>
+
+            <span class="k">assert</span> <span class="ow">not</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">active_config</span><span class="p">[</span><span class="s2">&quot;query_prefix&quot;</span><span class="p">]</span>
+                <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_config</span><span class="p">[</span><span class="s2">&quot;passage_prefix&quot;</span><span class="p">]</span>
+            <span class="p">),</span> <span class="s2">&quot;Only one of query_prefix or passage_prefix should be set, or neither.&quot;</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_config</span><span class="p">[</span><span class="s2">&quot;query_prefix&quot;</span><span class="p">]:</span>
+                <span class="n">texts</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">active_config</span><span class="p">[</span><span class="s1">&#39;query_prefix&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span>
                 <span class="p">]</span>
 
-            <span class="k">if</span> <span class="n">passage_prefix</span><span class="p">:</span>
-                <span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">passage_prefix</span><span class="si">}{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_config</span><span class="p">[</span><span class="s2">&quot;passage_prefix&quot;</span><span class="p">]:</span>
+                <span class="n">texts</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">active_config</span><span class="p">[</span><span class="s1">&#39;query_prefix&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span>
                 <span class="p">]</span>
 
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda_available</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-                    <span class="n">sentences</span><span class="o">=</span><span class="n">texts</span><span class="p">,</span> 
-                    <span class="n">convert_to_tensor</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">convert_to_tensor</span>
+                <span class="n">embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+                    <span class="n">sentences</span><span class="o">=</span><span class="n">texts</span><span class="p">,</span> <span class="n">convert_to_tensor</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">convert_to_tensor</span>
                 <span class="p">)</span>
 
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">feature_extraction</span><span class="p">(</span>
-                    <span class="n">text</span><span class="o">=</span><span class="n">texts</span>
-                <span class="p">)</span>
+                <span class="n">embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">feature_extraction</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">texts</span><span class="p">)</span>
+
+            <span class="c1"># Ensure the embeddings are in the correct format</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">embeddings</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+                <span class="n">embeddings</span> <span class="o">=</span> <span class="n">embeddings</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">embeddings</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+                <span class="n">embeddings</span> <span class="o">=</span> <span class="n">embeddings</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">embeddings</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">embeddings</span> <span class="o">=</span> <span class="p">[</span><span class="n">embeddings</span><span class="p">]</span>
+
+            <span class="c1"># If column is specified, return embeddings as part of a batch dictionary</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">{</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_simple_model_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">active_config</span><span class="p">[</span><span class="s1">&#39;model_name&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">_embeddings&quot;</span><span class="p">:</span> <span class="n">embeddings</span>
+                <span class="p">}</span>
+
+            <span class="k">return</span> <span class="n">embeddings</span>
 
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to encode texts: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -593,44 +692,24 @@ document.write(`
 
 
 
-<div class="viewcode-block" id="EmbeddingsDataLoader.embed">
-<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.embed">[docs]</a>
-    <span class="k">def</span> <span class="nf">embed</span><span class="p">(</span>
+<div class="viewcode-block" id="EmbeddingsDataLoader.batch_encode">
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.batch_encode">[docs]</a>
+    <span class="k">def</span> <span class="nf">batch_encode</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
-        <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> 
-        <span class="n">model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">InferenceClient</span><span class="p">,</span> <span class="n">SentenceTransformer</span><span class="p">],</span> 
-        <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">column</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> 
-        <span class="n">query_prefix</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
-        <span class="n">passage_prefix</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Add embeddings columns to the dataset for each model.</span>
+<span class="sd">        Embed a single text using all loaded models and return the results as a JSON string.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        batch : dict</span>
-<span class="sd">            A batch of data from the dataset.</span>
-<span class="sd">        </span>
-<span class="sd">        model : model</span>
-<span class="sd">            The loaded model to use for encoding.</span>
-<span class="sd">        </span>
-<span class="sd">        model_name : str</span>
-<span class="sd">            The name of the model to use for encoding.</span>
-<span class="sd">        </span>
-<span class="sd">        column : str, optional</span>
-<span class="sd">            The name of the column containing the text to encode (default is &quot;text&quot;).</span>
-<span class="sd">        </span>
-<span class="sd">        query_prefix : str, optional</span>
-<span class="sd">            The prefix to add to each query (default is None).</span>
-<span class="sd">        </span>
-<span class="sd">        passage_prefix : str, optional</span>
-<span class="sd">            The prefix to add to each passage (default is None).</span>
+<span class="sd">        text : str</span>
+<span class="sd">            The text to embed.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        dict</span>
-<span class="sd">            A dictionary containing the embeddings for the model.</span>
+<span class="sd">        str</span>
+<span class="sd">            The JSON string containing the embeddings from all models.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
@@ -638,141 +717,133 @@ document.write(`
 <span class="sd">            If embedding fails.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">texts</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">model_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">active_config</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">model_data</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="n">model_name</span><span class="p">,</span>
+                    <span class="s2">&quot;query_prefix&quot;</span><span class="p">:</span> <span class="n">model_data</span><span class="p">[</span><span class="s2">&quot;query_prefix&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;passage_prefix&quot;</span><span class="p">:</span> <span class="n">model_data</span><span class="p">[</span><span class="s2">&quot;passage_prefix&quot;</span><span class="p">],</span>
+                <span class="p">}</span>
 
-            <span class="n">embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-                <span class="n">texts</span><span class="o">=</span><span class="n">texts</span><span class="p">,</span> 
-                <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> 
-                <span class="n">query_prefix</span><span class="o">=</span><span class="n">query_prefix</span><span class="p">,</span> 
-                <span class="n">passage_prefix</span><span class="o">=</span><span class="n">passage_prefix</span>
-            <span class="p">)</span>
+                <span class="n">embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+                    <span class="n">texts</span><span class="o">=</span><span class="p">[</span><span class="n">text</span><span class="p">],</span>  <span class="c1"># Pass a list containing the single text</span>
+                <span class="p">)</span>
 
-            <span class="n">simple_model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_simple_model_name</span><span class="p">(</span>
-                <span class="n">model_name</span>
-            <span class="p">)</span>
+                <span class="n">results</span><span class="p">[</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_simple_model_name</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span><span class="si">}</span><span class="s2">_embeddings&quot;</span>
+                <span class="p">]</span> <span class="o">=</span> <span class="n">embeddings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-            <span class="k">return</span> <span class="p">{</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">simple_model_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">embeddings</span>
-            <span class="p">}</span>
-        
+            <span class="k">return</span> <span class="n">results</span>
+
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to embed batch: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">None</span></div>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to batch embed text: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({})</span></div>
 
 
-
-<div class="viewcode-block" id="EmbeddingsDataLoader.process_split">
-<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.process_split">[docs]</a>
-    <span class="k">def</span> <span class="nf">process_split</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> 
-        <span class="n">split</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
-        <span class="n">column</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span>
-    <span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Process a specific split of the dataset and add embeddings for each model.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        split : str</span>
-<span class="sd">            The split of the dataset to process.</span>
-
-<span class="sd">        column : str, optional</span>
-<span class="sd">            The name of the column containing the text to encode (default is &quot;text&quot;).</span>
-
-<span class="sd">        Raises</span>
-<span class="sd">        ------</span>
-<span class="sd">        ValueError</span>
-<span class="sd">            If the dataset is not loaded.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dataset not loaded. Call load_dataset() first.&quot;</span><span class="p">)</span>
-
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing </span><span class="si">{</span><span class="n">split</span><span class="si">}</span><span class="s2"> split...&quot;</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">config</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_configs</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Creating embeddings for models&quot;</span><span class="p">):</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span>
-                <span class="n">query_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;query_prefix&quot;</span><span class="p">)</span>
-                <span class="n">passage_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;passage_prefix&quot;</span><span class="p">)</span>
-
-                <span class="n">model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">InferenceClient</span><span class="p">,</span> <span class="n">SentenceTransformer</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span>
-                    <span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span>
-                <span class="p">)</span>
-
-                <span class="k">def</span> <span class="nf">add_embeddings</span><span class="p">(</span>
-                    <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span>
-                <span class="p">):</span>
-                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">(</span>
-                        <span class="n">batch</span><span class="o">=</span><span class="n">batch</span><span class="p">,</span>
-                        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> 
-                        <span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
-                        <span class="n">column</span><span class="o">=</span><span class="n">column</span><span class="p">,</span> 
-                        <span class="n">query_prefix</span><span class="o">=</span><span class="n">query_prefix</span><span class="p">,</span> 
-                        <span class="n">passage_prefix</span><span class="o">=</span><span class="n">passage_prefix</span>
-                    <span class="p">)</span>
-
-                <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">split</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">split</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
-                    <span class="n">add_embeddings</span><span class="p">,</span>
-                    <span class="n">batched</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                    <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span>
-                    <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Creating embeddings for </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> on </span><span class="si">{</span><span class="n">split</span><span class="si">}</span><span class="s2"> split&quot;</span>
-                <span class="p">)</span>
-
-                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Embeddings added to </span><span class="si">{</span><span class="n">split</span><span class="si">}</span><span class="s2"> split for model </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-
-            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to embed column with this model: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-                <span class="k">continue</span>
-
-            <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">del</span> <span class="n">model</span>
-                <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">empty_cache</span><span class="p">()</span></div>
-
-
-
-<div class="viewcode-block" id="EmbeddingsDataLoader.process_splits">
-<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.process_splits">[docs]</a>
-    <span class="k">def</span> <span class="nf">process_splits</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> 
-        <span class="n">splits</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
-        <span class="n">column</span><span class="o">=</span><span class="s2">&quot;text&quot;</span>
+<div class="viewcode-block" id="EmbeddingsDataLoader.process">
+<a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.process">[docs]</a>
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">splits</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">column</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span>
+        <span class="n">preload_models</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Process specified splits of the dataset and add embeddings for each model.</span>
-<span class="sd">        If splits are not provided, process all splits available in the dataset.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        splits : list of str</span>
-<span class="sd">            The list of splits to process. If None, process all splits.</span>
-
+<span class="sd">        splits : list of str, optional</span>
+<span class="sd">            The list of splits to process. Default is None.</span>
+<span class="sd">        </span>
 <span class="sd">        column : str, optional</span>
-<span class="sd">            The name of the column containing the text to encode (default is &quot;text&quot;).</span>
+<span class="sd">            The name of the column containing the text to encode. Default is &quot;text&quot;.</span>
+<span class="sd">        </span>
+<span class="sd">        preload_models : bool, optional</span>
+<span class="sd">            Whether to load all models specified in the `model_configs`. Default is True.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
-<span class="sd">        ValueError</span>
-<span class="sd">            If the dataset is not loaded.</span>
+<span class="sd">        Exception</span>
+<span class="sd">            If processing fails.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dataset not loaded. Call load_dataset() first.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Dataset not loaded. Please load a dataset before processing.&quot;</span>
+            <span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">splits</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">splits</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">):</span>
             <span class="n">splits</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 
-        <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">splits</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Processing splits&quot;</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">split</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">process_split</span><span class="p">(</span>
-                        <span class="n">split</span><span class="o">=</span><span class="n">split</span><span class="p">,</span> 
-                        <span class="n">column</span><span class="o">=</span><span class="n">column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">column</span>
+
+        <span class="k">if</span> <span class="n">preload_models</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load_models</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">splits</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Processing splits&quot;</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">model_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">active_config</span> <span class="o">=</span> <span class="p">{</span>
+                            <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">model_data</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">],</span>
+                            <span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="n">model_name</span><span class="p">,</span>
+                            <span class="s2">&quot;query_prefix&quot;</span><span class="p">:</span> <span class="n">model_data</span><span class="p">[</span><span class="s2">&quot;query_prefix&quot;</span><span class="p">],</span>
+                            <span class="s2">&quot;passage_prefix&quot;</span><span class="p">:</span> <span class="n">model_data</span><span class="p">[</span><span class="s2">&quot;passage_prefix&quot;</span><span class="p">],</span>
+                        <span class="p">}</span>
+
+                        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">split</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">split</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">,</span> <span class="n">batched</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span>
+                        <span class="p">)</span>
+
+                        <span class="bp">self</span><span class="o">.</span><span class="n">delete_model</span><span class="p">(</span><span class="n">model_data</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">])</span>
+
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">model_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">active_config</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">model_data</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="n">model_name</span><span class="p">,</span>
+                        <span class="s2">&quot;query_prefix&quot;</span><span class="p">:</span> <span class="n">model_data</span><span class="p">[</span><span class="s2">&quot;query_prefix&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;passage_prefix&quot;</span><span class="p">:</span> <span class="n">model_data</span><span class="p">[</span><span class="s2">&quot;passage_prefix&quot;</span><span class="p">],</span>
+                    <span class="p">}</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">,</span> <span class="n">batched</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span>
                     <span class="p">)</span>
 
-                <span class="k">except</span><span class="p">:</span>
-                    <span class="k">continue</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">delete_model</span><span class="p">(</span><span class="n">model_data</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">])</span>
 
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Split &#39;</span><span class="si">{</span><span class="n">split</span><span class="si">}</span><span class="s2">&#39; not found in the dataset.&quot;</span><span class="p">)</span></div>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">config</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_configs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">DatasetDict</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">active_config</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]),</span>
+                        <span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;query_prefix&quot;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;query_prefix&quot;</span><span class="p">),</span>
+                        <span class="s2">&quot;passage_prefix&quot;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;passage_prefix&quot;</span><span class="p">),</span>
+                    <span class="p">}</span>
+
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">splits</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Processing splits&quot;</span><span class="p">):</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">split</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="n">split</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">,</span> <span class="n">batched</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span>
+                            <span class="p">)</span>
+
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">active_config</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]),</span>
+                        <span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">],</span>
+                        <span class="s2">&quot;query_prefix&quot;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;query_prefix&quot;</span><span class="p">),</span>
+                        <span class="s2">&quot;passage_prefix&quot;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;passage_prefix&quot;</span><span class="p">),</span>
+                    <span class="p">}</span>
+
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">,</span> <span class="n">batched</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span>
+                        <span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">delete_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">active_config</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">])</span></div>
 
 
 
@@ -786,17 +857,9 @@ document.write(`
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        datasets.DatasetDict</span>
+<span class="sd">        dataset : Union[Dataset, DatasetDict]</span>
 <span class="sd">            The processed dataset.</span>
-
-<span class="sd">        Raises</span>
-<span class="sd">        ------</span>
-<span class="sd">        ValueError</span>
-<span class="sd">            If the dataset is not processed.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dataset not processed. Call process_splits() first.&quot;</span><span class="p">)</span>
-
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span></div>
 
 
@@ -813,18 +876,19 @@ document.write(`
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        output_dir : str</span>
-<span class="sd">            The directory where the dataset will be saved.</span>
+<span class="sd">            The directory to save the dataset.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
-<span class="sd">        ValueError</span>
-<span class="sd">            If the dataset is not processed.</span>
+<span class="sd">        Exception</span>
+<span class="sd">            If saving fails.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dataset not processed. Call process_splits() first.&quot;</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">save_to_disk</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset saved to </span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">save_to_disk</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset saved to </span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to save dataset to </span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 
 
 
@@ -840,22 +904,22 @@ document.write(`
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        repo_id : str</span>
-<span class="sd">            The repository ID on the Hugging Face Hub.</span>
+<span class="sd">            The repository ID to upload the dataset.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
-<span class="sd">        ValueError</span>
-<span class="sd">            If the dataset is not processed.</span>
+<span class="sd">        Exception</span>
+<span class="sd">            If uploading fails.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dataset not processed. Call process_splits() first.&quot;</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">push_to_hub</span><span class="p">(</span>
-            <span class="n">repo_id</span><span class="p">,</span> 
-            <span class="n">token</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span>
-        <span class="p">)</span>
-
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset uploaded to </span><span class="si">{</span><span class="n">repo_id</span><span class="si">}</span><span class="s2"> on Hugging Face Hub.&quot;</span><span class="p">)</span></div>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">push_to_hub</span><span class="p">(</span><span class="n">repo_id</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Dataset uploaded to Hugging Face Hub with repo ID: </span><span class="si">{</span><span class="n">repo_id</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Failed to upload dataset to Hugging Face Hub with repo ID: </span><span class="si">{</span><span class="n">repo_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span></div>
 
 
 
@@ -876,37 +940,9 @@ document.write(`
 <span class="sd">        str</span>
 <span class="sd">            The simplified model name.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">model_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="n">model_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
 
 
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;HFforLegal/embedding-models&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Select the desired columns</span>
-    <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">remove_columns</span><span class="p">(</span>
-        <span class="p">[</span>
-            <span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">column_names</span> <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="s2">&quot;passage_prefix&quot;</span><span class="p">]</span>
-        <span class="p">]</span>
-    <span class="p">)</span>
-
-    <span class="n">model_configs</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
-
-    <span class="n">loader</span> <span class="o">=</span> <span class="n">EmbeddingsDataLoader</span><span class="p">(</span>
-        <span class="n">dataset_name</span><span class="o">=</span><span class="s2">&quot;HFforLegal/laws&quot;</span><span class="p">,</span>
-        <span class="n">token</span><span class="o">=</span><span class="s2">&quot;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&quot;</span><span class="p">,</span>
-        <span class="n">model_configs</span><span class="o">=</span><span class="n">model_configs</span><span class="p">,</span>
-        <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span>
-    <span class="p">)</span>
-
-    <span class="n">loader</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">()</span>
-
-    <span class="n">loader</span><span class="o">.</span><span class="n">process_splits</span><span class="p">(</span>
-        <span class="n">column</span><span class="o">=</span><span class="s2">&quot;document&quot;</span>
-    <span class="p">)</span>
-
-    <span class="n">processed_dataset</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">()</span>
-    
 
 <div class="viewcode-block" id="EmbeddingsVisualizer">
 <a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsVisualizer">[docs]</a>
@@ -930,22 +966,22 @@ document.write(`
 <span class="sd">    ----------</span>
 <span class="sd">    index_path : str</span>
 <span class="sd">        Path to the FAISS index file.</span>
-<span class="sd">    </span>
+
 <span class="sd">    dataset_path : str</span>
 <span class="sd">        Path to the dataset containing labels.</span>
-<span class="sd">    </span>
+
 <span class="sd">    index : faiss.Index or None</span>
 <span class="sd">        Loaded FAISS index.</span>
-<span class="sd">    </span>
+
 <span class="sd">    dataset : datasets.Dataset or None</span>
 <span class="sd">        Loaded dataset containing labels.</span>
-<span class="sd">    </span>
+
 <span class="sd">    vectors : np.ndarray or None</span>
 <span class="sd">        Extracted vectors from the FAISS index.</span>
-<span class="sd">    </span>
+
 <span class="sd">    reduced_vectors : np.ndarray or None</span>
 <span class="sd">        Dimensionality-reduced vectors.</span>
-<span class="sd">    </span>
+
 <span class="sd">    labels : list of str or None</span>
 <span class="sd">        Labels from the dataset.</span>
 
@@ -953,13 +989,13 @@ document.write(`
 <span class="sd">    -------</span>
 <span class="sd">    load_index() -&gt; &#39;EmbeddingsVisualizer&#39;:</span>
 <span class="sd">        Load the FAISS index from the specified file path.</span>
-<span class="sd">    </span>
+
 <span class="sd">    load_dataset() -&gt; &#39;EmbeddingsVisualizer&#39;:</span>
 <span class="sd">        Load the dataset containing labels from the specified file path.</span>
-<span class="sd">    </span>
+
 <span class="sd">    extract_vectors() -&gt; &#39;EmbeddingsVisualizer&#39;:</span>
 <span class="sd">        Extract all vectors from the loaded FAISS index.</span>
-<span class="sd">    </span>
+
 <span class="sd">    reduce_dimensionality(</span>
 <span class="sd">        method: str = &quot;umap&quot;,</span>
 <span class="sd">        pca_components: int = 50,</span>
@@ -967,16 +1003,19 @@ document.write(`
 <span class="sd">        random_state: int = 42</span>
 <span class="sd">    ) -&gt; &#39;EmbeddingsVisualizer&#39;:</span>
 <span class="sd">        Reduce dimensionality of the extracted vectors with dynamic progress tracking.</span>
-<span class="sd">    </span>
+
 <span class="sd">    plot_3d() -&gt; None:</span>
 <span class="sd">        Generate a 3D scatter plot of the reduced vectors with labels.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; visualizer = EmbeddingsVisualizer(index_path=&quot;path/to/index&quot;, dataset_path=&quot;path/to/dataset&quot;)</span>
-<span class="sd">    &gt;&gt;&gt; visualizer.load_index().load_dataset().extract_vectors()</span>
-<span class="sd">    &gt;&gt;&gt; visualizer.reduce_dimensionality(method=&quot;pca_umap&quot;, pca_components=50, final_components=3)</span>
-<span class="sd">    &gt;&gt;&gt; visualizer.plot_3d()</span>
+<span class="sd">    &gt;&gt;&gt; visualizer.visualize(</span>
+<span class="sd">    ...    method=&quot;pca&quot;,</span>
+<span class="sd">    ...    save_html=True,</span>
+<span class="sd">    ...    html_file_name=&quot;embedding_visualization.html&quot;</span>
+<span class="sd">    ... )</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="EmbeddingsVisualizer.__init__">
 <a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.__init__">[docs]</a>

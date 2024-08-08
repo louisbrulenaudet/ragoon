@@ -9,10 +9,7 @@
 # limitations under the License.
 
 import logging
-import sys
-import time
 
-from threading import Lock
 from tqdm import tqdm
 from typing import (
     IO,

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ragoon &#8212; RAGoon 0.0.5 documentation</title>
+    <title>ragoon &#8212; RAGoon 0.0.4 documentation</title>
   
   
   
@@ -37,13 +37,12 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=6424ca4d"></script>
+    <script src="../_static/documentation_options.js?v=dfd84850"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/theme_switcher.js?v=2728e04b"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'generated/modules';</script>
-    <link rel="icon" href="../_static/logo_light.svg"/>
+    <link rel="icon" href="../_static/logo.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -139,8 +138,8 @@
       
     
     
-    <img src="../_static/logo_light.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
-    <script>document.write(`<img src="../_static/logo_light.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="RAGoon 0.0.4 documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="RAGoon 0.0.4 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -157,10 +156,16 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">📖 Reference</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">🚀 Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">🖼️ Tutorials</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">📖 Reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">ragoon</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/ragoon.chunks.html">ragoon.chunks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/ragoon.datasets.html">ragoon.datasets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/ragoon.embeddings.html">ragoon.embeddings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/ragoon.similarity_search.html">ragoon.similarity_search</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/ragoon.web_rag.html">ragoon.web_rag</a></li>
@@ -367,25 +372,30 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.dataset</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.convert_to_tensor"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.convert_to_tensor</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.cuda_available"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.cuda_available</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.device"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.device</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.models"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.models</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.__init__"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.load_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_dataset()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.load_model"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.load_models"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_models()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.encode"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.encode()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.embed"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.embed()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.process_split"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_split()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.batch_embed"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.batch_embed()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.process_splits"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_splits()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.get_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.get_dataset()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.save_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.save_dataset()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.upload_dataset"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.upload_dataset()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.__init__"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id3"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_dataset()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id4"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_model()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id5"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.encode()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id6"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.embed()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id7"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_split()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id8"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process_splits()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id9"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.get_dataset()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id10"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.save_dataset()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id11"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.upload_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id3"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id4"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id5"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id6"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.load_models()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.delete_model"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.delete_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id7"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.batch_encode"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.batch_encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.process"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.process()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id8"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.get_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id9"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.save_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id10"><code class="docutils literal notranslate"><span class="pre">EmbeddingsDataLoader.upload_dataset()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer</span></code></a><ul>
@@ -401,9 +411,9 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.extract_vectors"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.extract_vectors()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.plot_3d"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.plot_3d()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.__init__"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id12"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_index()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id13"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_dataset()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id14"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.extract_vectors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id11"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id12"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.load_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id13"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.extract_vectors()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.reduce_dimensionality"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.reduce_dimensionality()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.create_plot"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.create_plot()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.visualize"><code class="docutils literal notranslate"><span class="pre">EmbeddingsVisualizer.visualize()</span></code></a></li>
@@ -426,13 +436,13 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.load_faiss_index"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.load_faiss_index()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.search"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.search()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="ragoon.html#ragoon.similarity_search.SimilaritySearch.__init__"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id15"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.encode()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id16"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.quantize_embeddings()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id17"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.create_faiss_index()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id18"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.create_usearch_index()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id19"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.load_usearch_index_view()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id20"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.load_faiss_index()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id21"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.search()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id14"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.encode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id15"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.quantize_embeddings()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id16"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.create_faiss_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id17"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.create_usearch_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id18"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.load_usearch_index_view()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id19"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.load_faiss_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ragoon.html#id20"><code class="docutils literal notranslate"><span class="pre">SimilaritySearch.search()</span></code></a></li>
 </ul>
 </li>
 </ul>

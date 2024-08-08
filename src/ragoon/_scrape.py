@@ -9,7 +9,21 @@
 # limitations under the License.
 
 from multiprocessing import Pool
-from typing import List, Dict, Optional
+from typing import (
+    IO,
+    TYPE_CHECKING,
+    Any,
+    Dict,
+    List,
+    Type,
+    Tuple,
+    Union,
+    Mapping,
+    TypeVar,
+    Callable,
+    Optional,
+    Sequence,
+)
 
 import httpx
 
