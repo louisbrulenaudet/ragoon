@@ -53,3 +53,6 @@ If you have any feedback, please reach out at `louisbrulenaudet@icloud.com <mail
 Indices and tables
 ==================
 
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

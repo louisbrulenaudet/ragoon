@@ -1312,4 +1312,7 @@ class EmbeddingsVisualizer:
 
         fig.show(
             config={
- 
+                "displayModeBar": False,
+                "scrollZoom": True
+            }
+        )
