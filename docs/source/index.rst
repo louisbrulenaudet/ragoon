@@ -2,7 +2,7 @@
    sphinx-quickstart on Thu Aug  1 17:22:00 2024.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
-RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing ⚡
+RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantized indexes processing ⚡
 =================================================================================================================================
 
 RAGoon is a set of NLP utilities for multi-model embedding production, high-dimensional vector visualization, and aims to improve language model performance by providing contextually relevant information through search-based querying, web scraping and data augmentation techniques.
@@ -25,7 +25,7 @@ If you use this code in your research, please use the following BibTeX entry.
 
    @misc{louisbrulenaudet2024,
        author = {Louis Brulé Naudet},
-       title = {RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing},
+       title = {RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantized indexes processing},
        howpublished = {\url{https://github.com/louisbrulenaudet/ragoon}},
        year = {2024}
    }

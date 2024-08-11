@@ -1,6 +1,6 @@
 ![Plot](https://github.com/louisbrulenaudet/ragoon/blob/main/thumbnail.png?raw=true)
 
-# RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing ⚡
+# RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantized indexes processing ⚡
 [![Python](https://img.shields.io/pypi/pyversions/tensorflow.svg)](https://badge.fury.io/py/tensorflow) [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![Maintainer](https://img.shields.io/badge/maintainer-@louisbrulenaudet-blue)
 
 RAGoon is a set of NLP utilities for multi-model embedding production, high-dimensional vector visualization, and aims to improve language model performance by providing contextually relevant information through search-based querying, web scraping and data augmentation techniques.
@@ -230,7 +230,7 @@ If you use this code in your research, please use the following BibTeX entry.
 ```BibTeX
 @misc{louisbrulenaudet2024,
 	author = {Louis Brulé Naudet},
-	title = {RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing},
+	title = {RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantized indexes processing},
 	howpublished = {\url{https://github.com/louisbrulenaudet/ragoon}},
 	year = {2024}
 }

@@ -1,7 +1,7 @@
 [project]
 name = "ragoon"
-version = "0.0.12"
-description = "RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantitized indexes processing ⚡"
+version = "0.0.13"
+description = "RAGoon : High level library for batched embeddings generation, blazingly-fast web-based RAG and quantized indexes processing ⚡"
 readme = "README.md"
 requires-python = ">=3.9"
 keywords = [
