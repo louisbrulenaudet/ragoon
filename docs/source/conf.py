@@ -16,7 +16,7 @@ import ragoon
 project = 'RAGoon'
 copyright = '2024, Louis Brulé Naudet'
 author = 'Louis Brulé Naudet'
-release = '0.0.9'
+release = '0.0.10'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

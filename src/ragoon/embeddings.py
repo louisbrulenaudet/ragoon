@@ -128,7 +128,7 @@ class EmbeddingsDataLoader:
     """
     def __init__(
         self,
-        token: str,
+        token: str = None,
         model_configs: List[Dict[str, str]],
         dataset_name: Optional[str] = None,
         dataset: Optional[Union[Dataset, DatasetDict]] = None,
@@ -142,7 +142,7 @@ class EmbeddingsDataLoader:
         Parameters
         ----------
         token : str
-            The token for accessing Hugging Face API.
+            The token for accessing Hugging Face API. Default is None.
         
         model_configs : list of dict
             The list of dictionaries with model configurations to use for generating embeddings.
