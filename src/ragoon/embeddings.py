@@ -128,8 +128,8 @@ class EmbeddingsDataLoader:
     """
     def __init__(
         self,
-        token: str = None,
         model_configs: List[Dict[str, str]],
+        token: str = None,
         dataset_name: Optional[str] = None,
         dataset: Optional[Union[Dataset, DatasetDict]] = None,
         batch_size: Optional[int] = 8,
@@ -141,24 +141,24 @@ class EmbeddingsDataLoader:
 
         Parameters
         ----------
-        token : str
-            The token for accessing Hugging Face API. Default is None.
-        
         model_configs : list of dict
             The list of dictionaries with model configurations to use for generating embeddings.
-        
+            
+        token : str
+            The token for accessing Hugging Face API. Default is None.
+
         dataset_name : str, optional
             The name of the dataset to load from Hugging Face. Default is None.
-        
+
         dataset : Dataset or DatasetDict, optional
             The dataset to process. Default is None.
-        
+
         batch_size : int, optional
             The number of samples to process in each batch. Default is 16.
-        
+
         convert_to_tensor : bool, optional
             Whether the output should be one large tensor. Default is False.
-        
+
         device : str, optional
             The device used for embedding processing if torch.cuda.is_available() is not reliable.
             Useful when using the Zero GPU on Hugging Face Space. Default is 'cuda'.
