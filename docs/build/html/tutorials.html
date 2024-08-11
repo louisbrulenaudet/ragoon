@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>🖼️ Tutorials &#8212; RAGoon 0.0.4 documentation</title>
+    <title>🖼️ Tutorials &#8212; RAGoon 0.0.5 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=dfd84850"></script>
+    <script src="_static/documentation_options.js?v=6424ca4d"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="_static/logo.svg" class="logo__image only-light" alt="RAGoon 0.0.4 documentation - Home"/>
-    <script>document.write(`<img src="_static/logo.svg" class="logo__image only-dark" alt="RAGoon 0.0.4 documentation - Home"/>`);</script>
+    <img src="_static/logo.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
+    <script>document.write(`<img src="_static/logo.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -334,9 +334,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embeddings-production">Embeddings Production</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embeddings-visualization">Embeddings Visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-web-search">Dynamic Web Search</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embeddings-production">Embeddings production</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity-search">Similarity search</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embeddings-visualization">Embeddings visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-web-search">Dynamic web search</a></li>
 </ul>
             </nav>
         </div>
@@ -352,7 +353,7 @@ document.write(`
 <h1>🖼️ Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading">#</a></h1>
 <p>This section provides an overview of different code blocks that can be executed with RAGoon to enhance your NLP and language model projects.</p>
 <section id="embeddings-production">
-<h2>Embeddings Production<a class="headerlink" href="#embeddings-production" title="Link to this heading">#</a></h2>
+<h2>Embeddings production<a class="headerlink" href="#embeddings-production" title="Link to this heading">#</a></h2>
 <p>This class handles loading a dataset from Hugging Face, processing it to add embeddings using specified models, and provides methods to save and upload the processed dataset.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ragoon</span> <span class="kn">import</span> <span class="n">EmbeddingsDataLoader</span>
 <span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
@@ -407,8 +408,106 @@ document.write(`
 </pre></div>
 </div>
 </section>
+<section id="similarity-search">
+<h2>Similarity search<a class="headerlink" href="#similarity-search" title="Link to this heading">#</a></h2>
+<p>The SimilaritySearch class is instantiated with specific parameters to configure the embedding model and search infrastructure. The chosen model, louisbrulenaudet/tsdae-lemone-mbert-base, is likely a multilingual BERT model fine-tuned with TSDAE (Transfomer-based Denoising Auto-Encoder) on a custom dataset. This model choice suggests a focus on multilingual capabilities and improved semantic representations.</p>
+<p>The cuda device specification leverages GPU acceleration, crucial for efficient processing of large datasets. The embedding dimension of 768 is typical for BERT-based models, representing a balance between expressiveness and computational efficiency. The ip (inner product) metric is selected for similarity comparisons, which is computationally faster than cosine similarity when vectors are normalized. The i8 dtype indicates 8-bit integer quantization, a technique that significantly reduces memory usage and speeds up similarity search at the cost of a small accuracy rade-off.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ragoon</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">dataset_loader</span><span class="p">,</span>
+    <span class="n">SimilaritySearch</span><span class="p">,</span>
+    <span class="n">EmbeddingsVisualizer</span>
+<span class="p">)</span>
+<span class="n">instance</span> <span class="o">=</span> <span class="n">SimilaritySearch</span><span class="p">(</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;louisbrulenaudet/tsdae-lemone-mbert-base&quot;</span><span class="p">,</span>
+    <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cuda&quot;</span><span class="p">,</span>
+    <span class="n">ndim</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span>
+    <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;ip&quot;</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;i8&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The encode method transforms raw text into dense vector representations. This process involves tokenization, where text is split into subword units, followed by passing these tokens through the neural network layers of the SentenceTransformer model. The resulting embeddings capture semantic information in a high-dimensional space, where similar concepts are positioned closer together. The method likely uses batching to efficiently process large datasets and may employ techniques like length sorting to optimize padding and reduce computational waste.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset_loader</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;louisbrulenaudet/dac6-instruct&quot;</span><span class="p">,</span>
+    <span class="n">streaming</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">split</span><span class="o">=</span><span class="s2">&quot;train&quot;</span>
+<span class="p">)</span>
+
+<span class="n">dataset</span><span class="o">.</span><span class="n">save_to_disk</span><span class="p">(</span><span class="s2">&quot;dataset.hf&quot;</span><span class="p">)</span>
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">corpus</span><span class="o">=</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;output&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Binary quantization is an extreme form of dimensionality reduction, where each dimension of the embedding is represented by a single bit. This process involves setting a threshold (often the median value for each dimension across the dataset) and encoding values above this threshold as 1 and below as 0. While this dramatically reduces memory usage (compressing each embedding to just 96 bytes for a 768-dimensional vector), it also results in a more significant loss of information compared to other quantization methods. However, it enables extremely fast similarity computations using hardware-accelerated bitwise operations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ubinary_embeddings</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">quantize_embeddings</span><span class="p">(</span>
+    <span class="n">embeddings</span><span class="o">=</span><span class="n">embeddings</span><span class="p">,</span>
+    <span class="n">quantization_type</span><span class="o">=</span><span class="s2">&quot;ubinary&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Int8 quantization maps the continuous embedding values to a discrete set of 256 values represented by 8-bit integers. This process typically involves scaling the original values to fit within the int8 range (-128 to 127) and may use techniques like asymmetric quantization to preserve more information. While less extreme than binary quantization, int8 still offers substantial memory savings (reducing each dimension to 1 byte) while preserving more of the original information. This quantization enables efficient SIMD (Single Instruction, Multiple Data) operations on modern CPUs, significantly accelerating similarity computations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">int8_embeddings</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">quantize_embeddings</span><span class="p">(</span>
+    <span class="n">embeddings</span><span class="o">=</span><span class="n">embeddings</span><span class="p">,</span>
+    <span class="n">quantization_type</span><span class="o">=</span><span class="s2">&quot;int8&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>USEARCH is designed for high-performance approximate nearest neighbor search. The index creation process likely involves building a hierarchical structure, possibly a navigable small world (NSW) graph, which allows for efficient traversal during search operations. The use of int8 quantized embeddings enables USEARCH to leverage SIMD instructions for rapid distance calculations. The resulting index balances search speed and accuracy, allowing for fast retrieval with a controlled trade-off in precision.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span><span class="o">.</span><span class="n">create_usearch_index</span><span class="p">(</span>
+    <span class="n">int8_embeddings</span><span class="o">=</span><span class="n">int8_embeddings</span><span class="p">,</span>
+    <span class="n">index_path</span><span class="o">=</span><span class="s2">&quot;./usearch_int8.index&quot;</span><span class="p">,</span>
+    <span class="n">save</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>FAISS (Facebook AI Similarity Search) is a library that provides efficient similarity search and clustering of dense vectors. For binary vectors, FAISS typically uses specialized index structures like the BinaryFlat index. This index performs exhaustive search using Hamming distance, which can be computed extremely efficiently on modern hardware using XOR and bit count operations. The binary nature of the index allows for compact storage and very fast search operations, albeit with reduced granularity in similarity scores compared to float-based indices.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span><span class="o">.</span><span class="n">create_faiss_index</span><span class="p">(</span>
+    <span class="n">ubinary_embeddings</span><span class="o">=</span><span class="n">ubinary_embeddings</span><span class="p">,</span>
+    <span class="n">index_path</span><span class="o">=</span><span class="s2">&quot;./faiss_ubinary.index&quot;</span><span class="p">,</span>
+    <span class="n">save</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The search process combines the strengths of both USEARCH and FAISS indices. It likely first uses the binary FAISS index for a rapid initial filtering step, leveraging the efficiency of Hamming distance calculations. The top candidates from this step (increased by the rescore_multiplier for better recall) are then refined using the more precise int8 USEARCH index. This two-stage approach balances speed and accuracy, allowing for quick pruning of unlikely candidates followed by more accurate rescoring.</p>
+<p>The query is first encoded using the same model and quantization processes as the corpus. The rescore_multiplier of 4 means the initial retrieval fetches 40 candidates (4 * top_k), which are then reranked to produce the final top 10 results. This oversampling helps mitigate the potential loss of relevant results due to quantization approximations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+
+<span class="n">top_k_scores</span><span class="p">,</span> <span class="n">top_k_indices</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+    <span class="n">query</span><span class="o">=</span><span class="s2">&quot;Définir le rôle d&#39;un intermédiaire concepteur conformément à l&#39;article 1649 AE du Code général des Impôts.&quot;</span><span class="p">,</span>
+    <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">rescore_multiplier</span><span class="o">=</span><span class="mi">4</span>
+<span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">from_arrow</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">table</span><span class="p">)</span><span class="o">.</span><span class="n">with_row_index</span><span class="p">()</span>
+
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">from_arrow</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">table</span><span class="p">)</span><span class="o">.</span><span class="n">with_row_count</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;index&quot;</span>
+    <span class="p">)</span>
+
+<span class="n">scores_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="n">top_k_indices</span><span class="p">,</span>
+            <span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="n">top_k_scores</span>
+        <span class="p">}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">UInt32</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">search_results</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">is_in</span><span class="p">(</span><span class="n">top_k_indices</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">scores_df</span><span class="p">,</span>
+    <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+    <span class="n">on</span><span class="o">=</span><span class="s2">&quot;index&quot;</span>
+<span class="p">)</span>
+
+<span class="n">search_results</span>
+</pre></div>
+</div>
+</section>
 <section id="embeddings-visualization">
-<h2>Embeddings Visualization<a class="headerlink" href="#embeddings-visualization" title="Link to this heading">#</a></h2>
+<h2>Embeddings visualization<a class="headerlink" href="#embeddings-visualization" title="Link to this heading">#</a></h2>
 <p>This class provides functionality to load embeddings from a FAISS index, reduce their dimensionality using PCA and/or t-SNE, and visualize them in an interactive 3D plot.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ragoon</span> <span class="kn">import</span> <span class="n">EmbeddingsVisualizer</span>
 
@@ -426,7 +525,7 @@ document.write(`
 </div>
 </section>
 <section id="dynamic-web-search">
-<h2>Dynamic Web Search<a class="headerlink" href="#dynamic-web-search" title="Link to this heading">#</a></h2>
+<h2>Dynamic web search<a class="headerlink" href="#dynamic-web-search" title="Link to this heading">#</a></h2>
 <p>RAGoon is a Python library that aims to improve the performance of language models by providing contextually relevant information through retrieval-based querying, web scraping, and data augmentation techniques. It integrates various APIs, enabling users to retrieve information from the web, enrich it with domain-specific knowledge, and feed it to language models for more informed responses.</p>
 <p>RAGoon’s core functionality revolves around the concept of few-shot learning, where language models are provided with a small set of high-quality examples to enhance their understanding and generate more accurate outputs. By curating and retrieving relevant data from the web, RAGoon equips language models with the necessary context and knowledge to tackle complex queries and generate insightful responses.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">groq</span> <span class="kn">import</span> <span class="n">Groq</span>
@@ -501,9 +600,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embeddings-production">Embeddings Production</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embeddings-visualization">Embeddings Visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-web-search">Dynamic Web Search</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embeddings-production">Embeddings production</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity-search">Similarity search</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#embeddings-visualization">Embeddings visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-web-search">Dynamic web search</a></li>
 </ul>
   </nav></div>
 

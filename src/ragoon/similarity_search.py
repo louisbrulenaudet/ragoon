@@ -83,33 +83,33 @@ class SimilaritySearch:
     Examples
     --------
     >>> instance = SimilaritySearch(
-        model_name="louisbrulenaudet/tsdae-lemone-mbert-base",
-        device="cuda",
-        ndim=768,
-        metric="ip",
-        dtype="i8"
+    ...    model_name="louisbrulenaudet/tsdae-lemone-mbert-base",
+    ...    device="cuda",
+    ...    ndim=768,
+    ...    metric="ip",
+    ...    dtype="i8"
     )
     >>> embeddings = instance.encode(corpus=dataset["output"])
     >>> ubinary_embeddings = instance.quantize_embeddings(
-        embeddings=embeddings,
-        quantization_type="ubinary"
+    ...    embeddings=embeddings,
+    ...    quantization_type="ubinary"
     )
     >>> int8_embeddings = instance.quantize_embeddings(
-        embeddings=embeddings,
-        quantization_type="int8"
+    ...    embeddings=embeddings,
+    ...    quantization_type="int8"
     )
     >>> instance.create_usearch_index(
-        int8_embeddings=int8_embeddings,
-        index_path="./usearch_int8.index"
+    ...    int8_embeddings=int8_embeddings,
+    ...    index_path="./usearch_int8.index"
     )
     >>> instance.create_faiss_index(
-        ubinary_embeddings=ubinary_embeddings,
-        index_path="./faiss_ubinary.index"
+    ...    ubinary_embeddings=ubinary_embeddings,
+    ...    index_path="./faiss_ubinary.index"
     )
     >>> top_k_scores, top_k_indices = instance.search(
-        query="Sont considérées comme ayant leur domicile fiscal en France au sens de l'article 4 A",
-        top_k=10,
-        rescore_multiplier=4
+    ...    query="Sont considérées comme ayant leur domicile fiscal en France au sens de l'article 4 A",
+    ...    top_k=10,
+    ...    rescore_multiplier=4
     )
     """
     def __init__(

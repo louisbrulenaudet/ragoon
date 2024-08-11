@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ragoon.embeddings &#8212; RAGoon 0.0.4 documentation</title>
+    <title>ragoon.embeddings &#8212; RAGoon 0.0.5 documentation</title>
   
   
   
@@ -36,7 +36,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=dfd84850"></script>
+    <script src="../../_static/documentation_options.js?v=6424ca4d"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -137,8 +137,8 @@
       
     
     
-    <img src="../../_static/logo.svg" class="logo__image only-light" alt="RAGoon 0.0.4 documentation - Home"/>
-    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="RAGoon 0.0.4 documentation - Home"/>`);</script>
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -299,7 +299,6 @@ document.write(`
 <span class="c1"># limitations under the License.</span>
 
 <span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
@@ -896,7 +895,9 @@ document.write(`
 <a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsDataLoader.upload_dataset">[docs]</a>
     <span class="k">def</span> <span class="nf">upload_dataset</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
-        <span class="n">repo_id</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="n">repo_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">token</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">private</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Upload the processed dataset to the Hugging Face Hub.</span>
@@ -906,16 +907,29 @@ document.write(`
 <span class="sd">        repo_id : str</span>
 <span class="sd">            The repository ID to upload the dataset.</span>
 
+<span class="sd">        token : str, optional</span>
+<span class="sd">            An optional authentication token for the Hugging Face Hub. If no token is passed, will default to the token saved </span>
+<span class="sd">            locally when logging in with huggingface-cli login. Will raise an error if no token is passed and the user is not logged-in.</span>
+
+<span class="sd">        private : bool, optional</span>
+<span class="sd">            Whether the dataset repository should be set to private or not.</span>
+<span class="sd">            Only affects repository creation: a repository that already exists will not be affected by that parameter.</span>
+
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        Exception</span>
 <span class="sd">            If uploading fails.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">push_to_hub</span><span class="p">(</span><span class="n">repo_id</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">push_to_hub</span><span class="p">(</span>
+                <span class="n">repo_id</span><span class="p">,</span>
+                <span class="n">token</span><span class="o">=</span><span class="n">token</span><span class="p">,</span>
+                <span class="n">private</span><span class="o">=</span><span class="n">private</span>
+            <span class="p">)</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;Dataset uploaded to Hugging Face Hub with repo ID: </span><span class="si">{</span><span class="n">repo_id</span><span class="si">}</span><span class="s2">.&quot;</span>
             <span class="p">)</span>
+
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;Failed to upload dataset to Hugging Face Hub with repo ID: </span><span class="si">{</span><span class="n">repo_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -1563,6 +1577,7 @@ document.write(`
 <a class="viewcode-back" href="../../generated/ragoon.html#ragoon.embeddings.EmbeddingsVisualizer.visualize">[docs]</a>
     <span class="k">def</span> <span class="nf">visualize</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">column</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tsne&quot;</span><span class="p">,</span> 
         <span class="n">pca_components</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> 
         <span class="n">final_components</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
@@ -1577,27 +1592,30 @@ document.write(`
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
+<span class="sd">        column: str</span>
+<span class="sd">            The column of the split corresponding to the embeddings stored in the index.</span>
+
 <span class="sd">        method : str, optional</span>
 <span class="sd">            The dimensionality reduction method to use. Default is &#39;tsne&#39;.</span>
-<span class="sd">        </span>
+
 <span class="sd">        pca_components : int, optional</span>
 <span class="sd">            The number of components to keep when using PCA for dimensionality reduction. Default is 50.</span>
-<span class="sd">        </span>
+
 <span class="sd">        final_components : int, optional</span>
 <span class="sd">            The number of final components to visualize. Default is 3.</span>
-<span class="sd">        </span>
+
 <span class="sd">        random_state : int, optional</span>
 <span class="sd">            The random state for reproducibility. Default is 42.</span>
-<span class="sd">        </span>
+
 <span class="sd">        title : str, optional</span>
 <span class="sd">            The title of the visualization plot. Default is &#39;3D Visualization of Embeddings&#39;.</span>
-<span class="sd">        </span>
+
 <span class="sd">        point_size : int, optional</span>
 <span class="sd">            The size of the points in the visualization plot. Default is 3.</span>
-<span class="sd">        </span>
+
 <span class="sd">        save_html : bool, optional</span>
 <span class="sd">            Whether to save the visualization as an HTML file. Default is False.</span>
-<span class="sd">        </span>
+
 <span class="sd">        html_file_name : str, optional</span>
 <span class="sd">            The name of the HTML file to save. Default is &#39;embedding_visualization.html&#39;.</span>
 
@@ -1615,7 +1633,9 @@ document.write(`
 <span class="sd">        &gt;&gt;&gt; visualizer.visualize(method=&#39;tsne&#39;, pca_components=50, final_components=3, random_state=42)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">load_index</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span>
+            <span class="n">column</span><span class="o">=</span><span class="n">column</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">extract_vectors</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reduce_dimensionality</span><span class="p">(</span>
             <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>

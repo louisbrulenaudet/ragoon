@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ragoon.similarity_search &#8212; RAGoon 0.0.4 documentation</title>
+    <title>ragoon.similarity_search &#8212; RAGoon 0.0.5 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=dfd84850"></script>
+    <script src="../_static/documentation_options.js?v=6424ca4d"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="../_static/logo.svg" class="logo__image only-light" alt="RAGoon 0.0.4 documentation - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="RAGoon 0.0.4 documentation - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="RAGoon 0.0.5 documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="RAGoon 0.0.5 documentation - Home"/>`);</script>
   
   
 </a></div>
@@ -483,33 +483,33 @@ document.write(`
 
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span> <span class="o">=</span> <span class="n">SimilaritySearch</span><span class="p">(</span>
-<span class="go">    model_name=&quot;louisbrulenaudet/tsdae-lemone-mbert-base&quot;,</span>
-<span class="go">    device=&quot;cuda&quot;,</span>
-<span class="go">    ndim=768,</span>
-<span class="go">    metric=&quot;ip&quot;,</span>
-<span class="go">    dtype=&quot;i8&quot;</span>
+<span class="gp">... </span>   <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;louisbrulenaudet/tsdae-lemone-mbert-base&quot;</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">device</span><span class="o">=</span><span class="s2">&quot;cuda&quot;</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">ndim</span><span class="o">=</span><span class="mi">768</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">metric</span><span class="o">=</span><span class="s2">&quot;ip&quot;</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;i8&quot;</span>
 <span class="go">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">embeddings</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">corpus</span><span class="o">=</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;output&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ubinary_embeddings</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">quantize_embeddings</span><span class="p">(</span>
-<span class="go">    embeddings=embeddings,</span>
-<span class="go">    quantization_type=&quot;ubinary&quot;</span>
+<span class="gp">... </span>   <span class="n">embeddings</span><span class="o">=</span><span class="n">embeddings</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">quantization_type</span><span class="o">=</span><span class="s2">&quot;ubinary&quot;</span>
 <span class="go">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">int8_embeddings</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">quantize_embeddings</span><span class="p">(</span>
-<span class="go">    embeddings=embeddings,</span>
-<span class="go">    quantization_type=&quot;int8&quot;</span>
+<span class="gp">... </span>   <span class="n">embeddings</span><span class="o">=</span><span class="n">embeddings</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">quantization_type</span><span class="o">=</span><span class="s2">&quot;int8&quot;</span>
 <span class="go">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span><span class="o">.</span><span class="n">create_usearch_index</span><span class="p">(</span>
-<span class="go">    int8_embeddings=int8_embeddings,</span>
-<span class="go">    index_path=&quot;./usearch_int8.index&quot;</span>
+<span class="gp">... </span>   <span class="n">int8_embeddings</span><span class="o">=</span><span class="n">int8_embeddings</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">index_path</span><span class="o">=</span><span class="s2">&quot;./usearch_int8.index&quot;</span>
 <span class="go">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span><span class="o">.</span><span class="n">create_faiss_index</span><span class="p">(</span>
-<span class="go">    ubinary_embeddings=ubinary_embeddings,</span>
-<span class="go">    index_path=&quot;./faiss_ubinary.index&quot;</span>
+<span class="gp">... </span>   <span class="n">ubinary_embeddings</span><span class="o">=</span><span class="n">ubinary_embeddings</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">index_path</span><span class="o">=</span><span class="s2">&quot;./faiss_ubinary.index&quot;</span>
 <span class="go">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">top_k_scores</span><span class="p">,</span> <span class="n">top_k_indices</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
-<span class="go">    query=&quot;Sont considérées comme ayant leur domicile fiscal en France au sens de l&#39;article 4 A&quot;,</span>
-<span class="go">    top_k=10,</span>
-<span class="go">    rescore_multiplier=4</span>
+<span class="gp">... </span>   <span class="n">query</span><span class="o">=</span><span class="s2">&quot;Sont considérées comme ayant leur domicile fiscal en France au sens de l&#39;article 4 A&quot;</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">top_k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">rescore_multiplier</span><span class="o">=</span><span class="mi">4</span>
 <span class="go">)</span>
 </pre></div>
 </div>

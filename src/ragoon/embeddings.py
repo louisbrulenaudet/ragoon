@@ -571,7 +571,9 @@ class EmbeddingsDataLoader:
 
     def upload_dataset(
         self, 
-        repo_id: str
+        repo_id: str,
+        token: Optional[str] = None,
+        private: Optional[bool] = False
     ):
         """
         Upload the processed dataset to the Hugging Face Hub.
@@ -581,16 +583,29 @@ class EmbeddingsDataLoader:
         repo_id : str
             The repository ID to upload the dataset.
 
+        token : str, optional
+            An optional authentication token for the Hugging Face Hub. If no token is passed, will default to the token saved 
+            locally when logging in with huggingface-cli login. Will raise an error if no token is passed and the user is not logged-in.
+
+        private : bool, optional
+            Whether the dataset repository should be set to private or not.
+            Only affects repository creation: a repository that already exists will not be affected by that parameter.
+
         Raises
         ------
         Exception
             If uploading fails.
         """
         try:
-            self.dataset.push_to_hub(repo_id)
+            self.dataset.push_to_hub(
+                repo_id,
+                token=token,
+                private=private
+            )
             logger.info(
                 f"Dataset uploaded to Hugging Face Hub with repo ID: {repo_id}."
             )
+
         except Exception as e:
             logger.error(
                 f"Failed to upload dataset to Hugging Face Hub with repo ID: {repo_id}: {e}"
@@ -1214,6 +1229,7 @@ class EmbeddingsVisualizer:
 
     def visualize(
         self, 
+        column: str,
         method: str = "tsne", 
         pca_components: int = 50, 
         final_components: int = 3,
@@ -1228,27 +1244,30 @@ class EmbeddingsVisualizer:
 
         Parameters
         ----------
+        column: str
+            The column of the split corresponding to the embeddings stored in the index.
+
         method : str, optional
             The dimensionality reduction method to use. Default is 'tsne'.
-        
+
         pca_components : int, optional
             The number of components to keep when using PCA for dimensionality reduction. Default is 50.
-        
+
         final_components : int, optional
             The number of final components to visualize. Default is 3.
-        
+
         random_state : int, optional
             The random state for reproducibility. Default is 42.
-        
+
         title : str, optional
             The title of the visualization plot. Default is '3D Visualization of Embeddings'.
-        
+
         point_size : int, optional
             The size of the points in the visualization plot. Default is 3.
-        
+
         save_html : bool, optional
             Whether to save the visualization as an HTML file. Default is False.
-        
+
         html_file_name : str, optional
             The name of the HTML file to save. Default is 'embedding_visualization.html'.
 
@@ -1266,7 +1285,9 @@ class EmbeddingsVisualizer:
         >>> visualizer.visualize(method='tsne', pca_components=50, final_components=3, random_state=42)
         """
         self.load_index()
-        self.load_dataset()
+        self.load_dataset(
+            column=column
+        )
         self.extract_vectors()
         self.reduce_dimensionality(
             method=method,
