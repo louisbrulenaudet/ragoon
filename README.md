@@ -215,6 +215,15 @@ results = ragoon.search(
 print(results)
 ```
 
+## Badge
+
+Building something cool with RAGoon? Consider adding a badge to your project card.
+
+```markdown
+[<img src="https://raw.githubusercontent.com/louisbrulenaudet/ragoon/main/assets/badge.svg" alt="Built with RAGoon" width="200" height="32"/>](https://github.com/louisbrulenaudet/ragoon)
+```
+[<img src="https://raw.githubusercontent.com/louisbrulenaudet/ragoon/main/assets/badge.svg" alt="Built with RAGoon" width="200" height="32"/>](https://github.com/louisbrulenaudet/ragoon)
+
 ## Citing this project
 If you use this code in your research, please use the following BibTeX entry.
 
