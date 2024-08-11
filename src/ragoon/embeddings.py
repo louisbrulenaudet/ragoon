@@ -143,7 +143,7 @@ class EmbeddingsDataLoader:
         ----------
         model_configs : list of dict
             The list of dictionaries with model configurations to use for generating embeddings.
-            
+
         token : str
             The token for accessing Hugging Face API. Default is None.
 
@@ -163,12 +163,14 @@ class EmbeddingsDataLoader:
             The device used for embedding processing if torch.cuda.is_available() is not reliable.
             Useful when using the Zero GPU on Hugging Face Space. Default is 'cuda'.
         """
-        if not token or not isinstance(token, str):
+        if token and not isinstance(token, str):
             raise ValueError("Invalid token. Please provide a non-empty string.")
+
         if not model_configs or not isinstance(model_configs, list):
             raise ValueError(
                 "Invalid model configurations. Please provide a non-empty list of dictionaries."
             )
+            
         if not isinstance(batch_size, int) or batch_size <= 0:
             raise ValueError("Invalid batch size. Please provide a positive integer.")
 
