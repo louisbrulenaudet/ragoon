@@ -38,12 +38,388 @@ from datasets import (
     DatasetDict
 )
 
+from huggingface_hub import InferenceClient
 from tqdm import tqdm
 from transformers import AutoTokenizer
 
 from ragoon._logger import Logger
 
 logger = Logger()
+
+
+class SemanticTextSplitter:
+    """
+    A class for splitting text into semantically coherent sections using a language model.
+
+    This class leverages the Hugging Face Inference API to generate splits in the input text,
+    and then processes the result to return a list of split text sections. It is designed
+    to work with various language models available through the Hugging Face platform.
+
+    Parameters
+    ----------
+    model : str, optional
+        The name or path of the Hugging Face model to use for text splitting.
+        This should be a model capable of text generation tasks, such as GPT-based models.
+        Default is 'meta-llama/Meta-Llama-3.1-70B-Instruct'.
+
+    token : str, optional
+        The Hugging Face API token for authentication. If not provided, the class will
+        attempt to use the token stored in the Hugging Face CLI configuration.
+
+    split_token : str, optional
+        The token used to split the text (default is '<|split|>'). This token will be
+        inserted by the model to indicate where the text should be split.
+
+    system_prompt : str, optional
+        The system prompt to use for the model. If not provided, a default prompt
+        will be used, which instructs the model on how to split the text.
+
+    max_tokens : int, optional
+        The maximum number of tokens to generate in the model's response (default is 4096).
+        This limit applies to the entire response, including the input prompt.
+
+    stream : bool, optional
+        Whether to stream the model's output (default is True). When True, the output
+        will be printed as it's generated. When False, the output will be returned all at once.
+
+    Attributes
+    ----------
+    client : InferenceClient
+        The Hugging Face Inference API client used to communicate with the model.
+
+    split_token : str
+        The token used to split the text.
+
+    system_prompt : str
+        The system prompt used to instruct the model on how to split the text.
+
+    max_tokens : int
+        The maximum number of tokens to generate in the model's response.
+
+    stream : bool
+        Whether to stream the model's output.
+
+    Methods
+    -------
+    completion(text: str) -> str
+        Calls the language model to process the input text.
+
+    split(text: str) -> List[str]
+        Splits the input text into semantically coherent sections.
+
+    Raises
+    ------
+    ValueError
+        If the model name is not provided during initialization.
+
+    RuntimeError
+        If there's an error calling the Hugging Face Inference API.
+
+    Examples
+    --------
+    >>> # Ensure you have set up your Hugging Face token using `huggingface-cli login`
+    >>> splitter = SemanticTextSplitter(
+    ...     model="meta-llama/Llama-2-70b-chat-hf",
+    ...     token=api.token  # This will use your stored Hugging Face token
+    ... )
+    >>> text = '''
+    ... The Python programming language, created by Guido van Rossum,
+    ... has become one of the most popular languages in the world.
+    ... Its simplicity and readability make it an excellent choice for beginners.
+    ... Meanwhile, data science has emerged as a crucial field in the modern world.
+    ... Python's extensive libraries, such as NumPy and Pandas, have made it
+    ... a favorite among data scientists and analysts.
+    ... '''
+    >>> result = splitter.split(text)
+    >>> for section in result:
+    ...     print(f"Section: {section}\n")
+    Section: The Python programming language, created by Guido van Rossum,
+    has become one of the most popular languages in the world.
+    Its simplicity and readability make it an excellent choice for beginners.
+
+    Section: Meanwhile, data science has emerged as a crucial field in the modern world.
+    Python's extensive libraries, such as NumPy and Pandas, have made it
+    a favorite among data scientists and analysts.
+
+    Notes
+    -----
+    - The quality of the text splitting depends on the capabilities of the chosen language model.
+    - The system prompt plays a crucial role in guiding the model's behavior. Customizing it
+      can lead to different splitting results.
+    - When using streamed output, the results are printed to the console in real-time,
+      which can be useful for monitoring long-running splits.
+    - The split token ('<split>' by default) should be chosen carefully to avoid conflicts
+      with the content of the text being split.
+
+    See Also
+    --------
+    huggingface_hub.InferenceClient : The client used to interact with Hugging Face models.
+    """
+
+    def __init__(
+        self,
+        model: Optional[str] = "meta-llama/Meta-Llama-3.1-70B-Instruct",
+        token: Optional[str] = None,
+        split_token: str = "<|split|>",
+        system_prompt: Optional[str] = None,
+        max_tokens: int = 4096,
+        stream: bool = True,
+    ):
+        """
+        Initialize the SemanticTextSplitter.
+
+        Parameters
+        ----------
+        model : str, optional
+            The name or path of the Hugging Face model to use for text splitting.
+            Default is 'meta-llama/Meta-Llama-3.1-70B-Instruct'.
+
+        token : str, optional
+            The Hugging Face API token for authentication.
+
+        split_token : str, optional
+            The token used to split the text (default is '<split>').
+
+        system_prompt : str, optional
+            The system prompt to use for the model. If None, a default prompt is used.
+
+        max_tokens : int, optional
+            The maximum number of tokens to generate (default is 4096).
+
+        stream : bool, optional
+            Whether to stream the model's output (default is True).
+
+        Raises
+        ------
+        ValueError
+            If the model name is not provided.
+        """
+        if not model:
+            raise ValueError("Model name must be provided.")
+
+        self.client = InferenceClient(model, token=token)
+        self.split_token = split_token
+        self.max_tokens = max_tokens
+        self.stream = stream
+
+        self.system_prompt = system_prompt or self._default_system_prompt()
+
+    def completion(self, text: str) -> str:
+        """
+        Call the language model to process the input text.
+
+        This method sends the input text to the language model via the Hugging Face
+        Inference API and returns the model's output.
+
+        Parameters
+        ----------
+        text : str
+            The input text to be processed by the model.
+
+        Returns
+        -------
+        str
+            The processed text returned by the model, potentially including split tokens.
+
+        Raises
+        ------
+        RuntimeError
+            If there's an error calling the Hugging Face Inference API.
+
+        Notes
+        -----
+        - If streaming is enabled, the method will print the output in real-time
+          and return the complete output as a string.
+        - If streaming is disabled, the method will return the complete output
+          after the model finishes processing.
+        """
+        try:
+            messages = [
+                {"role": "system", "content": self.system_prompt},
+                {"role": "user", "content": text},
+            ]
+
+            if self.stream:
+                return self._stream_completion(messages)
+
+            else:
+                return self._non_stream_completion(messages)
+
+        except Exception as e:
+            raise RuntimeError(f"Error calling Hugging Face Inference API: {str(e)}")
+
+    def split(self, text: str) -> List[str]:
+        """
+        Split the input text into semantically coherent sections.
+
+        This method sends the input text to the language model for processing,
+        then splits the returned text based on the specified split token.
+
+        Parameters
+        ----------
+        text : str
+            The input text to be split.
+
+        Returns
+        -------
+        List[str]
+            A list of strings, each representing a semantically coherent section
+            of the input text.
+
+        Examples
+        --------
+        >>> splitter = SemanticTextSplitter(
+        ...     model="meta-llama/Llama-2-70b-chat-hf",
+        ...     token="your_hf_token_here"
+        ... )
+        >>> text = '''
+        ... Machine learning is a subset of artificial intelligence
+        ... that focuses on the development of algorithms and statistical models.
+        ... It enables computer systems to improve their performance on a specific task
+        ... through experience, without being explicitly programmed.
+        ... On the other hand, deep learning is a subset of machine learning
+        ... that uses artificial neural networks with multiple layers
+        ... to progressively extract higher-level features from raw input.
+        ... '''
+        >>> result = splitter.split(text)
+        >>> for idx, section in enumerate(result, 1):
+        ...     print(f"Section {idx}:\n{section}\n")
+        Section 1:
+        Machine learning is a subset of artificial intelligence
+        that focuses on the development of algorithms and statistical models.
+        It enables computer systems to improve their performance on a specific task
+        through experience, without being explicitly programmed.
+
+        Section 2:
+        On the other hand, deep learning is a subset of machine learning
+        that uses artificial neural networks with multiple layers
+        to progressively extract higher-level features from raw input.
+
+        Notes
+        -----
+        - The quality of the splitting depends on the language model's understanding
+          of the text and its ability to identify semantic boundaries.
+        - The method uses the `completion` method internally to process the text,
+          so any streaming behavior will occur during this step.
+        - Empty sections (after stripping whitespace) are automatically removed
+          from the final output.
+        """
+        processed_text = self.completion(text=text)
+
+        return [
+            section.strip()
+            for section in re.split(f"{re.escape(self.split_token)}", processed_text)
+            if section.strip()
+        ]
+
+    def _default_system_prompt(self) -> str:
+        """
+        Generate the default system prompt for the language model.
+
+        This method creates a detailed instruction set for the language model,
+        guiding it on how to split the input text into semantically coherent sections.
+
+        Returns
+        -------
+        str
+            The default system prompt as a string.
+
+        Notes
+        -----
+        - This method is called internally if no custom system prompt is provided
+          during initialization.
+        - The prompt includes specific instructions on how to use the split token,
+          handle different types of text, and maintain the integrity of the original content.
+        """
+        return f"""You are an assistant specialized in analyzing and dividing complex texts. Your task is to divide the provided text into semantically coherent sections, inserting the '{self.split_token}' tag between each distinct section. Follow these guidelines:
+
+- Carefully analyze the semantic content of the text.
+- Identify changes in theme, subject, or major concept.
+- Insert the '{self.split_token}' tag at each point where you detect a significant change in semantic content.
+- Ensure that each resulting section is self-contained and thematically coherent.
+- Avoid dividing the text into sections that are too small or too numerous. Aim for divisions that capture complete ideas or concepts.
+- Do not modify the original text apart from adding the '{self.split_token}' tags.
+- Do not add explanations, comments, or additional metadata.
+- If the text already contains natural divisions (such as paragraphs), use them as a guide, but don't hesitate to divide further if necessary for semantic coherence.
+- Be consistent in your approach to division throughout the text.
+- If the text is short or deals with a single coherent subject, it is acceptable not to divide it at all.
+- Titles and subtitles should not be divided but only provide you with additional context.
+- Correct format inconsistencies in the textual content if necessary, without modifying the text itself.
+- You need to follow this instruction in all languages and always respond in the language of the provided text.
+
+Your goal is to produce a version of the text divided in a way that facilitates subsequent labeling and analysis by language models. Focus solely on dividing the text and correcting the format according to these instructions, without adding any additional content."""
+
+    def _stream_completion(self, messages: List[dict]) -> str:
+        """
+        Process the model's output in streaming mode.
+
+        This method handles the streaming of the model's output, printing it
+        in real-time and accumulating it into a single string.
+
+        Parameters
+        ----------
+        messages : List[dict]
+            A list of message dictionaries to be sent to the model.
+            Each dictionary should have 'role' and 'content' keys.
+
+        Returns
+        -------
+        str
+            The complete output from the model as a single string.
+
+        Notes
+        -----
+        - This method is called internally by the `completion` method when
+          streaming is enabled.
+        - It prints each chunk of the model's output as it's received, providing
+          real-time feedback for long-running processes.
+        """
+        message = ""
+
+        for chunk in self.client.chat_completion(
+            messages=messages,
+            max_tokens=self.max_tokens,
+            stream=True,
+        ):
+            if chunk.choices[0].delta.content is not None:
+                content = chunk.choices[0].delta.content
+                print(content, end="", flush=True)
+                message += content
+
+        return message
+
+    def _non_stream_completion(self, messages: List[dict]) -> str:
+        """
+        Process the model's output in non-streaming mode.
+
+        This method handles the model's output when streaming is disabled,
+        returning the complete response at once.
+
+        Parameters
+        ----------
+        messages : List[dict]
+            A list of message dictionaries to be sent to the model.
+            Each dictionary should have 'role' and 'content' keys.
+
+        Returns
+        -------
+        str
+            The complete output from the model as a single string.
+
+        Notes
+        -----
+        - This method is called internally by the `completion` method when
+          streaming is disabled.
+        - It waits for the model to complete its entire response before returning,
+          which may take longer for large inputs but provides the entire output at once.
+        """
+        response = self.client.chat_completion(
+            messages=messages,
+            max_tokens=self.max_tokens,
+            stream=False,
+        )
+
+        return response.choices[0].message.content
 
 
 @dataclass

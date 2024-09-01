@@ -6,7 +6,8 @@
 
 from ragoon.chunks import (
 	ChunkMetadata,
-	DatasetChunker
+	DatasetChunker,
+	SemanticTextSplitter
 )
 
 from ragoon.embeddings import (
