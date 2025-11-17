@@ -1,6 +1,0 @@
-﻿ragoon
-======
-
-.. automodule:: ragoon
-
-   
